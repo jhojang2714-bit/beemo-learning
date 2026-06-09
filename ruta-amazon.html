@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Amazon FBA & Marca Privada — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-white:#FFFFFF;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:800;}
+.nav-logo .dot{color:var(--bee-yellow);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+.hero-route{padding:56px 2rem;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:12px;}
+.hero-crumb a{color:rgba(255,255,255,.6);}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;margin-bottom:14px;}
+.hero-route h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
+.hero-route p{font-size:1rem;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 1.5rem;}
+.cols{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:28px;margin-bottom:24px;}
+.card h2{font-size:1.1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.phase{margin-bottom:28px;}
+.phase-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--bee-gray);}
+.pnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
+.ptitle{font-size:.95rem;font-weight:700;}
+.psub{font-size:.78rem;color:var(--bee-muted);}
+.prog{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:10px;border:1px solid var(--bee-border);margin-bottom:8px;background:#FAFAFA;transition:all .2s;}
+.prog:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.picon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:#fff;flex-shrink:0;}
+.pinfo{flex:1;}
+.pname{font-size:.88rem;font-weight:600;margin-bottom:2px;}
+.pmeta{font-size:.75rem;color:var(--bee-muted);display:flex;gap:8px;flex-wrap:wrap;}
+.ptag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.68rem;font-weight:600;text-transform:uppercase;margin-left:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.plink{color:var(--bee-blue);font-size:.78rem;font-weight:600;padding:5px 10px;background:#EBF4FF;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.plink:hover{background:var(--bee-blue);color:#fff;}
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:20px;}
+.tab{flex:1;padding:9px;text-align:center;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:transparent;transition:all .2s;}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.tabp{display:none;}.tabp.on{display:block;}
+.box-r{background:#FFF5F5;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-y{background:#FFFBEB;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-g{background:#F0FFF4;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-t{font-weight:700;font-size:.88rem;}
+.box-s{font-size:.8rem;color:var(--bee-muted);margin-top:3px;}
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--bee-gray);font-size:.85rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+.trblock{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.trc{padding:18px;border-radius:10px;}
+.trc.bef{background:#FFF5F5;border:1px solid #FED7D7;}
+.trc.aft{background:#F0FFF4;border:1px solid #C6F6D5;}
+.trc h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.trc.bef h4{color:#C53030;}.trc.aft h4{color:#276749;}
+.trc ul{list-style:none;}
+.trc ul li{font-size:.82rem;padding:3px 0;display:flex;gap:6px;}
+.trc.bef ul li::before{content:'✗';color:#FC8181;}.trc.aft ul li::before{content:'✓';color:#48BB78;}
+.hitos{list-style:none;}
+.hito{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bee-gray);}
+.hito:last-child{border-bottom:none;}
+.hnum{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;}
+.htxt{font-size:.87rem;padding-top:5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{background:var(--bee-gray);padding:5px 12px;border-radius:7px;font-size:.78rem;font-weight:500;}
+.scta{border-radius:14px;padding:22px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
+.scta p{color:rgba(255,255,255,.8);font-size:.82rem;margin-bottom:14px;}
+.scta-btn{display:block;background:#fff;padding:11px;border-radius:9px;font-weight:800;font-size:.9rem;}
+.scard{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:22px;margin-bottom:18px;}
+.scard h3{font-size:.95rem;font-weight:700;margin-bottom:14px;}
+.mentor{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bee-gray);}
+.mentor:last-child{border-bottom:none;}
+.mavatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;}
+.mname{font-size:.85rem;font-weight:600;}
+.mspec{font-size:.75rem;color:var(--bee-muted);}
+footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-top:50px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-back">← Todas las rutas</a>
+  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
+  <a href="https://beemo.tv/explora/amazon" class="nav-cta" target="_blank">Explorar en Beemo →</a>
+</nav>
+
+<section class="hero-route" style="background:linear-gradient(135deg,#FF9900 0%,#C86B00 100%)">
+  <div class="hero-crumb"><a href="index.html">Rutas</a> / Amazon FBA & Marca Privada</div>
+  <div class="hero-badge">📦 E-commerce · Amazon</div>
+  <h1>Amazon FBA & Marca Privada</h1>
+  <p>Lanza tu propia marca en Amazon USA. Desde la idea hasta el primer producto vendido con PPC activo y Brand Registry.</p>
+  <div class="hero-stats"><div class="hstat"><div class="hstat-n">107–140h</div><div class="hstat-l">Total estimado</div></div><div class="hstat"><div class="hstat-n">4 fases</div><div class="hstat-l">Progresivas</div></div><div class="hstat"><div class="hstat-n">3 cert.</div><div class="hstat-l">Certificados</div></div><div class="hstat"><div class="hstat-n">12+</div><div class="hstat-l">Programas</div></div></div>
+</section>
+
+<div class="wrap">
+<div class="cols">
+<div>
+  <div class="card"><h2>🗺️ Mapa de la Ruta</h2>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#6B7280">0</div>
+        <div><div class="ptitle">Mentalidad y Base</div><div class="psub">Fundamentos · ~4h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.1</div>
+          <div class="pinfo">
+            <div class="pname">Mentalidad Emprendedora <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Paul Raminfar · ⏱ ~2h · 🟢 Básico</div>
+          </div>
+          <a href="https://beemo.tv/explora/mentalidad" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.2</div>
+          <div class="pinfo">
+            <div class="pname">Masterclass: Cómo vender más y construir libertad financiera <span class="ptag tm">Masterclass</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ ~1h</div>
+          </div>
+          <a href="https://beemo.tv/explora/finanzas" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.3</div>
+          <div class="pinfo">
+            <div class="pname">Masterclass: Tus primeros pasos en Amazon Marca Privada <span class="ptag tm">Masterclass</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ ~1h</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#FF9900">1</div>
+        <div><div class="ptitle">Formación Core — Diplomado Principal</div><div class="psub">30 horas · Certificado Digital</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#FF9900">1.1</div>
+          <div class="pinfo">
+            <div class="pname">Ecommerce en Amazon Marca Privada USA <span class="ptag td">Diplomado</span></div>
+            <div class="pmeta">👤 Natalia Escobar + 6 mentores · ⏱ 30h · 12 módulos · 🏆 Certificado · Método POM · Helium 10 · FBA · PPC</div>
+          </div>
+          <a href="https://beemo.tv/programa/65b16784d9b3689c78a83fe3/curso/65b164b08736e8b834b229bd/cohortes/65b16a790c6d18ea7101a596" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#E47911">2</div>
+        <div><div class="ptitle">Especialización Complementaria</div><div class="psub">~25–35h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#E47911">2.1</div>
+          <div class="pinfo">
+            <div class="pname">Amazon Brand Registry <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Luis Micheo · ⏱ ~10h · 🏆 Certificado</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#E47911">2.2</div>
+          <div class="pinfo">
+            <div class="pname">Importaciones desde China para Ecommerce <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Felipe Hernández · ⏱ ~10h · 🏆 Certificado</div>
+          </div>
+          <a href="https://beemo.tv/explora/importaciones" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#E47911">2.3</div>
+          <div class="pinfo">
+            <div class="pname">Amazon PPC: Estrategias de pauta avanzadas <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Equipo Beemo · ⏱ ~4h · 🔴 Avanzado</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#E47911">2.4</div>
+          <div class="pinfo">
+            <div class="pname">Amazon Creative: Creación de imágenes ganadoras <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Equipo Beemo · ⏱ ~3h · 🔴 Avanzado</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#E47911">2.5</div>
+          <div class="pinfo">
+            <div class="pname">Encuentra productos con Joan Sucías <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Joan Sucías · ⏱ ~3h</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#E47911">2.6</div>
+          <div class="pinfo">
+            <div class="pname">Manejo de herramientas para Amazon (Helium 10) <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Luis Escobar · ⏱ ~3h</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#92400E">3</div>
+        <div><div class="ptitle">Marketing y Escalamiento</div><div class="psub">~25h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#92400E">3.1</div>
+          <div class="pinfo">
+            <div class="pname">Marketing Digital para Ecommerce <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Michel Edery + 11 mentores · ⏱ 20h · 21 módulos · 🏆 Certificado</div>
+          </div>
+          <a href="https://beemo.tv/programa/65d676f5defa963ce401e1bd/curso/65d673a5defa963ce401e193/cohortes/65d679eedefa963ce401e1c2" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#92400E">3.2</div>
+          <div class="pinfo">
+            <div class="pname">KPIs para ecommerce: Del marketing a la rentabilidad <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Marlon Carrillo · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/finanzas" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#92400E">3.3</div>
+          <div class="pinfo">
+            <div class="pname">Profit Focus: Administración del efectivo de tu ecommerce <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Marlon Carrillo · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/finanzas" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#78350F">4</div>
+        <div><div class="ptitle">En Vivo & Bootcamps (continuo)</div><div class="psub">Sesiones recurrentes</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#78350F">4.1</div>
+          <div class="pinfo">
+            <div class="pname">Bootcamp: Abre tu Cuenta Amazon Seller <span class="ptag tm">Bootcamp</span></div>
+            <div class="pmeta">👤 Camilo Chamorro · 📅 10 julio · 21 cupos disponibles</div>
+          </div>
+          <a href="https://beemo.tv/explora/amazon" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div></div>
+
+  <div class="card">
+    <h2>⚡ Planes de Intensidad</h2>
+    <div class="tabs">
+      <button class="tab on" onclick="showT(0,'amazon')">🔥 Intensivo</button>
+      <button class="tab" onclick="showT(1,'amazon')">⚡ Estándar</button>
+      <button class="tab" onclick="showT(2,'amazon')">🌱 Flexible</button>
+    </div>
+    
+    <div class="tabp on" id="tabp-0-amazon">
+      <div class="box-r">
+        <div class="box-t">🔥 Plan Intensivo — 15–20h/semana</div>
+        <div class="box-s">Tiempo estimado: 7–8 semanas</div>
+      </div>
+      <ul class="mlist"><li><span>Sem 1–2</span><span class="mv">Fase 0 + Diplomado módulos 1–6</span></li><li><span>Sem 2–4</span><span class="mv">Completar Diplomado módulos 7–12</span></li><li><span>Sem 4–5</span><span class="mv">Brand Registry + Importaciones</span></li><li><span>Sem 5–6</span><span class="mv">Amazon PPC + Creative + Herramientas</span></li><li><span>Sem 6–8</span><span class="mv">Marketing Digital para Ecommerce (20h)</span></li><li><span>Paralelo</span><span class="mv">Bootcamp + Clases en vivo semanales</span></li></ul>
+      <div style="background:#FFF5F5;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Acción simultánea:</strong> Mientras estudias crea tu cuenta Seller, selecciona producto y contacta proveedores.</div>
+    </div>
+    <div class="tabp " id="tabp-1-amazon">
+      <div class="box-y">
+        <div class="box-t">⚡ Plan Estándar — 7–10h/semana</div>
+        <div class="box-s">Tiempo estimado: 14–16 semanas (3–4 meses)</div>
+      </div>
+      <ul class="mlist"><li><span>Mes 1 Sem 1–2</span><span class="mv">Fase 0 + Diplomado módulos 1–4</span></li><li><span>Mes 1 Sem 3–4</span><span class="mv">Diplomado módulos 5–8</span></li><li><span>Mes 2 Sem 5–8</span><span class="mv">Diplomado módulos 9–12 + Brand Registry</span></li><li><span>Mes 3 Sem 9–12</span><span class="mv">Importaciones + Amazon PPC + Creative</span></li><li><span>Mes 4 Sem 13–16</span><span class="mv">Marketing Digital para Ecommerce</span></li><li><span>Continuo</span><span class="mv">Clases en vivo 1–2 por semana</span></li></ul>
+      
+    </div>
+    <div class="tabp " id="tabp-2-amazon">
+      <div class="box-g">
+        <div class="box-t">🌱 Plan Flexible — 3–5h/semana</div>
+        <div class="box-s">Tiempo estimado: 25–30 semanas (6–7 meses)</div>
+      </div>
+      <ul class="mlist"><li><span>Mes 1–2</span><span class="mv">Fase 0 + Primeros 6 módulos del Diplomado</span></li><li><span>Mes 2–4</span><span class="mv">Completar Diplomado Amazon Marca Privada</span></li><li><span>Mes 4–5</span><span class="mv">Brand Registry + Importaciones</span></li><li><span>Mes 5–6</span><span class="mv">Amazon PPC + Creative</span></li><li><span>Mes 6–7</span><span class="mv">Marketing Digital para Ecommerce</span></li></ul>
+      <div style="background:#F0FFF4;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Prioriza:</strong> Diplomado → Brand Registry → PPC. El resto es complementario.</div>
+    </div>
+  </div>
+
+  <div class="card"><h2>🔄 Modelo de Transformación</h2><div class="trblock">
+    <div class="trc bef"><h4>Al inicio</h4><ul><li>No sabe cómo funciona Amazon Seller Central</li><li>No conoce el modelo FBA</li><li>No sabe encontrar productos rentables</li><li>No tiene proveedores chinos</li><li>Nunca ha hecho publicidad en Amazon</li><li>Sin marca registrada</li></ul></div>
+    <div class="trc aft"><h4>Al finalizar</h4><ul><li>Cuenta Amazon Seller activa y verificada</li><li>Producto validado con Helium 10</li><li>Proveedor chino negociado y confiable</li><li>Listado con SEO y fotos ganadoras activo</li><li>Campaña PPC con ACOS controlado</li><li>Brand Registry activo y protegido</li></ul></div>
+  </div>
+  <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;">🎯 Resultados prácticos</h4>
+  <ul style="list-style:none;"><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#FF9900">→</span>Primer producto importado y en almacén FBA de Amazon USA</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#FF9900">→</span>Primeras ventas orgánicas y con publicidad PPC</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#FF9900">→</span>Marca registrada en Brand Registry</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#FF9900">→</span>Sistema de reseñas y reputación activo</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#FF9900">→</span>ROI positivo documentado en el primer mes de ventas</li></ul></div>
+  <div class="card"><h2>🏁 Hitos de Avance</h2><ul class="hitos"><li class="hito"><div class="hnum" style="background:#FF9900">1</div><div class="htxt">Cuenta Amazon Seller Central abierta y verificada</div></li><li class="hito"><div class="hnum" style="background:#FF9900">2</div><div class="htxt">Producto seleccionado y validado con Helium 10</div></li><li class="hito"><div class="hnum" style="background:#FF9900">3</div><div class="htxt">Proveedor chino contactado y muestra solicitada</div></li><li class="hito"><div class="hnum" style="background:#FF9900">4</div><div class="htxt">Listado activo con imágenes ganadoras y copy optimizado</div></li><li class="hito"><div class="hnum" style="background:#FF9900">5</div><div class="htxt">Primera campaña PPC activa con ACOS < 40%</div></li><li class="hito"><div class="hnum" style="background:#FF9900">6</div><div class="htxt">Brand Registry completado y activo</div></li><li class="hito"><div class="hnum" style="background:#FF9900">7</div><div class="htxt">10 reseñas positivas acumuladas (4★ o más)</div></li><li class="hito"><div class="hnum" style="background:#FF9900">8</div><div class="htxt">Primer mes con ROI positivo documentado</div></li></ul></div>
+  <div class="card"><h2>🛠️ Competencias Adquiridas</h2><div class="chips"><span class="chip">Amazon Seller Central</span><span class="chip">Helium 10</span><span class="chip">FBA Logistics</span><span class="chip">Amazon PPC</span><span class="chip">Brand Registry</span><span class="chip">Copywriting de Listings</span><span class="chip">Fotografía de Producto</span><span class="chip">Importaciones China</span><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">Email Marketing</span><span class="chip">KPIs & Analytics</span></div></div>
+  <div class="card"><h2>📊 Sistema de Medición</h2>
+    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;color:#FF9900">Indicadores de Avance</h4>
+    <ul class="mlist"><li><span>Módulos del diplomado terminados</span><span class="mv">X / 12</span></li><li><span>Cursos complementarios completados</span><span class="mv">X / 6</span></li><li><span>Hitos de negocio alcanzados</span><span class="mv">X / 8</span></li><li><span>Horas invertidas vs. plan</span><span class="mv">Real vs. Meta</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#FF9900">Indicadores de Aplicación</h4>
+    <ul class="mlist"><li><span>Productos investigados en Helium 10</span><span class="mv">> 10 productos</span></li><li><span>Proveedores contactados en Alibaba</span><span class="mv">> 5 proveedores</span></li><li><span>ACOS de campaña PPC</span><span class="mv">< 40% (meta < 25%)</span></li><li><span>Reseñas acumuladas</span><span class="mv">> 10 de 4★+</span></li><li><span>ROI primer pedido</span><span class="mv">> 20% neto</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#FF9900">Evidencia de Dominio</h4>
+    <p style="font-size:.84rem;color:#718096;line-height:1.7">El estudiante domina la ruta cuando: puede explicar el Método POM sin consultar material, ha ejecutado un ciclo completo de producto (selección → importación → lanzamiento → PPC), mantiene ACOS controlado por 30 días y ha certificado el Diplomado + 2 especializaciones.</p></div>
+</div>
+
+<div class="sticky-col">
+  <div class="scta" style="background:linear-gradient(135deg,#FF9900 0%,#C86B00 100%)">
+    <h3>¿Listo para empezar?</h3>
+    <p>Accede a todos los programas con tu suscripción Beemo</p>
+    <a href="https://beemo.tv/explora/amazon" class="scta-btn" style="color:#FF9900" target="_blank">Ir a Beemo →</a>
+  </div>
+  <div class="scard"><h3>📋 Resumen</h3><ul class="mlist"><li><span>Programas totales</span><span class="mv">14</span></li><li><span>Horas estimadas</span><span class="mv">107–140h</span></li><li><span>Certificados</span><span class="mv">3 digitales</span></li><li><span>Nivel</span><span class="mv">Básico → Avanzado</span></li><li><span>Plan Intensivo</span><span class="mv">7–8 semanas</span></li><li><span>Plan Estándar</span><span class="mv">14–16 semanas</span></li><li><span>Plan Flexible</span><span class="mv">25–30 semanas</span></li></ul></div>
+  <div class="scard"><h3>👥 Mentores</h3><div class="mentor"><div class="mavatar" style="background:#FF9900">NE</div><div><div class="mname">Natalia Escobar</div><div class="mspec">Amazon Marca Privada USA</div></div></div><div class="mentor"><div class="mavatar" style="background:#FF9900">LM</div><div><div class="mname">Luis Micheo</div><div class="mspec">Amazon Brand Registry</div></div></div><div class="mentor"><div class="mavatar" style="background:#FF9900">FH</div><div><div class="mname">Felipe Hernández</div><div class="mspec">Importaciones desde China</div></div></div><div class="mentor"><div class="mavatar" style="background:#FF9900">ME</div><div><div class="mname">Michel Edery</div><div class="mspec">Marketing Digital & Estrategia</div></div></div></div>
+</div>
+</div>
+</div>
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+<script>
+function showT(idx,id){
+  document.querySelectorAll('[id^="tabp-"][id$="-'+id+'"]').forEach((el,i)=>{el.classList.toggle('on',i===idx)});
+  event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===idx));
+}
+</script>
+</body></html>

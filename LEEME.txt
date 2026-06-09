@@ -1,0 +1,16 @@
+RUTAS DE APRENDIZAJE BEEMO
+===========================
+Archivos incluidos:
+- index.html         → Índice principal con quiz interactivo "¿Cuál ruta es para ti?"
+- ruta-amazon.html   → Ruta Amazon FBA & Marca Privada (107-140h)
+- ruta-dropshipping.html → Ruta Dropshipping & Full Commerce (77-103h)
+- ruta-marketing.html    → Ruta Marketing Digital & Agencia (58-68h)
+- ruta-ia.html       → Ruta IA Aplicada al Negocio (32-50h)
+- ruta-finanzas.html → Ruta Finanzas e Independencia Económica (25-40h)
+
+CÓMO USAR:
+1. Descomprime todos los archivos en la misma carpeta
+2. Abre index.html en tu navegador
+3. Para compartir online sube todos los archivos al mismo directorio en tu hosting
+
+Generado para Beemo.tv | smartBeemo LLC | 2025

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  BEEMO — PLANTILLA DE RUTA DE APRENDIZAJE           ║
+  ║  Instrucciones:                                      ║
+  ║  1. Busca y reemplaza todos los tokens [MAYÚSCULA]  ║
+  ║  2. Ajusta los colores del hero (--route-color)     ║
+  ║  3. Completa las fases y programas                  ║
+  ║  4. Guarda como ruta-[slug].html                    ║
+  ╚══════════════════════════════════════════════════════╝
+
+  TOKENS A REEMPLAZAR:
+  [RUTA_SLUG]       → ej: amazon, dropshipping, ia
+  [RUTA_TITULO]     → ej: Amazon FBA & Marca Privada
+  [RUTA_DESCRIPCION]→ ej: Lanza y escala tu marca en Amazon USA
+  [RUTA_EMOJI]      → ej: 📦
+  [RUTA_VERTICAL]   → ej: E-commerce
+  [RUTA_COLOR1]     → color degradado inicio  ej: #FF9900
+  [RUTA_COLOR2]     → color degradado fin     ej: #C86B00
+  [RUTA_HORAS]      → ej: 107–140h
+  [RUTA_FASES]      → ej: 4 fases
+  [RUTA_CERTS]      → ej: 3 cert.
+  [RUTA_PROGRAMAS]  → ej: 25+
+  [RUTA_URL_BEEMO]  → ej: https://beemo.tv/explora/amazon
+  [RUTA_OG_IMAGE]   → ej: https://beemo.study/assets/img/og-amazon.jpg
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>[RUTA_TITULO] — Ruta de Aprendizaje Beemo</title>
+<meta name="description" content="[RUTA_DESCRIPCION]. Ruta de [RUTA_HORAS] para dominar [RUTA_VERTICAL] desde cero.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://beemo.study/ruta-[RUTA_SLUG].html">
+
+<!-- Open Graph / WhatsApp -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://beemo.study/ruta-[RUTA_SLUG].html">
+<meta property="og:title" content="[RUTA_EMOJI] [RUTA_TITULO] — Plan de Estudio Beemo">
+<meta property="og:description" content="[RUTA_DESCRIPCION]. [RUTA_HORAS] · [RUTA_FASES].">
+<meta property="og:image" content="[RUTA_OG_IMAGE]">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Beemo Learning Paths">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[RUTA_EMOJI] [RUTA_TITULO] — Plan de Estudio Beemo">
+<meta name="twitter:description" content="[RUTA_DESCRIPCION]. [RUTA_HORAS] · [RUTA_FASES].">
+<meta name="twitter:image" content="[RUTA_OG_IMAGE]">
+
+<!-- Favicon & CSS -->
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/beemo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "[RUTA_TITULO]",
+  "description": "[RUTA_DESCRIPCION]",
+  "provider": { "@type": "Organization", "name": "smartBeemo LLC", "url": "https://beemo.tv" },
+  "url": "https://beemo.study/ruta-[RUTA_SLUG].html",
+  "inLanguage": "es"
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-back">← Todas las rutas</a>
+  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
+  <a href="[RUTA_URL_BEEMO]" class="nav-cta" target="_blank" rel="noopener">Explorar en Beemo →</a>
+</nav>
+
+<section class="hero-route" style="background:linear-gradient(135deg,[RUTA_COLOR1] 0%,[RUTA_COLOR2] 100%)">
+  <div class="hero-crumb"><a href="index.html">Rutas</a> / [RUTA_TITULO]</div>
+  <div class="hero-badge">[RUTA_EMOJI] [RUTA_VERTICAL]</div>
+  <h1>[RUTA_TITULO]</h1>
+  <p>[RUTA_DESCRIPCION]</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">[RUTA_HORAS]</div><div class="hstat-l">Total estimado</div></div>
+    <div class="hstat"><div class="hstat-n">[RUTA_FASES]</div><div class="hstat-l">Progresivas</div></div>
+    <div class="hstat"><div class="hstat-n">[RUTA_CERTS]</div><div class="hstat-l">Certificado(s)</div></div>
+    <div class="hstat"><div class="hstat-n">[RUTA_PROGRAMAS]</div><div class="hstat-l">Programas</div></div>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="cols">
+
+  <!-- ── COLUMNA PRINCIPAL ─────────────────────────── -->
+  <div>
+
+    <!-- MAPA DE RUTA -->
+    <div class="card">
+      <h2>🗺️ Mapa de la Ruta</h2>
+
+      <!-- ↓ COPIA ESTE BLOQUE POR CADA FASE ↓ -->
+      <div class="phase">
+        <div class="phase-hd">
+          <div class="pnum" style="background:[RUTA_COLOR1]">1</div>
+          <div>
+            <div class="ptitle">Nombre de la Fase</div>
+            <div class="psub">~X–Xh</div>
+          </div>
+        </div>
+
+        <!-- ↓ COPIA ESTE BLOQUE POR CADA PROGRAMA ↓ -->
+        <div class="prog">
+          <div class="picon" style="background:[RUTA_COLOR1]">1.1</div>
+          <div class="pinfo">
+            <div class="pname">Nombre del Programa <span class="ptag tc">Curso</span></div>
+            <!-- ptag opciones: tc=Curso | td=Diplomado | te=Especialización | tm=Masterclass -->
+            <div class="pmeta">👤 Nombre Mentor · ⏱ ~Xh · Descripción breve</div>
+          </div>
+          <a href="URL_PROGRAMA_BEEMO" class="plink" target="_blank" rel="noopener">Ver →</a>
+        </div>
+        <!-- ↑ FIN BLOQUE PROGRAMA ↑ -->
+
+      </div>
+      <!-- ↑ FIN BLOQUE FASE ↑ -->
+
+    </div><!-- /card mapa -->
+
+    <!-- PLANES DE INTENSIDAD -->
+    <div class="card">
+      <h2>⚡ Planes de Intensidad</h2>
+      <div class="tabs">
+        <button class="tab on" onclick="showT(0,'ruta')">🔥 Intensivo</button>
+        <button class="tab" onclick="showT(1,'ruta')">⚡ Estándar</button>
+        <button class="tab" onclick="showT(2,'ruta')">🌱 Flexible</button>
+      </div>
+      <div class="tabp on" id="tabp-0-ruta">
+        <div class="box-r"><div class="box-t">🔥 Plan Intensivo — 15–20h/semana</div><div class="box-s">Tiempo estimado: X–X semanas</div></div>
+        <ul class="mlist">
+          <li><span>Sem 1</span><span class="mv">Fase 1: ...</span></li>
+          <li><span>Sem 2</span><span class="mv">Fase 2: ...</span></li>
+        </ul>
+      </div>
+      <div class="tabp" id="tabp-1-ruta">
+        <div class="box-y"><div class="box-t">⚡ Plan Estándar — 7–10h/semana</div><div class="box-s">Tiempo estimado: X–X semanas</div></div>
+        <ul class="mlist">
+          <li><span>Sem 1–2</span><span class="mv">Fase 1: ...</span></li>
+        </ul>
+      </div>
+      <div class="tabp" id="tabp-2-ruta">
+        <div class="box-g"><div class="box-t">🌱 Plan Flexible — 3–5h/semana</div><div class="box-s">Tiempo estimado: X–X semanas</div></div>
+        <ul class="mlist">
+          <li><span>Mes 1</span><span class="mv">Fase 1: ...</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TRANSFORMACIÓN -->
+    <div class="card">
+      <h2>🔄 Modelo de Transformación</h2>
+      <div class="trblock">
+        <div class="trc bef"><h4>Al inicio</h4><ul>
+          <li>Problema 1</li>
+          <li>Problema 2</li>
+        </ul></div>
+        <div class="trc aft"><h4>Al finalizar</h4><ul>
+          <li>Logro 1</li>
+          <li>Logro 2</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- HITOS -->
+    <div class="card">
+      <h2>🏁 Hitos de Avance</h2>
+      <ul class="hitos">
+        <li class="hito"><div class="hnum" style="background:[RUTA_COLOR1]">1</div><div class="htxt">Primer hito descriptivo</div></li>
+        <li class="hito"><div class="hnum" style="background:[RUTA_COLOR1]">2</div><div class="htxt">Segundo hito descriptivo</div></li>
+      </ul>
+    </div>
+
+    <!-- COMPETENCIAS -->
+    <div class="card">
+      <h2>🛠️ Competencias Adquiridas</h2>
+      <div class="chips">
+        <span class="chip">Habilidad 1</span>
+        <span class="chip">Habilidad 2</span>
+        <span class="chip">Habilidad 3</span>
+      </div>
+    </div>
+
+  </div><!-- /columna principal -->
+
+  <!-- ── SIDEBAR ─────────────────────────────────── -->
+  <div class="sticky-col">
+
+    <div class="scta" style="background:linear-gradient(135deg,[RUTA_COLOR1] 0%,[RUTA_COLOR2] 100%)">
+      <h3>¿Listo para empezar?</h3>
+      <p>Accede a todos los programas con tu suscripción Beemo</p>
+      <a href="[RUTA_URL_BEEMO]" class="scta-btn" style="color:[RUTA_COLOR1]" target="_blank" rel="noopener">Ir a Beemo →</a>
+    </div>
+
+    <!-- Botones de compartir -->
+    <div class="scard">
+      <h3>📲 Compartir esta ruta</h3>
+      <div class="share-bar">
+        <button class="share-btn share-wa" onclick="shareWA()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Compartir por WhatsApp
+        </button>
+        <button class="share-btn share-copy" onclick="copyLink()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Copiar enlace
+        </button>
+        <div class="copy-feedback" id="copyFeedback">✓ ¡Enlace copiado!</div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="scard">
+      <h3>📋 Resumen</h3>
+      <ul class="mlist">
+        <li><span>Programas totales</span><span class="mv">[RUTA_PROGRAMAS]</span></li>
+        <li><span>Horas estimadas</span><span class="mv">[RUTA_HORAS]</span></li>
+        <li><span>Certificado(s)</span><span class="mv">[RUTA_CERTS]</span></li>
+      </ul>
+    </div>
+
+  </div><!-- /sidebar -->
+</div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="https://beemo.tv" target="_blank" rel="noopener">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+function showT(idx, id) {
+  document.querySelectorAll('[id^="tabp-"][id$="-'+id+'"]').forEach((el, i) => el.classList.toggle('on', i === idx));
+  event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('on', i === idx));
+}
+
+const PAGE_URL   = window.location.href;
+const PAGE_TITLE = '[RUTA_EMOJI] [RUTA_TITULO] — Plan de Estudio Beemo';
+
+function shareWA() {
+  window.open('https://wa.me/?text=' + encodeURIComponent(PAGE_TITLE + '\n' + PAGE_URL), '_blank');
+}
+function copyLink() {
+  navigator.clipboard.writeText(PAGE_URL).then(() => {
+    const fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(() => { fb.style.display = 'none'; }, 2500);
+  });
+}
+</script>
+</body>
+</html>

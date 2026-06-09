@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beemo.study/sitemap.xml

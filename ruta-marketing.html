@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Marketing Digital & Agencia — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-white:#FFFFFF;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:800;}
+.nav-logo .dot{color:var(--bee-yellow);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+.hero-route{padding:56px 2rem;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:12px;}
+.hero-crumb a{color:rgba(255,255,255,.6);}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;margin-bottom:14px;}
+.hero-route h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
+.hero-route p{font-size:1rem;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 1.5rem;}
+.cols{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:28px;margin-bottom:24px;}
+.card h2{font-size:1.1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.phase{margin-bottom:28px;}
+.phase-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--bee-gray);}
+.pnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
+.ptitle{font-size:.95rem;font-weight:700;}
+.psub{font-size:.78rem;color:var(--bee-muted);}
+.prog{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:10px;border:1px solid var(--bee-border);margin-bottom:8px;background:#FAFAFA;transition:all .2s;}
+.prog:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.picon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:#fff;flex-shrink:0;}
+.pinfo{flex:1;}
+.pname{font-size:.88rem;font-weight:600;margin-bottom:2px;}
+.pmeta{font-size:.75rem;color:var(--bee-muted);display:flex;gap:8px;flex-wrap:wrap;}
+.ptag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.68rem;font-weight:600;text-transform:uppercase;margin-left:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.plink{color:var(--bee-blue);font-size:.78rem;font-weight:600;padding:5px 10px;background:#EBF4FF;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.plink:hover{background:var(--bee-blue);color:#fff;}
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:20px;}
+.tab{flex:1;padding:9px;text-align:center;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:transparent;transition:all .2s;}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.tabp{display:none;}.tabp.on{display:block;}
+.box-r{background:#FFF5F5;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-y{background:#FFFBEB;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-g{background:#F0FFF4;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-t{font-weight:700;font-size:.88rem;}
+.box-s{font-size:.8rem;color:var(--bee-muted);margin-top:3px;}
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--bee-gray);font-size:.85rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+.trblock{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.trc{padding:18px;border-radius:10px;}
+.trc.bef{background:#FFF5F5;border:1px solid #FED7D7;}
+.trc.aft{background:#F0FFF4;border:1px solid #C6F6D5;}
+.trc h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.trc.bef h4{color:#C53030;}.trc.aft h4{color:#276749;}
+.trc ul{list-style:none;}
+.trc ul li{font-size:.82rem;padding:3px 0;display:flex;gap:6px;}
+.trc.bef ul li::before{content:'✗';color:#FC8181;}.trc.aft ul li::before{content:'✓';color:#48BB78;}
+.hitos{list-style:none;}
+.hito{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bee-gray);}
+.hito:last-child{border-bottom:none;}
+.hnum{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;}
+.htxt{font-size:.87rem;padding-top:5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{background:var(--bee-gray);padding:5px 12px;border-radius:7px;font-size:.78rem;font-weight:500;}
+.scta{border-radius:14px;padding:22px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
+.scta p{color:rgba(255,255,255,.8);font-size:.82rem;margin-bottom:14px;}
+.scta-btn{display:block;background:#fff;padding:11px;border-radius:9px;font-weight:800;font-size:.9rem;}
+.scard{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:22px;margin-bottom:18px;}
+.scard h3{font-size:.95rem;font-weight:700;margin-bottom:14px;}
+.mentor{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bee-gray);}
+.mentor:last-child{border-bottom:none;}
+.mavatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;}
+.mname{font-size:.85rem;font-weight:600;}
+.mspec{font-size:.75rem;color:var(--bee-muted);}
+footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-top:50px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-back">← Todas las rutas</a>
+  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
+  <a href="https://beemo.tv/explora/marketing-digital" class="nav-cta" target="_blank">Explorar en Beemo →</a>
+</nav>
+
+<section class="hero-route" style="background:linear-gradient(135deg,#E91E8C 0%,#880E4F 100%)">
+  <div class="hero-crumb"><a href="index.html">Rutas</a> / Marketing Digital & Agencia</div>
+  <div class="hero-badge">📣 Marketing · Agencia Digital</div>
+  <h1>Marketing Digital & Agencia</h1>
+  <p>Domina el marketing digital completo y construye tu propia agencia rentable. De gestor de campañas a dueño de negocio de servicios digitales.</p>
+  <div class="hero-stats"><div class="hstat"><div class="hstat-n">58–68h</div><div class="hstat-l">Total estimado</div></div><div class="hstat"><div class="hstat-n">4 fases</div><div class="hstat-l">Progresivas</div></div><div class="hstat"><div class="hstat-n">3 cert.</div><div class="hstat-l">Certificados</div></div><div class="hstat"><div class="hstat-n">14+</div><div class="hstat-l">Programas</div></div></div>
+</section>
+
+<div class="wrap">
+<div class="cols">
+<div>
+  <div class="card"><h2>🗺️ Mapa de la Ruta</h2>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#6B7280">0</div>
+        <div><div class="ptitle">Base Conceptual</div><div class="psub">Fundamentos · ~5–7h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.1</div>
+          <div class="pinfo">
+            <div class="pname">Marketing para No Marketeros <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ ~2h · Introducción al marketing digital</div>
+          </div>
+          <a href="https://beemo.tv/explora/marketing-digital" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.2</div>
+          <div class="pinfo">
+            <div class="pname">Instagent: Marketing para Agentes <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Alejandra Cifuentes · ⏱ ~2h · Redes sociales y marca</div>
+          </div>
+          <a href="https://beemo.tv/explora/marketing-digital" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.3</div>
+          <div class="pinfo">
+            <div class="pname">La verdad sobre los negocios digitales: Reto C.A.D.I. <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Horacio Iezzi · ⏱ ~1.5h · Creatividad y negocios</div>
+          </div>
+          <a href="https://beemo.tv/explora/marketing-digital" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.4</div>
+          <div class="pinfo">
+            <div class="pname">Viraliza tu marca <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jean Lopez · ⏱ ~1.5h · Branding y redes sociales</div>
+          </div>
+          <a href="https://beemo.tv/explora/marketing-digital" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#E91E8C">1</div>
+        <div><div class="ptitle">Especialización en Marketing Digital</div><div class="psub">20h · 21 módulos · Certificado</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#E91E8C">1.1</div>
+          <div class="pinfo">
+            <div class="pname">Marketing Digital para Ecommerce <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Michel Edery + 11 mentores · ⏱ 20h · 🏆 Certificado · SEO, Meta Ads, TikTok, Google, Email, WhatsApp, Analytics, Inbound, UX</div>
+          </div>
+          <a href="https://beemo.tv/programa/65d676f5defa963ce401e1bd/curso/65d673a5defa963ce401e193/cohortes/65d679eedefa963ce401e1c2" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#C2185B">2</div>
+        <div><div class="ptitle">IA Aplicada al Marketing</div><div class="psub">~8–12h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#C2185B">2.1</div>
+          <div class="pinfo">
+            <div class="pname">VIBE Marketing: Anuncios con IA <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Juan Osorio · ⏱ ~2h · Creativos con IA para Meta y TikTok</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#C2185B">2.2</div>
+          <div class="pinfo">
+            <div class="pname">Buyer Persona y Ángulos de Venta con IA <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Martha Botero · ⏱ ~2h · Segmentación y mensajes</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#C2185B">2.3</div>
+          <div class="pinfo">
+            <div class="pname">Masterclass: Crea un Influencer IA <span class="ptag tm">Masterclass</span></div>
+            <div class="pmeta">👤 Viviana Rodríguez · ⏱ ~1.5h · Avatares y creadores digitales</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#C2185B">2.4</div>
+          <div class="pinfo">
+            <div class="pname">Curso: Crea imágenes sorprendentes con Leonardo AI <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Alexandra Pineda · ⏱ ~2h · IA generativa para marketing</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#C2185B">2.5</div>
+          <div class="pinfo">
+            <div class="pname">Vuélvete un crack en tráfico digital <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Fabián Perdomo · ⏱ ~4h · Meta, TikTok, Google Ads</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropi" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#880E4F">3</div>
+        <div><div class="ptitle">Ventas y Captación de Clientes</div><div class="psub">~8–12h · Certificado</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#880E4F">3.1</div>
+          <div class="pinfo">
+            <div class="pname">Masterclass: Cómo tener clientes calificados <span class="ptag tm">Masterclass</span></div>
+            <div class="pmeta">👤 Sebastian Gaviria · ⏱ ~1h · Captación de prospectos</div>
+          </div>
+          <a href="https://beemo.tv/explora/ventas" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#880E4F">3.2</div>
+          <div class="pinfo">
+            <div class="pname">Clientes Calificados: Sistema completo <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Sebastian Gaviria · ⏱ ~3h · Sistema de ventas end-to-end</div>
+          </div>
+          <a href="https://beemo.tv/explora/ventas" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#880E4F">3.3</div>
+          <div class="pinfo">
+            <div class="pname">Ventas Método Wolfpack <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ 20h · 14 módulos · 🏆 Certificado · Cierre, objeciones, seguimiento, confianza</div>
+          </div>
+          <a href="https://beemo.tv/programa/65fc6df96598c1ea5166b27d/curso/65fc6a7b6598c1ea5166b26d/cohortes/65fc72c16598c1ea5166b27e" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#4A0030">4</div>
+        <div><div class="ptitle">Construcción de Agencia</div><div class="psub">20h · 13 módulos · Certificado</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#4A0030">4.1</div>
+          <div class="pinfo">
+            <div class="pname">Agencia de Marketing Digital <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ 20h · 🏆 Certificado · Oferta, pitch, clientes, costos, operaciones, escalamiento</div>
+          </div>
+          <a href="https://beemo.tv/programa/65d676f5defa963ce401e1be/curso/65d673a5defa963ce401e198/cohortes/65d679eedefa963ce401e1c3" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div></div>
+
+  <div class="card">
+    <h2>⚡ Planes de Intensidad</h2>
+    <div class="tabs">
+      <button class="tab on" onclick="showT(0,'mkt')">🔥 Intensivo</button>
+      <button class="tab" onclick="showT(1,'mkt')">⚡ Estándar</button>
+      <button class="tab" onclick="showT(2,'mkt')">🌱 Flexible</button>
+    </div>
+    
+    <div class="tabp on" id="tabp-0-mkt">
+      <div class="box-r">
+        <div class="box-t">🔥 Plan Intensivo — 15–20h/semana</div>
+        <div class="box-s">Tiempo estimado: 4–5 semanas</div>
+      </div>
+      <ul class="mlist"><li><span>Sem 1</span><span class="mv">Fase 0: 4 cursos base</span></li><li><span>Sem 1–3</span><span class="mv">Especialización Marketing Digital (20h)</span></li><li><span>Sem 3</span><span class="mv">IA para Marketing (5 cursos)</span></li><li><span>Sem 3–4</span><span class="mv">Ventas: Wolfpack + Clientes Calificados</span></li><li><span>Sem 4–5</span><span class="mv">Especialización Agencia de Marketing Digital (20h)</span></li></ul>
+      <div style="background:#FFF5F5;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Desde semana 2:</strong> Empieza a conseguir tu primer cliente mientras aprendes.</div>
+    </div>
+    <div class="tabp " id="tabp-1-mkt">
+      <div class="box-y">
+        <div class="box-t">⚡ Plan Estándar — 7–10h/semana</div>
+        <div class="box-s">Tiempo estimado: 7–9 semanas</div>
+      </div>
+      <ul class="mlist"><li><span>Sem 1–2</span><span class="mv">Fase 0 + inicio Especialización Marketing Digital</span></li><li><span>Sem 2–4</span><span class="mv">Completar Especialización Marketing Digital</span></li><li><span>Sem 4–5</span><span class="mv">IA para Marketing</span></li><li><span>Sem 5–7</span><span class="mv">Ventas Wolfpack (20h)</span></li><li><span>Sem 7–9</span><span class="mv">Especialización Agencia (20h)</span></li></ul>
+      
+    </div>
+    <div class="tabp " id="tabp-2-mkt">
+      <div class="box-g">
+        <div class="box-t">🌱 Plan Flexible — 3–5h/semana</div>
+        <div class="box-s">Tiempo estimado: 14–18 semanas</div>
+      </div>
+      <ul class="mlist"><li><span>Mes 1–2</span><span class="mv">Fase 0 + Especialización Marketing Digital</span></li><li><span>Mes 2–3</span><span class="mv">IA para Marketing</span></li><li><span>Mes 3–4</span><span class="mv">Ventas Wolfpack</span></li><li><span>Mes 4–5</span><span class="mv">Agencia de Marketing Digital</span></li></ul>
+      <div style="background:#F0FFF4;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Prioriza:</strong> Marketing Digital para Ecommerce → Ventas Wolfpack → Agencia. Esos 3 programas son el núcleo.</div>
+    </div>
+  </div>
+
+  <div class="card"><h2>🔄 Modelo de Transformación</h2><div class="trblock">
+    <div class="trc bef"><h4>Al inicio</h4><ul><li>No sabe ejecutar campañas de publicidad</li><li>No tiene metodología de ventas</li><li>No sabe cómo conseguir clientes</li><li>No conoce herramientas de marketing</li><li>Sin estructura de negocio de servicios</li><li>No sabe fijar precios ni cotizar</li></ul></div>
+    <div class="trc aft"><h4>Al finalizar</h4><ul><li>Domina Meta Ads, Google Ads y TikTok Ads</li><li>Metodología de ventas Wolfpack aplicada</li><li>Sistema de captación de clientes calificados</li><li>Maneja 20+ herramientas de marketing digital</li><li>Agencia estructurada con oferta, costos y operaciones</li><li>Sabe cotizar, facturar y escalar servicios</li></ul></div>
+  </div>
+  <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;">🎯 Resultados prácticos</h4>
+  <ul style="list-style:none;"><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#E91E8C">→</span>Primer cliente de agencia conseguido y gestionado</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#E91E8C">→</span>Primera campaña ejecutada con resultados positivos</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#E91E8C">→</span>Sistema de cotización y contratos activo</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#E91E8C">→</span>Tres clientes recurrentes en el primer trimestre</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#E91E8C">→</span>Facturación de $2,000+ USD/mes en servicios</li></ul></div>
+  <div class="card"><h2>🏁 Hitos de Avance</h2><ul class="hitos"><li class="hito"><div class="hnum" style="background:#E91E8C">1</div><div class="htxt">Nicho de agencia definido (vertical y tipo de cliente)</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">2</div><div class="htxt">Oferta de servicios estructurada y documentada</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">3</div><div class="htxt">Primer cliente prospectado con el sistema Wolfpack</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">4</div><div class="htxt">Primera campaña gestionada con resultados entregados</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">5</div><div class="htxt">Sistema de cotización, contratos y facturación activo</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">6</div><div class="htxt">Tres clientes recurrentes conseguidos</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">7</div><div class="htxt">Primer mes facturando $2,000 USD o más</div></li><li class="hito"><div class="hnum" style="background:#E91E8C">8</div><div class="htxt">Proceso operativo documentado y escalable</div></li></ul></div>
+  <div class="card"><h2>🛠️ Competencias Adquiridas</h2><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">TikTok Ads</span><span class="chip">SEO</span><span class="chip">Email Marketing</span><span class="chip">WhatsApp Marketing</span><span class="chip">Analytics Digital</span><span class="chip">Inbound Marketing</span><span class="chip">Copywriting</span><span class="chip">Ventas Wolfpack</span><span class="chip">Gestión de Agencia</span><span class="chip">Cotización & Finanzas</span><span class="chip">IA para Creativos</span><span class="chip">Influencer Marketing</span></div></div>
+  <div class="card"><h2>📊 Sistema de Medición</h2>
+    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;color:#E91E8C">Indicadores de Avance</h4>
+    <ul class="mlist"><li><span>Especializaciones completadas</span><span class="mv">X / 3</span></li><li><span>Cursos de IA y tráfico completados</span><span class="mv">X / 5</span></li><li><span>Hitos de negocio alcanzados</span><span class="mv">X / 8</span></li><li><span>Horas totales consumidas</span><span class="mv">X / 58–68h</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#E91E8C">Indicadores de Aplicación</h4>
+    <ul class="mlist"><li><span>Clientes activos gestionados</span><span class="mv">> 3 clientes</span></li><li><span>Campañas con ROAS > 2x</span><span class="mv">> 2 campañas</span></li><li><span>Ingresos mensuales de servicios</span><span class="mv">> $2,000 USD/mes</span></li><li><span>NPS de clientes</span><span class="mv">> 8/10</span></li><li><span>Tasa de cierre de propuestas</span><span class="mv">> 30%</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#E91E8C">Evidencia de Dominio</h4>
+    <p style="font-size:.84rem;color:#718096;line-height:1.7">El estudiante domina la ruta cuando: tiene 3+ clientes activos y recurrentes, factura $2,000 USD/mes o más de forma consistente, puede ejecutar campañas en Meta + Google + TikTok sin supervisión, y tiene un proceso documentado de onboarding, entrega y reportes para clientes.</p></div>
+</div>
+
+<div class="sticky-col">
+  <div class="scta" style="background:linear-gradient(135deg,#E91E8C 0%,#880E4F 100%)">
+    <h3>¿Listo para empezar?</h3>
+    <p>Accede a todos los programas con tu suscripción Beemo</p>
+    <a href="https://beemo.tv/explora/marketing-digital" class="scta-btn" style="color:#E91E8C" target="_blank">Ir a Beemo →</a>
+  </div>
+  <div class="scard"><h3>📋 Resumen</h3><ul class="mlist"><li><span>Programas totales</span><span class="mv">14</span></li><li><span>Horas estimadas</span><span class="mv">58–68h</span></li><li><span>Certificados</span><span class="mv">3 digitales</span></li><li><span>Nivel</span><span class="mv">Básico → Avanzado</span></li><li><span>Plan Intensivo</span><span class="mv">4–5 semanas</span></li><li><span>Plan Estándar</span><span class="mv">7–9 semanas</span></li><li><span>Plan Flexible</span><span class="mv">14–18 semanas</span></li></ul></div>
+  <div class="scard"><h3>👥 Mentores</h3><div class="mentor"><div class="mavatar" style="background:#E91E8C">ME</div><div><div class="mname">Michel Edery</div><div class="mspec">Marketing Digital & Agencia</div></div></div><div class="mentor"><div class="mavatar" style="background:#E91E8C">FP</div><div><div class="mname">Fabián Perdomo</div><div class="mspec">Tráfico Pago (Meta, TikTok, Google)</div></div></div><div class="mentor"><div class="mavatar" style="background:#E91E8C">SG</div><div><div class="mname">Sebastian Gaviria</div><div class="mspec">Ventas y Clientes Calificados</div></div></div><div class="mentor"><div class="mavatar" style="background:#E91E8C">HI</div><div><div class="mname">Horacio Iezzi</div><div class="mspec">Creatividad y Marketing Consciente</div></div></div></div>
+</div>
+</div>
+</div>
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+<script>
+function showT(idx,id){
+  document.querySelectorAll('[id^="tabp-"][id$="-'+id+'"]').forEach((el,i)=>{el.classList.toggle('on',i===idx)});
+  event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===idx));
+}
+</script>
+</body></html>

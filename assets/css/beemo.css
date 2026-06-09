@@ -1,0 +1,473 @@
+/*
+ * Beemo Learning Paths — Shared Stylesheet
+ * beemo.study | smartBeemo LLC
+ * ─────────────────────────────────────────
+ * Secciones:
+ *  1. Reset & Variables
+ *  2. Navegación
+ *  3. Footer
+ *  4. Hero (páginas de ruta)
+ *  5. Layout principal (wrap, cols)
+ *  6. Tarjetas de programa (phase, prog)
+ *  7. Tabs de intensidad
+ *  8. Cajas informativas
+ *  9. Sidebar (sticky-col)
+ * 10. Transformación, hitos, chips
+ * 11. Hero (index principal)
+ * 12. Quiz de orientación
+ * 13. Grid de rutas (index)
+ * 14. Sección intensidades (index)
+ * 15. Botones de compartir
+ * 16. Responsive
+ */
+
+/* ──────────────────────────────────────────────────────────
+   1. RESET & VARIABLES
+────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bee-yellow:  #F5C518;
+  --bee-dark:    #1A1A2E;
+  --bee-darker:  #0F0F1A;
+  --bee-blue:    #1F58F3;
+  --bee-gray:    #F5F5F5;
+  --bee-text:    #1A202C;
+  --bee-muted:   #718096;
+  --bee-white:   #FFFFFF;
+  --bee-border:  #E2E8F0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F7F9FC;
+  color: var(--bee-text);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; }
+
+/* ──────────────────────────────────────────────────────────
+   2. NAVEGACIÓN
+────────────────────────────────────────────────────────── */
+.nav {
+  background: var(--bee-darker);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,.3);
+}
+.nav-logo { color: #fff; font-size: 1.3rem; font-weight: 800; }
+.nav-logo .dot { color: var(--bee-yellow); }
+.nav-back { color: rgba(255,255,255,.7); font-size: .88rem; display: flex; align-items: center; gap: 6px; }
+.nav-back:hover { color: #fff; }
+.nav-cta { background: var(--bee-yellow); color: var(--bee-darker); padding: 8px 18px; border-radius: 8px; font-weight: 700; font-size: .85rem; }
+.nav-cta:hover { background: #e0b015; }
+
+/* ──────────────────────────────────────────────────────────
+   3. FOOTER
+────────────────────────────────────────────────────────── */
+footer {
+  background: var(--bee-darker);
+  padding: 28px 2rem;
+  text-align: center;
+  margin-top: 50px;
+}
+footer p { color: rgba(255,255,255,.4); font-size: .82rem; }
+footer a { color: var(--bee-yellow); }
+
+/* ──────────────────────────────────────────────────────────
+   4. HERO — PÁGINAS DE RUTA
+────────────────────────────────────────────────────────── */
+.hero-route {
+  padding: 56px 2rem;
+  text-align: center;
+  position: relative;
+}
+.hero-crumb { font-size: .78rem; color: rgba(255,255,255,.6); margin-bottom: 12px; }
+.hero-crumb a { color: rgba(255,255,255,.6); }
+.hero-crumb a:hover { color: #fff; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: .78rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.hero-route h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.hero-route p {
+  font-size: 1rem;
+  color: rgba(255,255,255,.8);
+  max-width: 580px;
+  margin: 0 auto 28px;
+}
+.hero-stats { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+.hstat { text-align: center; }
+.hstat-n { font-size: 1.5rem; font-weight: 900; color: #fff; }
+.hstat-l { font-size: .72rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .5px; }
+
+/* ──────────────────────────────────────────────────────────
+   5. LAYOUT PRINCIPAL
+────────────────────────────────────────────────────────── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 48px 1.5rem; }
+.cols { display: grid; grid-template-columns: 1fr 320px; gap: 28px; align-items: start; }
+.sticky-col { position: sticky; top: 80px; }
+
+/* ──────────────────────────────────────────────────────────
+   6. TARJETAS DE PROGRAMA
+────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid var(--bee-border);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.card h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+
+.phase { margin-bottom: 28px; }
+.phase-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--bee-gray);
+}
+.pnum {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .85rem; color: #fff; flex-shrink: 0;
+}
+.ptitle { font-size: .95rem; font-weight: 700; }
+.psub { font-size: .78rem; color: var(--bee-muted); }
+
+.prog {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--bee-border);
+  margin-bottom: 8px;
+  background: #FAFAFA;
+  transition: all .2s;
+}
+.prog:hover {
+  background: #fff;
+  border-color: #CBD5E0;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+.picon {
+  width: 26px; height: 26px;
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .75rem; color: #fff; flex-shrink: 0;
+}
+.pinfo { flex: 1; }
+.pname { font-size: .88rem; font-weight: 600; margin-bottom: 2px; }
+.pmeta { font-size: .75rem; color: var(--bee-muted); display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Etiquetas de tipo de contenido */
+.ptag { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: .68rem; font-weight: 600; text-transform: uppercase; margin-left: 4px; }
+.tc { background: #EBF4FF; color: #2B6CB0; }   /* Curso */
+.td { background: #FFF5EB; color: #C05621; }    /* Diplomado */
+.te { background: #FAF5FF; color: #6B46C1; }    /* Especialización */
+.tm { background: #F0FFF4; color: #276749; }    /* Masterclass / Bootcamp */
+
+.plink {
+  color: var(--bee-blue);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  background: #EBF4FF;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.plink:hover { background: var(--bee-blue); color: #fff; }
+
+/* ──────────────────────────────────────────────────────────
+   7. TABS DE INTENSIDAD
+────────────────────────────────────────────────────────── */
+.tabs { display: flex; gap: 3px; background: #F1F5F9; border-radius: 10px; padding: 3px; margin-bottom: 20px; }
+.tab {
+  flex: 1; padding: 9px;
+  text-align: center; border-radius: 8px;
+  cursor: pointer; font-size: .8rem; font-weight: 600;
+  border: none; background: transparent; transition: all .2s;
+}
+.tab.on { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.tabp { display: none; }
+.tabp.on { display: block; }
+
+/* ──────────────────────────────────────────────────────────
+   8. CAJAS INFORMATIVAS
+────────────────────────────────────────────────────────── */
+.box-r { background: #FFF5F5; border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+.box-y { background: #FFFBEB; border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+.box-g { background: #F0FFF4; border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+.box-t { font-weight: 700; font-size: .88rem; }
+.box-s { font-size: .8rem; color: var(--bee-muted); margin-top: 3px; }
+
+.mlist { list-style: none; }
+.mlist li { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--bee-gray); font-size: .85rem; }
+.mlist li:last-child { border-bottom: none; }
+.mv { font-weight: 700; }
+
+/* ──────────────────────────────────────────────────────────
+   9. SIDEBAR
+────────────────────────────────────────────────────────── */
+.scta { border-radius: 14px; padding: 22px; text-align: center; margin-bottom: 18px; }
+.scta h3 { color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+.scta p { color: rgba(255,255,255,.8); font-size: .82rem; margin-bottom: 14px; }
+.scta-btn { display: block; background: #fff; padding: 11px; border-radius: 9px; font-weight: 800; font-size: .9rem; }
+
+.scard { background: #fff; border-radius: 14px; border: 1px solid var(--bee-border); padding: 22px; margin-bottom: 18px; }
+.scard h3 { font-size: .95rem; font-weight: 700; margin-bottom: 14px; }
+
+.mentor { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--bee-gray); }
+.mentor:last-child { border-bottom: none; }
+.mavatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: .85rem; flex-shrink: 0;
+}
+.mname { font-size: .85rem; font-weight: 600; }
+.mspec { font-size: .75rem; color: var(--bee-muted); }
+
+/* ──────────────────────────────────────────────────────────
+   10. TRANSFORMACIÓN, HITOS, CHIPS
+────────────────────────────────────────────────────────── */
+.trblock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+.trc { padding: 18px; border-radius: 10px; }
+.trc.bef { background: #FFF5F5; border: 1px solid #FED7D7; }
+.trc.aft { background: #F0FFF4; border: 1px solid #C6F6D5; }
+.trc h4 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 10px; }
+.trc.bef h4 { color: #C53030; }
+.trc.aft h4 { color: #276749; }
+.trc ul { list-style: none; }
+.trc ul li { font-size: .82rem; padding: 3px 0; display: flex; gap: 6px; }
+.trc.bef ul li::before { content: '✗'; color: #FC8181; }
+.trc.aft ul li::before { content: '✓'; color: #48BB78; }
+
+.hitos { list-style: none; }
+.hito { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--bee-gray); }
+.hito:last-child { border-bottom: none; }
+.hnum {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .8rem; color: #fff; flex-shrink: 0;
+}
+.htxt { font-size: .87rem; padding-top: 5px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip { background: var(--bee-gray); padding: 5px 12px; border-radius: 7px; font-size: .78rem; font-weight: 500; }
+
+/* ──────────────────────────────────────────────────────────
+   11. HERO — INDEX PRINCIPAL
+────────────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0F0F1A 0%, #1A1A2E 50%, #0F3460 100%);
+  padding: 70px 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(245,197,24,.07) 0%, transparent 60%);
+}
+.hbadge {
+  display: inline-block;
+  background: rgba(245,197,24,.15);
+  border: 1px solid rgba(245,197,24,.3);
+  color: #F5C518;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900; color: #fff;
+  margin-bottom: 12px; line-height: 1.1;
+}
+.hero h1 span { color: #F5C518; }
+.hero p { font-size: 1.05rem; color: rgba(255,255,255,.75); max-width: 580px; margin: 0 auto 36px; }
+.hero .hero-stats { gap: 36px; }
+.hero .hstat-n { font-size: 2rem; font-weight: 900; color: #F5C518; }
+.hero .hstat-l { color: rgba(255,255,255,.5); }
+
+/* ──────────────────────────────────────────────────────────
+   12. QUIZ DE ORIENTACIÓN
+────────────────────────────────────────────────────────── */
+.quiz-wrap { max-width: 760px; margin: -36px auto 56px; padding: 0 1.5rem; }
+.qcard { background: #fff; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.12); overflow: hidden; }
+.qhead { background: #F5C518; padding: 22px 28px; }
+.qhead h2 { font-size: 1.2rem; font-weight: 800; color: #0F0F1A; margin-bottom: 3px; }
+.qhead p { font-size: .85rem; color: rgba(15,15,26,.65); }
+.qbody { padding: 28px; }
+.qstep { display: none; }
+.qstep.on { display: block; }
+.qprog { display: flex; gap: 5px; margin-bottom: 22px; }
+.qdot { height: 5px; flex: 1; border-radius: 3px; background: #E2E8F0; transition: all .3s; }
+.qdot.done { background: #F5C518; }
+.qquestion { font-size: 1rem; font-weight: 700; margin-bottom: 18px; }
+.qoptions { display: grid; gap: 10px; }
+.qopt {
+  padding: 13px 18px;
+  border: 2px solid #E2E8F0;
+  border-radius: 10px;
+  cursor: pointer; font-size: .9rem; font-weight: 500;
+  transition: all .2s; background: #F7F9FC; text-align: left; width: 100%;
+}
+.qopt:hover { border-color: #1F58F3; background: #EBF4FF; color: #1F58F3; }
+.qopt.sel { border-color: #F5C518; background: #FFFBEB; }
+.qnav { display: flex; justify-content: flex-end; margin-top: 22px; }
+.qbtn {
+  background: #1F58F3; color: #fff; border: none;
+  padding: 11px 26px; border-radius: 9px;
+  font-weight: 700; font-size: .9rem; cursor: pointer; display: none;
+}
+.qbtn:hover { background: #4D7BFF; }
+
+/* ──────────────────────────────────────────────────────────
+   13. GRID DE RUTAS (INDEX)
+────────────────────────────────────────────────────────── */
+.sec { max-width: 1100px; margin: 0 auto; padding: 56px 1.5rem; }
+.sec-t { font-size: 1.7rem; font-weight: 800; margin-bottom: 6px; }
+.sec-s { color: #718096; margin-bottom: 36px; }
+
+.rgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+.rcard {
+  background: #fff; border-radius: 14px;
+  border: 1px solid #E2E8F0; overflow: hidden;
+  transition: all .3s; display: block;
+}
+.rcard:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(0,0,0,.11); border-color: transparent; }
+.rch { padding: 26px; position: relative; overflow: hidden; }
+.rch::after {
+  content: ''; position: absolute; bottom: -16px; right: -16px;
+  width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,.1);
+}
+.rico { font-size: 2.2rem; margin-bottom: 10px; display: block; }
+.rtag { display: inline-block; background: rgba(255,255,255,.2); color: #fff; padding: 3px 10px; border-radius: 50px; font-size: .72rem; font-weight: 600; margin-bottom: 10px; }
+.rtit { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
+.rsub { font-size: .82rem; color: rgba(255,255,255,.8); }
+.rcb { padding: 18px 24px 22px; }
+.rmeta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.rmi { font-size: .8rem; color: #718096; }
+.rskills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+.rsk { background: #F5F5F5; padding: 4px 10px; border-radius: 6px; font-size: .73rem; font-weight: 500; }
+.rbtn { display: block; text-align: center; background: #1A1A2E; color: #fff; padding: 11px; border-radius: 9px; font-weight: 700; font-size: .87rem; }
+.rcard:hover .rbtn { background: #1F58F3; }
+
+/* ──────────────────────────────────────────────────────────
+   14. SECCIÓN INTENSIDADES (INDEX)
+────────────────────────────────────────────────────────── */
+.int-sec { background: #0F0F1A; padding: 56px 1.5rem; }
+.int-inner { max-width: 1000px; margin: 0 auto; }
+.int-t { font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.int-s { color: rgba(255,255,255,.55); margin-bottom: 36px; }
+.int-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.icard { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 26px; transition: all .3s; }
+.icard:hover { background: rgba(255,255,255,.08); }
+.ibadge { display: inline-block; padding: 5px 12px; border-radius: 50px; font-size: .75rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .5px; }
+.bi { background: #FF4444; color: #fff; }
+.bs { background: #F5C518; color: #0F0F1A; }
+.bf { background: #38A169; color: #fff; }
+.icard h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.icard p { font-size: .84rem; color: rgba(255,255,255,.55); margin-bottom: 14px; }
+.ihours { font-size: 1.8rem; font-weight: 900; color: #F5C518; }
+.ihours span { font-size: .85rem; font-weight: 400; color: rgba(255,255,255,.45); }
+.ilist { list-style: none; margin-top: 14px; }
+.ilist li { font-size: .82rem; color: rgba(255,255,255,.65); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.07); display: flex; gap: 7px; }
+.ilist li::before { content: '→'; color: #F5C518; flex-shrink: 0; }
+
+/* ──────────────────────────────────────────────────────────
+   15. BOTONES DE COMPARTIR
+────────────────────────────────────────────────────────── */
+.share-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.share-bar p {
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--bee-muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 2px;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: .85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  transition: all .2s;
+  text-align: left;
+}
+.share-btn svg { flex-shrink: 0; }
+.share-wa  { background: #25D366; color: #fff; }
+.share-wa:hover  { background: #1ebe5d; }
+.share-copy { background: var(--bee-gray); color: var(--bee-text); border: 1px solid var(--bee-border); }
+.share-copy:hover { background: #e8edf5; }
+.share-tw  { background: #000; color: #fff; }
+.share-tw:hover  { background: #222; }
+.copy-feedback {
+  font-size: .78rem;
+  color: #38A169;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+  padding: 6px;
+}
+
+/* ──────────────────────────────────────────────────────────
+   16. RESPONSIVE
+────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cols { grid-template-columns: 1fr; }
+  .sticky-col { position: static; }
+  .trblock { grid-template-columns: 1fr; }
+  .hero-stats { gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 44px 1.2rem; }
+  .rgrid { grid-template-columns: 1fr; }
+  .int-grid { grid-template-columns: 1fr; }
+  .hero .hero-stats { gap: 20px; }
+  .nav { padding: 0 1rem; }
+}

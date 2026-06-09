@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rutas de Aprendizaje — Beemo</title>
+<meta name="description" content="Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy en Beemo.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://beemo.study/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://beemo.study/">
+<meta property="og:title" content="Rutas de Aprendizaje — Beemo">
+<meta property="og:description" content="Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy.">
+<meta property="og:image" content="https://beemo.study/assets/img/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Beemo Learning Paths">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://beemo.study/">
+<meta name="twitter:title" content="Rutas de Aprendizaje — Beemo">
+<meta name="twitter:description" content="Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy.">
+<meta name="twitter:image" content="https://beemo.study/assets/img/og-default.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="shortcut icon" href="assets/img/favicon.svg">
+
+<!-- Estilos compartidos -->
+<link rel="stylesheet" href="assets/css/beemo.css">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Beemo Learning Paths",
+  "url": "https://beemo.study",
+  "description": "Rutas de aprendizaje oficiales de Beemo.tv",
+  "publisher": {
+    "@type": "Organization",
+    "name": "smartBeemo LLC",
+    "url": "https://beemo.tv"
+  }
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
+  <a href="https://beemo.tv" class="nav-cta" target="_blank" rel="noopener">Ir a Beemo →</a>
+</nav>
+
+<section class="hero">
+  <div class="hbadge">🎓 Rutas de Aprendizaje Oficiales</div>
+  <h1>Aprende con <span>propósito</span><br>en Beemo</h1>
+  <p>Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">100K+</div><div class="hstat-l">Estudiantes</div></div>
+    <div class="hstat"><div class="hstat-n">60+</div><div class="hstat-l">Mentores</div></div>
+    <div class="hstat"><div class="hstat-n">5</div><div class="hstat-l">Rutas principales</div></div>
+    <div class="hstat"><div class="hstat-n">22</div><div class="hstat-l">Verticales</div></div>
+  </div>
+</section>
+
+<!-- Quiz de orientación -->
+<div class="quiz-wrap">
+  <div class="qcard">
+    <div class="qhead">
+      <h2>🎯 ¿Cuál ruta es para ti?</h2>
+      <p>Responde 3 preguntas y descubre tu camino ideal</p>
+    </div>
+    <div class="qbody">
+      <div class="qprog">
+        <div class="qdot" id="d1"></div>
+        <div class="qdot" id="d2"></div>
+        <div class="qdot" id="d3"></div>
+      </div>
+      <div class="qstep on" id="s1">
+        <div class="qquestion">1. ¿Cuál es tu principal objetivo?</div>
+        <div class="qoptions">
+          <button class="qopt" onclick="sel(1,'amazon',this)">📦 Vender productos físicos en Amazon o marketplaces</button>
+          <button class="qopt" onclick="sel(1,'drop',this)">🏪 Crear una tienda online sin manejar inventario</button>
+          <button class="qopt" onclick="sel(1,'mkt',this)">📣 Ofrecer servicios de marketing o crear una agencia</button>
+          <button class="qopt" onclick="sel(1,'ia',this)">🤖 Usar IA para automatizar y ganar dinero</button>
+          <button class="qopt" onclick="sel(1,'fin',this)">💰 Controlar mis finanzas e invertir inteligentemente</button>
+        </div>
+      </div>
+      <div class="qstep" id="s2">
+        <div class="qquestion">2. ¿Cuánto tiempo tienes por semana?</div>
+        <div class="qoptions">
+          <button class="qopt" onclick="sel(2,'intensiva',this)">🔥 15–20 horas — Quiero resultados rápido</button>
+          <button class="qopt" onclick="sel(2,'estandar',this)">⚡ 7–10 horas — Ritmo sostenible</button>
+          <button class="qopt" onclick="sel(2,'flexible',this)">🌱 3–5 horas — Poco tiempo, pero constante</button>
+        </div>
+      </div>
+      <div class="qstep" id="s3">
+        <div class="qquestion">3. ¿Desde dónde empiezas?</div>
+        <div class="qoptions">
+          <button class="qopt" onclick="sel(3,'cero',this)">🌱 Desde cero — Sin experiencia en negocios digitales</button>
+          <button class="qopt" onclick="sel(3,'algo',this)">📚 Sé algo — He intentado pero sin resultados claros</button>
+          <button class="qopt" onclick="sel(3,'activo',this)">🚀 Tengo negocio — Quiero escalar y optimizar</button>
+        </div>
+      </div>
+      <div class="qstep" id="sR"><div id="qRes"></div></div>
+      <div class="qnav"><button class="qbtn" id="qNext" onclick="next()">Siguiente →</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Grid de rutas -->
+<section class="sec">
+  <h2 class="sec-t">Todas las Rutas</h2>
+  <p class="sec-s">Elige la ruta que se alinea con tu objetivo</p>
+  <div class="rgrid">
+
+    <a href="ruta-amazon.html" class="rcard">
+      <div class="rch" style="background:linear-gradient(135deg,#FF9900,#C86B00)">
+        <span class="rico">📦</span><span class="rtag">E-commerce</span>
+        <div class="rtit">Amazon FBA & Marca Privada</div>
+        <div class="rsub">Lanza y escala tu marca en Amazon USA</div>
+      </div>
+      <div class="rcb">
+        <div class="rmeta"><span class="rmi">⏱ 107–140h</span><span class="rmi">📘 4 fases</span><span class="rmi">🏆 3 cert.</span></div>
+        <div class="rskills"><span class="rsk">Helium 10</span><span class="rsk">FBA</span><span class="rsk">Amazon PPC</span><span class="rsk">Brand Registry</span><span class="rsk">Importaciones</span></div>
+        <span class="rbtn">Ver ruta completa →</span>
+      </div>
+    </a>
+
+    <a href="ruta-dropshipping.html" class="rcard">
+      <div class="rch" style="background:linear-gradient(135deg,#1F58F3,#0F3460)">
+        <span class="rico">🏪</span><span class="rtag">Dropshipping</span>
+        <div class="rtit">Dropshipping & Full Commerce</div>
+        <div class="rsub">Tienda propia sin inventario, automatizada con IA</div>
+      </div>
+      <div class="rcb">
+        <div class="rmeta"><span class="rmi">⏱ 77–103h</span><span class="rmi">📘 5 fases</span><span class="rmi">🏆 2 cert.</span></div>
+        <div class="rskills"><span class="rsk">Shopify</span><span class="rsk">Meta Ads</span><span class="rsk">TikTok Ads</span><span class="rsk">WhatsApp Bot</span><span class="rsk">Dropi</span></div>
+        <span class="rbtn">Ver ruta completa →</span>
+      </div>
+    </a>
+
+    <a href="ruta-marketing.html" class="rcard">
+      <div class="rch" style="background:linear-gradient(135deg,#E91E8C,#880E4F)">
+        <span class="rico">📣</span><span class="rtag">Marketing</span>
+        <div class="rtit">Marketing Digital & Agencia</div>
+        <div class="rsub">Domina el marketing y construye tu agencia</div>
+      </div>
+      <div class="rcb">
+        <div class="rmeta"><span class="rmi">⏱ 58–68h</span><span class="rmi">📘 4 fases</span><span class="rmi">🏆 3 cert.</span></div>
+        <div class="rskills"><span class="rsk">Meta Ads</span><span class="rsk">Google Ads</span><span class="rsk">SEO</span><span class="rsk">Wolfpack Ventas</span><span class="rsk">Agencia</span></div>
+        <span class="rbtn">Ver ruta completa →</span>
+      </div>
+    </a>
+
+    <a href="ruta-ia.html" class="rcard">
+      <div class="rch" style="background:linear-gradient(135deg,#7C3AED,#4C1D95)">
+        <span class="rico">🤖</span><span class="rtag">Inteligencia Artificial</span>
+        <div class="rtit">IA Aplicada al Negocio</div>
+        <div class="rsub">Automatiza, crea y monetiza con IA</div>
+      </div>
+      <div class="rcb">
+        <div class="rmeta"><span class="rmi">⏱ 32–50h</span><span class="rmi">📘 4 fases</span><span class="rmi">🔥 Alta demanda</span></div>
+        <div class="rskills"><span class="rsk">ChatGPT</span><span class="rsk">Leonardo AI</span><span class="rsk">HeyGen</span><span class="rsk">WhatsApp IA</span><span class="rsk">Automatización</span></div>
+        <span class="rbtn">Ver ruta completa →</span>
+      </div>
+    </a>
+
+    <a href="ruta-finanzas.html" class="rcard">
+      <div class="rch" style="background:linear-gradient(135deg,#059669,#064E3B)">
+        <span class="rico">💰</span><span class="rtag">Finanzas</span>
+        <div class="rtit">Finanzas e Independencia Económica</div>
+        <div class="rsub">Controla tu dinero e invierte desde Latinoamérica</div>
+      </div>
+      <div class="rcb">
+        <div class="rmeta"><span class="rmi">⏱ 25–40h</span><span class="rmi">📘 3 fases</span><span class="rmi">🌎 Bolsa USA</span></div>
+        <div class="rskills"><span class="rsk">Presupuesto</span><span class="rsk">ETFs & Acciones</span><span class="rsk">Ahorro Dólares</span><span class="rsk">Bienes Raíces</span><span class="rsk">KPIs</span></div>
+        <span class="rbtn">Ver ruta completa →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="int-sec">
+  <div class="int-inner">
+    <h2 class="int-t">Tres velocidades de aprendizaje</h2>
+    <p class="int-s">Cada ruta disponible en 3 intensidades según tu disponibilidad</p>
+    <div class="int-grid">
+      <div class="icard">
+        <span class="ibadge bi">🔥 Intensiva</span>
+        <h3>Plan Intensivo</h3>
+        <p>Para estudiantes comprometidos que quieren resultados en el menor tiempo posible.</p>
+        <div class="ihours">15–20<span> h/semana</span></div>
+        <ul class="ilist">
+          <li>Consumo agresivo de contenido</li>
+          <li>Aplicación práctica desde semana 1</li>
+          <li>Máxima velocidad de aprendizaje</li>
+          <li>Todos los certificados en tiempo récord</li>
+        </ul>
+      </div>
+      <div class="icard">
+        <span class="ibadge bs">⚡ Estándar</span>
+        <h3>Plan Estándar</h3>
+        <p>Balance perfecto entre aprendizaje y aplicación para personas con vida ocupada.</p>
+        <div class="ihours">7–10<span> h/semana</span></div>
+        <ul class="ilist">
+          <li>Avance sostenible semana a semana</li>
+          <li>Balance entre teoría y práctica</li>
+          <li>Tiempo para implementar entre módulos</li>
+          <li>Ideal para trabajo o familia</li>
+        </ul>
+      </div>
+      <div class="icard">
+        <span class="ibadge bf">🌱 Flexible</span>
+        <h3>Plan Flexible</h3>
+        <p>Diseñado para personas con poco tiempo que priorizan el contenido de mayor impacto.</p>
+        <div class="ihours">3–5<span> h/semana</span></div>
+        <ul class="ilist">
+          <li>Solo el contenido esencial primero</li>
+          <li>Progreso gradual y constante</li>
+          <li>Prioriza lo que genera resultados</li>
+          <li>Sin presión, a tu ritmo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <a href="https://beemo.tv" target="_blank" rel="noopener">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+const A = {};
+let step = 1;
+const routes = {
+  amazon: { n: 'Amazon FBA & Marca Privada',        f: 'ruta-amazon.html',       c: '#FF9900', e: '📦', h: { intensiva: '7–8 sem',  estandar: '14–16 sem', flexible: '25–30 sem' } },
+  drop:   { n: 'Dropshipping & Full Commerce',       f: 'ruta-dropshipping.html', c: '#1F58F3', e: '🏪', h: { intensiva: '5–6 sem',  estandar: '10–12 sem', flexible: '18–22 sem' } },
+  mkt:    { n: 'Marketing Digital & Agencia',         f: 'ruta-marketing.html',    c: '#E91E8C', e: '📣', h: { intensiva: '4–5 sem',  estandar: '7–9 sem',   flexible: '14–18 sem' } },
+  ia:     { n: 'IA Aplicada al Negocio',              f: 'ruta-ia.html',           c: '#7C3AED', e: '🤖', h: { intensiva: '2–3 sem',  estandar: '5–6 sem',   flexible: '10–12 sem' } },
+  fin:    { n: 'Finanzas e Independencia Económica',  f: 'ruta-finanzas.html',     c: '#059669', e: '💰', h: { intensiva: '2–3 sem',  estandar: '4–5 sem',   flexible: '8–10 sem'  } }
+};
+const il = { intensiva: '🔥 Plan Intensivo', estandar: '⚡ Plan Estándar', flexible: '🌱 Plan Flexible' };
+const ll = { cero: 'Comenzarás desde los fundamentos.', algo: 'Reforzarás bases e irás directo a la práctica.', activo: 'Nos enfocamos en optimización y escalamiento.' };
+
+function sel(s, v, el) {
+  A['s'+s] = v;
+  el.closest('.qoptions').querySelectorAll('.qopt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('d'+s).classList.add('done');
+  const nb = document.getElementById('qNext');
+  nb.style.display = 'inline-block';
+  if (s === 3) { nb.textContent = 'Ver mi ruta →'; nb.style.background = '#F5C518'; nb.style.color = '#0F0F1A'; }
+}
+
+function next() {
+  if (!A['s'+step]) return;
+  document.getElementById('s'+step).classList.remove('on');
+  step++;
+  if (step <= 3) {
+    document.getElementById('s'+step).classList.add('on');
+    document.getElementById('qNext').style.display = 'none';
+    if (step < 3) { document.getElementById('qNext').textContent = 'Siguiente →'; document.getElementById('qNext').style.background = ''; document.getElementById('qNext').style.color = ''; }
+  } else {
+    document.getElementById('sR').classList.add('on');
+    showRes();
+    document.getElementById('qNext').style.display = 'none';
+  }
+}
+
+function showRes() {
+  const r = routes[A.s1 || 'amazon'];
+  const i = A.s2 || 'estandar';
+  const l = A.s3 || 'cero';
+  const url = window.location.origin + '/' + r.f;
+  const waMsg = encodeURIComponent('¡Mira mi ruta de aprendizaje en Beemo! → ' + url);
+  document.getElementById('qRes').innerHTML = `
+    <div style="background:${r.c}15;border:2px solid ${r.c}40;border-radius:14px;padding:22px;text-align:center;">
+      <div style="font-size:2.5rem;margin-bottom:10px">${r.e}</div>
+      <div style="font-size:.75rem;font-weight:700;color:${r.c};text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Tu ruta recomendada</div>
+      <h3 style="font-size:1.2rem;font-weight:800;color:#1A202C;margin-bottom:6px">${r.n}</h3>
+      <p style="font-size:.87rem;color:#718096;margin-bottom:14px">${ll[l]}</p>
+      <div style="background:#fff;border-radius:9px;padding:10px 14px;margin-bottom:14px;display:inline-block">
+        <span style="font-weight:700;color:#1A202C">${il[i]}</span>
+        <span style="color:#718096;font-size:.82rem"> · Tiempo: ${r.h[i]}</span>
+      </div>
+      <br>
+      <a href="${r.f}" style="display:inline-block;background:${r.c};color:#fff;padding:13px 28px;border-radius:10px;font-weight:800;text-decoration:none;margin:8px 4px 0">Ver mi plan de estudio →</a>
+      <a href="https://wa.me/?text=${waMsg}" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;text-decoration:none;margin:8px 4px 0">📲 Compartir por WhatsApp</a>
+    </div>`;
+}
+</script>
+</body>
+</html>

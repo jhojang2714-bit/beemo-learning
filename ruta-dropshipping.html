@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dropshipping & Full Commerce — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-white:#FFFFFF;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:800;}
+.nav-logo .dot{color:var(--bee-yellow);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+.hero-route{padding:56px 2rem;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:12px;}
+.hero-crumb a{color:rgba(255,255,255,.6);}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;margin-bottom:14px;}
+.hero-route h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
+.hero-route p{font-size:1rem;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 1.5rem;}
+.cols{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:28px;margin-bottom:24px;}
+.card h2{font-size:1.1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.phase{margin-bottom:28px;}
+.phase-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--bee-gray);}
+.pnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
+.ptitle{font-size:.95rem;font-weight:700;}
+.psub{font-size:.78rem;color:var(--bee-muted);}
+.prog{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:10px;border:1px solid var(--bee-border);margin-bottom:8px;background:#FAFAFA;transition:all .2s;}
+.prog:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.picon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:#fff;flex-shrink:0;}
+.pinfo{flex:1;}
+.pname{font-size:.88rem;font-weight:600;margin-bottom:2px;}
+.pmeta{font-size:.75rem;color:var(--bee-muted);display:flex;gap:8px;flex-wrap:wrap;}
+.ptag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.68rem;font-weight:600;text-transform:uppercase;margin-left:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.plink{color:var(--bee-blue);font-size:.78rem;font-weight:600;padding:5px 10px;background:#EBF4FF;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.plink:hover{background:var(--bee-blue);color:#fff;}
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:20px;}
+.tab{flex:1;padding:9px;text-align:center;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:transparent;transition:all .2s;}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.tabp{display:none;}.tabp.on{display:block;}
+.box-r{background:#FFF5F5;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-y{background:#FFFBEB;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-g{background:#F0FFF4;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-t{font-weight:700;font-size:.88rem;}
+.box-s{font-size:.8rem;color:var(--bee-muted);margin-top:3px;}
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--bee-gray);font-size:.85rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+.trblock{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.trc{padding:18px;border-radius:10px;}
+.trc.bef{background:#FFF5F5;border:1px solid #FED7D7;}
+.trc.aft{background:#F0FFF4;border:1px solid #C6F6D5;}
+.trc h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.trc.bef h4{color:#C53030;}.trc.aft h4{color:#276749;}
+.trc ul{list-style:none;}
+.trc ul li{font-size:.82rem;padding:3px 0;display:flex;gap:6px;}
+.trc.bef ul li::before{content:'✗';color:#FC8181;}.trc.aft ul li::before{content:'✓';color:#48BB78;}
+.hitos{list-style:none;}
+.hito{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bee-gray);}
+.hito:last-child{border-bottom:none;}
+.hnum{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;}
+.htxt{font-size:.87rem;padding-top:5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{background:var(--bee-gray);padding:5px 12px;border-radius:7px;font-size:.78rem;font-weight:500;}
+.scta{border-radius:14px;padding:22px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
+.scta p{color:rgba(255,255,255,.8);font-size:.82rem;margin-bottom:14px;}
+.scta-btn{display:block;background:#fff;padding:11px;border-radius:9px;font-weight:800;font-size:.9rem;}
+.scard{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:22px;margin-bottom:18px;}
+.scard h3{font-size:.95rem;font-weight:700;margin-bottom:14px;}
+.mentor{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bee-gray);}
+.mentor:last-child{border-bottom:none;}
+.mavatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;}
+.mname{font-size:.85rem;font-weight:600;}
+.mspec{font-size:.75rem;color:var(--bee-muted);}
+footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-top:50px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-back">← Todas las rutas</a>
+  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
+  <a href="https://beemo.tv/explora/dropshipping" class="nav-cta" target="_blank">Explorar en Beemo →</a>
+</nav>
+
+<section class="hero-route" style="background:linear-gradient(135deg,#1F58F3 0%,#0F3460 100%)">
+  <div class="hero-crumb"><a href="index.html">Rutas</a> / Dropshipping & Full Commerce</div>
+  <div class="hero-badge">🏪 Dropshipping · Ecommerce</div>
+  <h1>Dropshipping & Full Commerce</h1>
+  <p>Crea y escala una tienda online sin manejar inventario. Automatiza ventas con IA, WhatsApp y publicidad en Meta y TikTok.</p>
+  <div class="hero-stats"><div class="hstat"><div class="hstat-n">77–103h</div><div class="hstat-l">Total estimado</div></div><div class="hstat"><div class="hstat-n">4 fases</div><div class="hstat-l">Progresivas</div></div><div class="hstat"><div class="hstat-n">2 cert.</div><div class="hstat-l">Certificados</div></div><div class="hstat"><div class="hstat-n">18+</div><div class="hstat-l">Programas</div></div></div>
+</section>
+
+<div class="wrap">
+<div class="cols">
+<div>
+  <div class="card"><h2>🗺️ Mapa de la Ruta</h2>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#6B7280">0</div>
+        <div><div class="ptitle">Exploración del Modelo</div><div class="psub">Fundamentos · ~5–7h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.1</div>
+          <div class="pinfo">
+            <div class="pname">Marketing para No Marketeros <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ ~2h · 🟢 Básico</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.2</div>
+          <div class="pinfo">
+            <div class="pname">Masterclass: Tus primeros pasos en Dropshipping <span class="ptag tm">Masterclass</span></div>
+            <div class="pmeta">👤 Jose Naicipa · ⏱ ~1.5h · 🟢 Básico</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.3</div>
+          <div class="pinfo">
+            <div class="pname">Tus Primeros Pasos en Dropshipping en USA <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Michel Edery · ⏱ ~1h · 🟢 Básico</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#6B7280">0.4</div>
+          <div class="pinfo">
+            <div class="pname">7 días, 7 módulos para ser exitoso en Dropshipping <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Juan Vargas · ⏱ ~3h · 🟢 Básico</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#1F58F3">1</div>
+        <div><div class="ptitle">Construcción de Tienda</div><div class="psub">Diplomado + Técnico · ~30–40h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#1F58F3">1.1</div>
+          <div class="pinfo">
+            <div class="pname">Ecommerce Tienda Propia <span class="ptag td">Diplomado</span></div>
+            <div class="pmeta">👤 Michel Edery + equipo · ⏱ 20h · 19 módulos · 🏆 Certificado · Shopify, Meta Ads, TikTok, Google, Email Marketing</div>
+          </div>
+          <a href="https://beemo.tv/programa/65b16784d9b3689c78a83fe0/curso/65b164b08736e8b834b229ae/cohortes/65b16a790c6d18ea7101a593" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#1F58F3">1.2</div>
+          <div class="pinfo">
+            <div class="pname">Configuración de Shopify para lanzar tu tienda <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jose Naicipa · ⏱ ~3h · 🔴 Avanzado</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#1F58F3">1.3</div>
+          <div class="pinfo">
+            <div class="pname">Creación de Home Page de Shopify <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jose Naicipa · ⏱ ~2h · 🔴 Avanzado</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#1F58F3">1.4</div>
+          <div class="pinfo">
+            <div class="pname">Apps para Shopify <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jose Naicipa · ⏱ ~2h · 🟢 Básico</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#1F58F3">1.5</div>
+          <div class="pinfo">
+            <div class="pname">Releasit COD Form desde cero <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Releasit · ⏱ ~2h · Para mercados contra entrega</div>
+          </div>
+          <a href="https://beemo.tv/explora/full-commerce" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#0F43DE">2</div>
+        <div><div class="ptitle">Tráfico y Ventas</div><div class="psub">~15–20h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#0F43DE">2.1</div>
+          <div class="pinfo">
+            <div class="pname">Vuélvete un crack en tráfico digital <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Fabián Perdomo · ⏱ ~4h · Meta, TikTok, Google Ads</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropi" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#0F43DE">2.2</div>
+          <div class="pinfo">
+            <div class="pname">TikTok Ads Pro: Configura, testea y escala <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jose Naicipa · ⏱ ~4h · Avanzado</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#0F43DE">2.3</div>
+          <div class="pinfo">
+            <div class="pname">Campañas de testeo para Facebook <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Juan Naicipa · ⏱ ~3h</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropshipping" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#0F43DE">2.4</div>
+          <div class="pinfo">
+            <div class="pname">Buyer Persona y Ángulos de Venta con IA <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Martha Botero · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#0F43DE">2.5</div>
+          <div class="pinfo">
+            <div class="pname">VIBE Marketing: Anuncios con IA <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Juan Osorio · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#082F86">3</div>
+        <div><div class="ptitle">Automatización y Escalamiento</div><div class="psub">~20–25h · Certificado</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#082F86">3.1</div>
+          <div class="pinfo">
+            <div class="pname">WhatsApp Business y automatización de ventas <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Viviana Rodríguez · ⏱ ~3h</div>
+          </div>
+          <a href="https://beemo.tv/explora/whatsapp" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#082F86">3.2</div>
+          <div class="pinfo">
+            <div class="pname">WhatsApp con Inteligencia Artificial <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Camilo Vasco · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/whatsapp" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#082F86">3.3</div>
+          <div class="pinfo">
+            <div class="pname">Crea tu Ecommerce sin mucho personal usando IA <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Kevin López · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#082F86">3.4</div>
+          <div class="pinfo">
+            <div class="pname">Marketing Digital para Ecommerce <span class="ptag te">Especialización</span></div>
+            <div class="pmeta">👤 Michel Edery + 11 mentores · ⏱ 20h · 🏆 Certificado</div>
+          </div>
+          <a href="https://beemo.tv/programa/65d676f5defa963ce401e1bd/curso/65d673a5defa963ce401e193/cohortes/65d679eedefa963ce401e1c2" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#082F86">3.5</div>
+          <div class="pinfo">
+            <div class="pname">KPIs + Profit Focus (Finanzas Ecommerce) <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Marlon Carrillo · ⏱ ~4h</div>
+          </div>
+          <a href="https://beemo.tv/explora/finanzas" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#1E40AF">4</div>
+        <div><div class="ptitle">Alternativa Dropi (Latam)</div><div class="psub">Opcional · ~8–12h</div></div>
+      </div>
+      
+        <div class="prog">
+          <div class="picon" style="background:#1E40AF">4.1</div>
+          <div class="pinfo">
+            <div class="pname">Ruta de Emprendimiento Dropi <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jesús Laborde · ⏱ ~3h · Modelo con plataforma Dropi</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropi" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#1E40AF">4.2</div>
+          <div class="pinfo">
+            <div class="pname">Reto de cero a ventas en 7 días con Dropi <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Juanma Gaviria · ⏱ ~3h</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropi" class="plink" target="_blank">Ver →</a>
+        </div>
+        <div class="prog">
+          <div class="picon" style="background:#1E40AF">4.3</div>
+          <div class="pinfo">
+            <div class="pname">Plataformas de Dropshipping: Dropi <span class="ptag tc">Curso</span></div>
+            <div class="pmeta">👤 Jose Naicipa · ⏱ ~2h</div>
+          </div>
+          <a href="https://beemo.tv/explora/dropi" class="plink" target="_blank">Ver →</a>
+        </div>
+    </div></div>
+
+  <div class="card">
+    <h2>⚡ Planes de Intensidad</h2>
+    <div class="tabs">
+      <button class="tab on" onclick="showT(0,'drop')">🔥 Intensivo</button>
+      <button class="tab" onclick="showT(1,'drop')">⚡ Estándar</button>
+      <button class="tab" onclick="showT(2,'drop')">🌱 Flexible</button>
+    </div>
+    
+    <div class="tabp on" id="tabp-0-drop">
+      <div class="box-r">
+        <div class="box-t">🔥 Plan Intensivo — 15–20h/semana</div>
+        <div class="box-s">Tiempo estimado: 5–6 semanas</div>
+      </div>
+      <ul class="mlist"><li><span>Sem 1</span><span class="mv">Fase 0: 4 cursos de exploración</span></li><li><span>Sem 1–3</span><span class="mv">Diplomado Tienda Propia (20h)</span></li><li><span>Sem 3</span><span class="mv">Shopify avanzado + Apps</span></li><li><span>Sem 3–4</span><span class="mv">Tráfico: TikTok + Facebook + Buyer Persona</span></li><li><span>Sem 4–5</span><span class="mv">Automatización WhatsApp + IA</span></li><li><span>Sem 5–6</span><span class="mv">Marketing Digital para Ecommerce (20h)</span></li></ul>
+      <div style="background:#FFF5F5;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Acción:</strong> Desde semana 1 configura tu tienda mientras estudias el diplomado.</div>
+    </div>
+    <div class="tabp " id="tabp-1-drop">
+      <div class="box-y">
+        <div class="box-t">⚡ Plan Estándar — 7–10h/semana</div>
+        <div class="box-s">Tiempo estimado: 10–12 semanas (2–3 meses)</div>
+      </div>
+      <ul class="mlist"><li><span>Mes 1 Sem 1–2</span><span class="mv">Fase 0 + Inicio Diplomado</span></li><li><span>Mes 1 Sem 3–4</span><span class="mv">Continuar Diplomado + Shopify técnico</span></li><li><span>Mes 2 Sem 5–7</span><span class="mv">Tráfico pago (Meta + TikTok)</span></li><li><span>Mes 2–3 Sem 8–10</span><span class="mv">WhatsApp automatizado + IA</span></li><li><span>Mes 3 Sem 11–12</span><span class="mv">Marketing Digital para Ecommerce</span></li></ul>
+      
+    </div>
+    <div class="tabp " id="tabp-2-drop">
+      <div class="box-g">
+        <div class="box-t">🌱 Plan Flexible — 3–5h/semana</div>
+        <div class="box-s">Tiempo estimado: 18–22 semanas (4–5 meses)</div>
+      </div>
+      <ul class="mlist"><li><span>Mes 1–2</span><span class="mv">Fase 0 + Diplomado Tienda Propia</span></li><li><span>Mes 2–3</span><span class="mv">Shopify técnico + primeras campañas</span></li><li><span>Mes 3–4</span><span class="mv">TikTok Ads + Optimización</span></li><li><span>Mes 4–5</span><span class="mv">WhatsApp IA + Marketing Digital Ecommerce</span></li></ul>
+      <div style="background:#F0FFF4;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Prioriza:</strong> Diplomado → Tráfico básico → WhatsApp. Comienza a vender antes de completar toda la ruta.</div>
+    </div>
+  </div>
+
+  <div class="card"><h2>🔄 Modelo de Transformación</h2><div class="trblock">
+    <div class="trc bef"><h4>Al inicio</h4><ul><li>No tiene tienda online</li><li>No sabe usar Shopify</li><li>Nunca ha hecho publicidad digital</li><li>No conoce el dropshipping</li><li>No tiene procesos automatizados</li><li>No sabe analizar métricas de ventas</li></ul></div>
+    <div class="trc aft"><h4>Al finalizar</h4><ul><li>Tienda Shopify activa y optimizada</li><li>Domina Meta Ads y TikTok Ads</li><li>Sistema de WhatsApp automatizado con IA</li><li>Proceso de selección de productos ganadores</li><li>KPIs de negocio monitoreados</li><li>Primeros pedidos y ventas reales</li></ul></div>
+  </div>
+  <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;">🎯 Resultados prácticos</h4>
+  <ul style="list-style:none;"><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#1F58F3">→</span>Primera tienda Shopify publicada con productos reales</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#1F58F3">→</span>Primeras ventas con publicidad pagada rentable</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#1F58F3">→</span>Sistema de WhatsApp automatizado atendiendo clientes 24/7</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#1F58F3">→</span>ROAS positivo en al menos una campaña activa</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#1F58F3">→</span>Tasa de conversión optimizada con datos reales</li></ul></div>
+  <div class="card"><h2>🏁 Hitos de Avance</h2><ul class="hitos"><li class="hito"><div class="hnum" style="background:#1F58F3">1</div><div class="htxt">Nicho y nombre de tienda definidos con criterios de validación</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">2</div><div class="htxt">Tienda Shopify configurada y publicada con dominio propio</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">3</div><div class="htxt">Primera campaña de testeo activa (Meta o TikTok)</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">4</div><div class="htxt">Primer pedido recibido y gestionado</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">5</div><div class="htxt">ROAS positivo en al menos 1 campaña</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">6</div><div class="htxt">Sistema WhatsApp automatizado activo (respuesta en < 1 min)</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">7</div><div class="htxt">Tasa de conversión de tienda > 1.5%</div></li><li class="hito"><div class="hnum" style="background:#1F58F3">8</div><div class="htxt">Primer mes con utilidad neta positiva documentada</div></li></ul></div>
+  <div class="card"><h2>🛠️ Competencias Adquiridas</h2><div class="chips"><span class="chip">Shopify</span><span class="chip">Selección de Productos</span><span class="chip">Meta Ads</span><span class="chip">TikTok Ads</span><span class="chip">Google Ads</span><span class="chip">WhatsApp Automation</span><span class="chip">Email Marketing (Klaviyo)</span><span class="chip">Diseño de Creativos</span><span class="chip">ROAS & Métricas</span><span class="chip">Dropi</span><span class="chip">IA para Ecommerce</span><span class="chip">Copywriting</span></div></div>
+  <div class="card"><h2>📊 Sistema de Medición</h2>
+    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;color:#1F58F3">Indicadores de Avance</h4>
+    <ul class="mlist"><li><span>Módulos del diplomado completados</span><span class="mv">X / 19</span></li><li><span>Cursos técnicos completados</span><span class="mv">X / 9</span></li><li><span>Hitos de negocio alcanzados</span><span class="mv">X / 8</span></li><li><span>Horas de contenido consumido</span><span class="mv">Real vs. Meta</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#1F58F3">Indicadores de Aplicación</h4>
+    <ul class="mlist"><li><span>Productos testeados con campañas</span><span class="mv">> 3 productos</span></li><li><span>ROAS de mejores campañas</span><span class="mv">> 2.5x (meta > 3x)</span></li><li><span>Tasa de conversión de tienda</span><span class="mv">> 1.5%</span></li><li><span>Mensajes WhatsApp respondidos automáticamente</span><span class="mv">> 80% automatización</span></li><li><span>Margen neto por pedido</span><span class="mv">> 25%</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#1F58F3">Evidencia de Dominio</h4>
+    <p style="font-size:.84rem;color:#718096;line-height:1.7">El estudiante domina la ruta cuando: tiene una tienda activa con ventas recurrentes, ha iterado al menos 3 productos, mantiene ROAS > 2.5x de forma sostenida, tiene un sistema de WhatsApp automatizado funcionando, y puede analizar sus métricas sin ayuda externa.</p></div>
+</div>
+
+<div class="sticky-col">
+  <div class="scta" style="background:linear-gradient(135deg,#1F58F3 0%,#0F3460 100%)">
+    <h3>¿Listo para empezar?</h3>
+    <p>Accede a todos los programas con tu suscripción Beemo</p>
+    <a href="https://beemo.tv/explora/dropshipping" class="scta-btn" style="color:#1F58F3" target="_blank">Ir a Beemo →</a>
+  </div>
+  <div class="scard"><h3>📋 Resumen</h3><ul class="mlist"><li><span>Programas totales</span><span class="mv">18</span></li><li><span>Horas estimadas</span><span class="mv">77–103h</span></li><li><span>Certificados</span><span class="mv">2 digitales</span></li><li><span>Nivel</span><span class="mv">Básico → Avanzado</span></li><li><span>Plan Intensivo</span><span class="mv">5–6 semanas</span></li><li><span>Plan Estándar</span><span class="mv">10–12 semanas</span></li><li><span>Plan Flexible</span><span class="mv">18–22 semanas</span></li></ul></div>
+  <div class="scard"><h3>👥 Mentores</h3><div class="mentor"><div class="mavatar" style="background:#1F58F3">ME</div><div><div class="mname">Michel Edery</div><div class="mspec">Ecommerce & Estrategia</div></div></div><div class="mentor"><div class="mavatar" style="background:#1F58F3">JN</div><div><div class="mname">Jose Naicipa</div><div class="mspec">Shopify & TikTok Ads</div></div></div><div class="mentor"><div class="mavatar" style="background:#1F58F3">JL</div><div><div class="mname">Jesús Laborde</div><div class="mspec">Dropi & Automatización</div></div></div><div class="mentor"><div class="mavatar" style="background:#1F58F3">FP</div><div><div class="mname">Fabián Perdomo</div><div class="mspec">Tráfico Pago Digital</div></div></div></div>
+</div>
+</div>
+</div>
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+<script>
+function showT(idx,id){
+  document.querySelectorAll('[id^="tabp-"][id$="-'+id+'"]').forEach((el,i)=>{el.classList.toggle('on',i===idx)});
+  event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===idx));
+}
+</script>
+</body></html>
