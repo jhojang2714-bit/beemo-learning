@@ -93,16 +93,20 @@ footer a{color:var(--bee-yellow);}
 @media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
 
 .nav{background:#0F0F1A;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
-.hero{background:linear-gradient(135deg,#0F0F1A 0%,#1A1A2E 50%,#0F3460 100%);padding:70px 2rem;text-align:center;position:relative;overflow:hidden;}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.nav-brand span{color:#fff;font-size:1.15rem;font-weight:800;letter-spacing:-.3px;}
+.hero{background:linear-gradient(135deg,#0F0F1A 0%,#1A1A2E 50%,#0F3460 100%);padding:44px 2rem 52px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,rgba(245,197,24,.07) 0%,transparent 60%);}
-.hbadge{display:inline-block;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:#F5C518;padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.1;}
+.hero h1{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
 .hero h1 span{color:#F5C518;}
-.hero p{font-size:1.05rem;color:rgba(255,255,255,.75);max-width:580px;margin:0 auto 36px;}
-.hero-stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;}
-.hstat{text-align:center;}
-.hstat-n{font-size:2rem;font-weight:900;color:#F5C518;}
-.hstat-l{font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;}
+.hero p{font-size:1rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 24px;}
+.hero-btn{display:inline-block;background:#F5C518;color:#0F0F1A;padding:13px 30px;border-radius:10px;font-weight:800;font-size:.95rem;margin-bottom:32px;transition:all .2s;}
+.hero-btn:hover{background:#FFD63A;transform:translateY(-2px);}
+.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;background:rgba(255,255,255,.07);border-radius:12px;padding:18px 8px;max-width:540px;margin:0 auto;}
+.hstat{text-align:center;padding:4px 22px;border-right:1px solid rgba(255,255,255,.12);}
+.hstat:last-child{border-right:none;}
+.hstat-n{font-size:1.7rem;font-weight:900;color:#F5C518;}
+.hstat-l{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;}
 
 .quiz-wrap{max-width:760px;margin:0 auto 56px;padding:0 1.5rem;}
 .qcard{background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.12);overflow:hidden;}
@@ -160,19 +164,22 @@ footer a{color:var(--bee-yellow);}
 .ilist li{font-size:.82rem;color:rgba(255,255,255,.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);display:flex;gap:7px;}
 .ilist li::before{content:'→';color:#F5C518;flex-shrink:0;}
 
-@media(max-width:600px){.hero{padding:44px 1.2rem;}.rgrid{grid-template-columns:1fr;}.int-grid{grid-template-columns:1fr;}.hero-stats{gap:20px;}}
+@media(max-width:600px){.hero{padding:32px 1.2rem 40px;}.rgrid{grid-template-columns:1fr;}.int-grid{grid-template-columns:1fr;}.hstat{padding:4px 14px;}}
 </style>
 </head>
 <body>
 <nav class="nav">
-  <a href="https://beemo.tv" target="_blank"><img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;filter:brightness(0) invert(1);"></a>
+  <a href="https://beemo.tv" target="_blank" class="nav-brand">
+    <img src="https://beemo.tv/img/beemo.svg" alt="" style="height:28px;display:block;">
+    <span>beemo</span>
+  </a>
   <a href="https://beemo.tv" class="nav-cta" target="_blank">Ir a Beemo →</a>
 </nav>
 
 <section class="hero">
-  <div class="hbadge">🎓 Rutas de Aprendizaje Oficiales</div>
   <h1>Aprende con <span>propósito</span><br>en Beemo</h1>
-  <p>Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy.</p>
+  <p>Más de 100 programas organizados en rutas claras.<br>Encuentra tu camino y empieza hoy.</p>
+  <a href="#quiz" class="hero-btn" onclick="document.querySelector('.quiz-wrap').scrollIntoView({behavior:'smooth'});return false;">🎯 Descubre tu ruta →</a>
   <div class="hero-stats">
     <div class="hstat"><div class="hstat-n">100K+</div><div class="hstat-l">Estudiantes</div></div>
     <div class="hstat"><div class="hstat-n">60+</div><div class="hstat-l">Mentores</div></div>
