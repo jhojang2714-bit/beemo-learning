@@ -4,56 +4,169 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Rutas de Aprendizaje — Beemo</title>
-<meta name="description" content="Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy en Beemo.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://beemo.study/">
+<style>
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://beemo.study/">
-<meta property="og:title" content="Rutas de Aprendizaje — Beemo">
-<meta property="og:description" content="Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy.">
-<meta property="og:image" content="https://beemo.study/assets/img/og-default.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="Beemo Learning Paths">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-white:#FFFFFF;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:800;}
+.nav-logo .dot{color:var(--bee-yellow);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+.hero-route{padding:56px 2rem;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:12px;}
+.hero-crumb a{color:rgba(255,255,255,.6);}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;margin-bottom:14px;}
+.hero-route h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
+.hero-route p{font-size:1rem;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 1.5rem;}
+.cols{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:28px;margin-bottom:24px;}
+.card h2{font-size:1.1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.phase{margin-bottom:28px;}
+.phase-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--bee-gray);}
+.pnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
+.ptitle{font-size:.95rem;font-weight:700;}
+.psub{font-size:.78rem;color:var(--bee-muted);}
+.prog{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:10px;border:1px solid var(--bee-border);margin-bottom:8px;background:#FAFAFA;transition:all .2s;}
+.prog:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.picon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:#fff;flex-shrink:0;}
+.pinfo{flex:1;}
+.pname{font-size:.88rem;font-weight:600;margin-bottom:2px;}
+.pmeta{font-size:.75rem;color:var(--bee-muted);display:flex;gap:8px;flex-wrap:wrap;}
+.ptag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.68rem;font-weight:600;text-transform:uppercase;margin-left:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.plink{color:var(--bee-blue);font-size:.78rem;font-weight:600;padding:5px 10px;background:#EBF4FF;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.plink:hover{background:var(--bee-blue);color:#fff;}
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:20px;}
+.tab{flex:1;padding:9px;text-align:center;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:transparent;transition:all .2s;}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.tabp{display:none;}.tabp.on{display:block;}
+.box-r{background:#FFF5F5;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-y{background:#FFFBEB;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-g{background:#F0FFF4;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-t{font-weight:700;font-size:.88rem;}
+.box-s{font-size:.8rem;color:var(--bee-muted);margin-top:3px;}
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--bee-gray);font-size:.85rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+.trblock{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.trc{padding:18px;border-radius:10px;}
+.trc.bef{background:#FFF5F5;border:1px solid #FED7D7;}
+.trc.aft{background:#F0FFF4;border:1px solid #C6F6D5;}
+.trc h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.trc.bef h4{color:#C53030;}.trc.aft h4{color:#276749;}
+.trc ul{list-style:none;}
+.trc ul li{font-size:.82rem;padding:3px 0;display:flex;gap:6px;}
+.trc.bef ul li::before{content:'✗';color:#FC8181;}.trc.aft ul li::before{content:'✓';color:#48BB78;}
+.hitos{list-style:none;}
+.hito{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bee-gray);}
+.hito:last-child{border-bottom:none;}
+.hnum{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;}
+.htxt{font-size:.87rem;padding-top:5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{background:var(--bee-gray);padding:5px 12px;border-radius:7px;font-size:.78rem;font-weight:500;}
+.scta{border-radius:14px;padding:22px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
+.scta p{color:rgba(255,255,255,.8);font-size:.82rem;margin-bottom:14px;}
+.scta-btn{display:block;background:#fff;padding:11px;border-radius:9px;font-weight:800;font-size:.9rem;}
+.scard{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:22px;margin-bottom:18px;}
+.scard h3{font-size:.95rem;font-weight:700;margin-bottom:14px;}
+.mentor{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bee-gray);}
+.mentor:last-child{border-bottom:none;}
+.mavatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;}
+.mname{font-size:.85rem;font-weight:600;}
+.mspec{font-size:.75rem;color:var(--bee-muted);}
+footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-top:50px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://beemo.study/">
-<meta name="twitter:title" content="Rutas de Aprendizaje — Beemo">
-<meta name="twitter:description" content="Más de 100 programas organizados en rutas claras. Encuentra tu camino y empieza hoy.">
-<meta name="twitter:image" content="https://beemo.study/assets/img/og-default.jpg">
+.nav{background:#0F0F1A;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.hero{background:linear-gradient(135deg,#0F0F1A 0%,#1A1A2E 50%,#0F3460 100%);padding:70px 2rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,rgba(245,197,24,.07) 0%,transparent 60%);}
+.hbadge{display:inline-block;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:#F5C518;padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.1;}
+.hero h1 span{color:#F5C518;}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,.75);max-width:580px;margin:0 auto 36px;}
+.hero-stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:2rem;font-weight:900;color:#F5C518;}
+.hstat-l{font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;}
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-<link rel="shortcut icon" href="assets/img/favicon.svg">
+.quiz-wrap{max-width:760px;margin:0 auto 56px;padding:0 1.5rem;}
+.qcard{background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.12);overflow:hidden;}
+.qhead{background:#F5C518;padding:22px 28px;}
+.qhead h2{font-size:1.2rem;font-weight:800;color:#0F0F1A;margin-bottom:3px;}
+.qhead p{font-size:.85rem;color:rgba(15,15,26,.65);}
+.qbody{padding:28px;}
+.qstep{display:none;}.qstep.on{display:block;}
+.qprog{display:flex;gap:5px;margin-bottom:22px;}
+.qdot{height:5px;flex:1;border-radius:3px;background:#E2E8F0;transition:all .3s;}
+.qdot.done{background:#F5C518;}
+.qquestion{font-size:1rem;font-weight:700;margin-bottom:18px;}
+.qoptions{display:grid;gap:10px;}
+.qopt{padding:13px 18px;border:2px solid #E2E8F0;border-radius:10px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .2s;background:#F7F9FC;text-align:left;width:100%;}
+.qopt:hover{border-color:#1F58F3;background:#EBF4FF;color:#1F58F3;}
+.qopt.sel{border-color:#F5C518;background:#FFFBEB;}
+.qnav{display:flex;justify-content:flex-end;margin-top:22px;}
+.qbtn{background:#1F58F3;color:#fff;border:none;padding:11px 26px;border-radius:9px;font-weight:700;font-size:.9rem;cursor:pointer;display:none;}
+.qbtn:hover{background:#4D7BFF;}
 
-<!-- Estilos compartidos -->
-<link rel="stylesheet" href="assets/css/beemo.css">
+.sec{max-width:1100px;margin:0 auto;padding:56px 1.5rem;}
+.sec-t{font-size:1.7rem;font-weight:800;margin-bottom:6px;}
+.sec-s{color:#718096;margin-bottom:36px;}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;}
+.rcard{background:#fff;border-radius:14px;border:1px solid #E2E8F0;overflow:hidden;transition:all .3s;display:block;text-decoration:none;}
+.rcard:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(0,0,0,.11);border-color:transparent;}
+.rch{padding:26px;position:relative;overflow:hidden;}
+.rch::after{content:'';position:absolute;bottom:-16px;right:-16px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.1);}
+.rico{font-size:2.2rem;margin-bottom:10px;display:block;}
+.rtag{display:inline-block;background:rgba(255,255,255,.2);color:#fff;padding:3px 10px;border-radius:50px;font-size:.72rem;font-weight:600;margin-bottom:10px;}
+.rtit{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:5px;}
+.rsub{font-size:.82rem;color:rgba(255,255,255,.8);}
+.rcb{padding:18px 24px 22px;}
+.rmeta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.rmi{font-size:.8rem;color:#718096;}
+.rskills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px;}
+.rsk{background:#F5F5F5;padding:4px 10px;border-radius:6px;font-size:.73rem;font-weight:500;}
+.rbtn{display:block;text-align:center;background:#1A1A2E;color:#fff;padding:11px;border-radius:9px;font-weight:700;font-size:.87rem;}
+.rcard:hover .rbtn{background:#1F58F3;}
 
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Beemo Learning Paths",
-  "url": "https://beemo.study",
-  "description": "Rutas de aprendizaje oficiales de Beemo.tv",
-  "publisher": {
-    "@type": "Organization",
-    "name": "smartBeemo LLC",
-    "url": "https://beemo.tv"
-  }
-}
-</script>
+.int-sec{background:#0F0F1A;padding:56px 1.5rem;}
+.int-inner{max-width:1000px;margin:0 auto;}
+.int-t{font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.int-s{color:rgba(255,255,255,.55);margin-bottom:36px;}
+.int-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.icard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:26px;transition:all .3s;}
+.icard:hover{background:rgba(255,255,255,.08);}
+.ibadge{display:inline-block;padding:5px 12px;border-radius:50px;font-size:.75rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
+.bi{background:#FF4444;color:#fff;}.bs{background:#F5C518;color:#0F0F1A;}.bf{background:#38A169;color:#fff;}
+.icard h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.icard p{font-size:.84rem;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.ihours{font-size:1.8rem;font-weight:900;color:#F5C518;}
+.ihours span{font-size:.85rem;font-weight:400;color:rgba(255,255,255,.45);}
+.ilist{list-style:none;margin-top:14px;}
+.ilist li{font-size:.82rem;color:rgba(255,255,255,.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);display:flex;gap:7px;}
+.ilist li::before{content:'→';color:#F5C518;flex-shrink:0;}
+
+@media(max-width:600px){.hero{padding:44px 1.2rem;}.rgrid{grid-template-columns:1fr;}.int-grid{grid-template-columns:1fr;}.hero-stats{gap:20px;}}
+</style>
 </head>
 <body>
-
 <nav class="nav">
-  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
-  <a href="https://beemo.tv" class="nav-cta" target="_blank" rel="noopener">Ir a Beemo →</a>
+  <a href="https://beemo.tv" target="_blank"><img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;filter:brightness(0) invert(1);"></a>
+  <a href="https://beemo.tv" class="nav-cta" target="_blank">Ir a Beemo →</a>
 </nav>
 
 <section class="hero">
@@ -68,19 +181,11 @@
   </div>
 </section>
 
-<!-- Quiz de orientación -->
 <div class="quiz-wrap">
   <div class="qcard">
-    <div class="qhead">
-      <h2>🎯 ¿Cuál ruta es para ti?</h2>
-      <p>Responde 3 preguntas y descubre tu camino ideal</p>
-    </div>
+    <div class="qhead"><h2>🎯 ¿Cuál ruta es para ti?</h2><p>Responde 3 preguntas y descubre tu camino ideal</p></div>
     <div class="qbody">
-      <div class="qprog">
-        <div class="qdot" id="d1"></div>
-        <div class="qdot" id="d2"></div>
-        <div class="qdot" id="d3"></div>
-      </div>
+      <div class="qprog"><div class="qdot" id="d1"></div><div class="qdot" id="d2"></div><div class="qdot" id="d3"></div></div>
       <div class="qstep on" id="s1">
         <div class="qquestion">1. ¿Cuál es tu principal objetivo?</div>
         <div class="qoptions">
@@ -113,12 +218,10 @@
   </div>
 </div>
 
-<!-- Grid de rutas -->
 <section class="sec">
   <h2 class="sec-t">Todas las Rutas</h2>
   <p class="sec-s">Elige la ruta que se alinea con tu objetivo</p>
   <div class="rgrid">
-
     <a href="ruta-amazon.html" class="rcard">
       <div class="rch" style="background:linear-gradient(135deg,#FF9900,#C86B00)">
         <span class="rico">📦</span><span class="rtag">E-commerce</span>
@@ -131,7 +234,6 @@
         <span class="rbtn">Ver ruta completa →</span>
       </div>
     </a>
-
     <a href="ruta-dropshipping.html" class="rcard">
       <div class="rch" style="background:linear-gradient(135deg,#1F58F3,#0F3460)">
         <span class="rico">🏪</span><span class="rtag">Dropshipping</span>
@@ -144,7 +246,6 @@
         <span class="rbtn">Ver ruta completa →</span>
       </div>
     </a>
-
     <a href="ruta-marketing.html" class="rcard">
       <div class="rch" style="background:linear-gradient(135deg,#E91E8C,#880E4F)">
         <span class="rico">📣</span><span class="rtag">Marketing</span>
@@ -157,7 +258,6 @@
         <span class="rbtn">Ver ruta completa →</span>
       </div>
     </a>
-
     <a href="ruta-ia.html" class="rcard">
       <div class="rch" style="background:linear-gradient(135deg,#7C3AED,#4C1D95)">
         <span class="rico">🤖</span><span class="rtag">Inteligencia Artificial</span>
@@ -170,7 +270,6 @@
         <span class="rbtn">Ver ruta completa →</span>
       </div>
     </a>
-
     <a href="ruta-finanzas.html" class="rcard">
       <div class="rch" style="background:linear-gradient(135deg,#059669,#064E3B)">
         <span class="rico">💰</span><span class="rtag">Finanzas</span>
@@ -183,7 +282,6 @@
         <span class="rbtn">Ver ruta completa →</span>
       </div>
     </a>
-
   </div>
 </section>
 
@@ -192,109 +290,22 @@
     <h2 class="int-t">Tres velocidades de aprendizaje</h2>
     <p class="int-s">Cada ruta disponible en 3 intensidades según tu disponibilidad</p>
     <div class="int-grid">
-      <div class="icard">
-        <span class="ibadge bi">🔥 Intensiva</span>
-        <h3>Plan Intensivo</h3>
-        <p>Para estudiantes comprometidos que quieren resultados en el menor tiempo posible.</p>
-        <div class="ihours">15–20<span> h/semana</span></div>
-        <ul class="ilist">
-          <li>Consumo agresivo de contenido</li>
-          <li>Aplicación práctica desde semana 1</li>
-          <li>Máxima velocidad de aprendizaje</li>
-          <li>Todos los certificados en tiempo récord</li>
-        </ul>
-      </div>
-      <div class="icard">
-        <span class="ibadge bs">⚡ Estándar</span>
-        <h3>Plan Estándar</h3>
-        <p>Balance perfecto entre aprendizaje y aplicación para personas con vida ocupada.</p>
-        <div class="ihours">7–10<span> h/semana</span></div>
-        <ul class="ilist">
-          <li>Avance sostenible semana a semana</li>
-          <li>Balance entre teoría y práctica</li>
-          <li>Tiempo para implementar entre módulos</li>
-          <li>Ideal para trabajo o familia</li>
-        </ul>
-      </div>
-      <div class="icard">
-        <span class="ibadge bf">🌱 Flexible</span>
-        <h3>Plan Flexible</h3>
-        <p>Diseñado para personas con poco tiempo que priorizan el contenido de mayor impacto.</p>
-        <div class="ihours">3–5<span> h/semana</span></div>
-        <ul class="ilist">
-          <li>Solo el contenido esencial primero</li>
-          <li>Progreso gradual y constante</li>
-          <li>Prioriza lo que genera resultados</li>
-          <li>Sin presión, a tu ritmo</li>
-        </ul>
-      </div>
+      <div class="icard"><span class="ibadge bi">🔥 Intensiva</span><h3>Plan Intensivo</h3><p>Para estudiantes comprometidos que quieren resultados en el menor tiempo posible.</p><div class="ihours">15–20<span> h/semana</span></div><ul class="ilist"><li>Consumo agresivo de contenido</li><li>Aplicación práctica desde semana 1</li><li>Máxima velocidad de aprendizaje</li><li>Todos los certificados en tiempo récord</li></ul></div>
+      <div class="icard"><span class="ibadge bs">⚡ Estándar</span><h3>Plan Estándar</h3><p>Balance perfecto entre aprendizaje y aplicación para personas con vida ocupada.</p><div class="ihours">7–10<span> h/semana</span></div><ul class="ilist"><li>Avance sostenible semana a semana</li><li>Balance entre teoría y práctica</li><li>Tiempo para implementar entre módulos</li><li>Ideal para trabajo o familia</li></ul></div>
+      <div class="icard"><span class="ibadge bf">🌱 Flexible</span><h3>Plan Flexible</h3><p>Diseñado para personas con poco tiempo que priorizan el contenido de mayor impacto.</p><div class="ihours">3–5<span> h/semana</span></div><ul class="ilist"><li>Solo el contenido esencial primero</li><li>Progreso gradual y constante</li><li>Prioriza lo que genera resultados</li><li>Sin presión, a tu ritmo</li></ul></div>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2025 <a href="https://beemo.tv" target="_blank" rel="noopener">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p>
-</footer>
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
 
 <script>
-const A = {};
-let step = 1;
-const routes = {
-  amazon: { n: 'Amazon FBA & Marca Privada',        f: 'ruta-amazon.html',       c: '#FF9900', e: '📦', h: { intensiva: '7–8 sem',  estandar: '14–16 sem', flexible: '25–30 sem' } },
-  drop:   { n: 'Dropshipping & Full Commerce',       f: 'ruta-dropshipping.html', c: '#1F58F3', e: '🏪', h: { intensiva: '5–6 sem',  estandar: '10–12 sem', flexible: '18–22 sem' } },
-  mkt:    { n: 'Marketing Digital & Agencia',         f: 'ruta-marketing.html',    c: '#E91E8C', e: '📣', h: { intensiva: '4–5 sem',  estandar: '7–9 sem',   flexible: '14–18 sem' } },
-  ia:     { n: 'IA Aplicada al Negocio',              f: 'ruta-ia.html',           c: '#7C3AED', e: '🤖', h: { intensiva: '2–3 sem',  estandar: '5–6 sem',   flexible: '10–12 sem' } },
-  fin:    { n: 'Finanzas e Independencia Económica',  f: 'ruta-finanzas.html',     c: '#059669', e: '💰', h: { intensiva: '2–3 sem',  estandar: '4–5 sem',   flexible: '8–10 sem'  } }
-};
-const il = { intensiva: '🔥 Plan Intensivo', estandar: '⚡ Plan Estándar', flexible: '🌱 Plan Flexible' };
-const ll = { cero: 'Comenzarás desde los fundamentos.', algo: 'Reforzarás bases e irás directo a la práctica.', activo: 'Nos enfocamos en optimización y escalamiento.' };
-
-function sel(s, v, el) {
-  A['s'+s] = v;
-  el.closest('.qoptions').querySelectorAll('.qopt').forEach(o => o.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('d'+s).classList.add('done');
-  const nb = document.getElementById('qNext');
-  nb.style.display = 'inline-block';
-  if (s === 3) { nb.textContent = 'Ver mi ruta →'; nb.style.background = '#F5C518'; nb.style.color = '#0F0F1A'; }
-}
-
-function next() {
-  if (!A['s'+step]) return;
-  document.getElementById('s'+step).classList.remove('on');
-  step++;
-  if (step <= 3) {
-    document.getElementById('s'+step).classList.add('on');
-    document.getElementById('qNext').style.display = 'none';
-    if (step < 3) { document.getElementById('qNext').textContent = 'Siguiente →'; document.getElementById('qNext').style.background = ''; document.getElementById('qNext').style.color = ''; }
-  } else {
-    document.getElementById('sR').classList.add('on');
-    showRes();
-    document.getElementById('qNext').style.display = 'none';
-  }
-}
-
-function showRes() {
-  const r = routes[A.s1 || 'amazon'];
-  const i = A.s2 || 'estandar';
-  const l = A.s3 || 'cero';
-  const url = window.location.origin + '/' + r.f;
-  const waMsg = encodeURIComponent('¡Mira mi ruta de aprendizaje en Beemo! → ' + url);
-  document.getElementById('qRes').innerHTML = `
-    <div style="background:${r.c}15;border:2px solid ${r.c}40;border-radius:14px;padding:22px;text-align:center;">
-      <div style="font-size:2.5rem;margin-bottom:10px">${r.e}</div>
-      <div style="font-size:.75rem;font-weight:700;color:${r.c};text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Tu ruta recomendada</div>
-      <h3 style="font-size:1.2rem;font-weight:800;color:#1A202C;margin-bottom:6px">${r.n}</h3>
-      <p style="font-size:.87rem;color:#718096;margin-bottom:14px">${ll[l]}</p>
-      <div style="background:#fff;border-radius:9px;padding:10px 14px;margin-bottom:14px;display:inline-block">
-        <span style="font-weight:700;color:#1A202C">${il[i]}</span>
-        <span style="color:#718096;font-size:.82rem"> · Tiempo: ${r.h[i]}</span>
-      </div>
-      <br>
-      <a href="${r.f}" style="display:inline-block;background:${r.c};color:#fff;padding:13px 28px;border-radius:10px;font-weight:800;text-decoration:none;margin:8px 4px 0">Ver mi plan de estudio →</a>
-      <a href="https://wa.me/?text=${waMsg}" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;text-decoration:none;margin:8px 4px 0">📲 Compartir por WhatsApp</a>
-    </div>`;
-}
+const A={};let step=1;
+const routes={amazon:{n:'Amazon FBA & Marca Privada',f:'ruta-amazon.html',c:'#FF9900',e:'📦',h:{intensiva:'7–8 sem',estandar:'14–16 sem',flexible:'25–30 sem'}},drop:{n:'Dropshipping & Full Commerce',f:'ruta-dropshipping.html',c:'#1F58F3',e:'🏪',h:{intensiva:'5–6 sem',estandar:'10–12 sem',flexible:'18–22 sem'}},mkt:{n:'Marketing Digital & Agencia',f:'ruta-marketing.html',c:'#E91E8C',e:'📣',h:{intensiva:'4–5 sem',estandar:'7–9 sem',flexible:'14–18 sem'}},ia:{n:'IA Aplicada al Negocio',f:'ruta-ia.html',c:'#7C3AED',e:'🤖',h:{intensiva:'2–3 sem',estandar:'5–6 sem',flexible:'10–12 sem'}},fin:{n:'Finanzas e Independencia Económica',f:'ruta-finanzas.html',c:'#059669',e:'💰',h:{intensiva:'2–3 sem',estandar:'4–5 sem',flexible:'8–10 sem'}}};
+const il={intensiva:'🔥 Plan Intensivo',estandar:'⚡ Plan Estándar',flexible:'🌱 Plan Flexible'};
+const ll={cero:'Comenzarás desde los fundamentos.',algo:'Reforzarás bases e irás directo a la práctica.',activo:'Nos enfocamos en optimización y escalamiento.'};
+function sel(s,v,el){A['s'+s]=v;el.closest('.qoptions').querySelectorAll('.qopt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');document.getElementById('d'+s).classList.add('done');const nb=document.getElementById('qNext');nb.style.display='inline-block';if(s===3){nb.textContent='Ver mi ruta →';nb.style.background='#F5C518';nb.style.color='#0F0F1A';}}
+function next(){if(!A['s'+step])return;document.getElementById('s'+step).classList.remove('on');step++;if(step<=3){document.getElementById('s'+step).classList.add('on');document.getElementById('qNext').style.display='none';if(step<3){document.getElementById('qNext').textContent='Siguiente →';document.getElementById('qNext').style.background='';document.getElementById('qNext').style.color='';}}else{document.getElementById('sR').classList.add('on');showRes();document.getElementById('qNext').style.display='none';}}
+function showRes(){const r=routes[A.s1||'amazon'];const i=A.s2||'estandar';const l=A.s3||'cero';document.getElementById('qRes').innerHTML='<div style="background:'+r.c+'15;border:2px solid '+r.c+'40;border-radius:14px;padding:22px;text-align:center;"><div style="font-size:2.5rem;margin-bottom:10px">'+r.e+'</div><div style="font-size:.75rem;font-weight:700;color:'+r.c+';text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Tu ruta recomendada</div><h3 style="font-size:1.2rem;font-weight:800;color:#1A202C;margin-bottom:6px">'+r.n+'</h3><p style="font-size:.87rem;color:#718096;margin-bottom:14px">'+ll[l]+'</p><div style="background:#fff;border-radius:9px;padding:10px 14px;margin-bottom:14px;display:inline-block"><span style="font-weight:700;color:#1A202C">'+il[i]+'</span><span style="color:#718096;font-size:.82rem"> · Tiempo: '+r.h[i]+'</span></div><br><a href="'+r.f+'" style="display:inline-block;background:'+r.c+';color:#fff;padding:13px 28px;border-radius:10px;font-weight:800;text-decoration:none;margin-top:8px">Ver mi plan de estudio →</a></div>';}
 </script>
-</body>
-</html>
+</body></html>

@@ -3,57 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IA Aplicada al Negocio — Ruta de Aprendizaje Beemo</title>
-<meta name="description" content="Domina ChatGPT, Leonardo AI, HeyGen y WhatsApp con IA. Ruta de 32–50 horas para automatizar, crear contenido y monetizar con Inteligencia Artificial.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://beemo.study/ruta-ia.html">
-
-<!-- Open Graph / Facebook / WhatsApp -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://beemo.study/ruta-ia.html">
-<meta property="og:title" content="🤖 IA Aplicada al Negocio — Plan de Estudio Beemo">
-<meta property="og:description" content="Domina ChatGPT, Leonardo AI, HeyGen y WhatsApp IA. 32–50 horas · 4 fases · Plan de estudio personalizado.">
-<meta property="og:image" content="https://beemo.study/assets/img/og-ia.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="Beemo Learning Paths">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://beemo.study/ruta-ia.html">
-<meta name="twitter:title" content="🤖 IA Aplicada al Negocio — Plan de Estudio Beemo">
-<meta name="twitter:description" content="Domina ChatGPT, Leonardo AI, HeyGen y WhatsApp IA. 32–50 horas · 4 fases.">
-<meta name="twitter:image" content="https://beemo.study/assets/img/og-ia.jpg">
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-<link rel="shortcut icon" href="assets/img/favicon.svg">
-
-<!-- Estilos compartidos -->
-<link rel="stylesheet" href="assets/css/beemo.css">
-
-<!-- Schema.org: Curso / Colección educativa -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "name": "IA Aplicada al Negocio",
-  "description": "Ruta de aprendizaje oficial de Beemo para dominar Inteligencia Artificial aplicada a negocios digitales.",
-  "provider": { "@type": "Organization", "name": "smartBeemo LLC", "url": "https://beemo.tv" },
-  "educationalLevel": "Principiante–Intermedio",
-  "timeRequired": "PT50H",
-  "url": "https://beemo.study/ruta-ia.html",
-  "inLanguage": "es"
-}
-</script>
+<title>IA Aplicada al Negocio — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-white:#FFFFFF;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-logo{color:#fff;font-size:1.3rem;font-weight:800;}
+.nav-logo .dot{color:var(--bee-yellow);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+.hero-route{padding:56px 2rem;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:12px;}
+.hero-crumb a{color:rgba(255,255,255,.6);}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;margin-bottom:14px;}
+.hero-route h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
+.hero-route p{font-size:1rem;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 1.5rem;}
+.cols{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:28px;margin-bottom:24px;}
+.card h2{font-size:1.1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.phase{margin-bottom:28px;}
+.phase-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--bee-gray);}
+.pnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0;}
+.ptitle{font-size:.95rem;font-weight:700;}
+.psub{font-size:.78rem;color:var(--bee-muted);}
+.prog{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:10px;border:1px solid var(--bee-border);margin-bottom:8px;background:#FAFAFA;transition:all .2s;}
+.prog:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 12px rgba(0,0,0,.06);}
+.picon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:#fff;flex-shrink:0;}
+.pinfo{flex:1;}
+.pname{font-size:.88rem;font-weight:600;margin-bottom:2px;}
+.pmeta{font-size:.75rem;color:var(--bee-muted);display:flex;gap:8px;flex-wrap:wrap;}
+.ptag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.68rem;font-weight:600;text-transform:uppercase;margin-left:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.plink{color:var(--bee-blue);font-size:.78rem;font-weight:600;padding:5px 10px;background:#EBF4FF;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.plink:hover{background:var(--bee-blue);color:#fff;}
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:20px;}
+.tab{flex:1;padding:9px;text-align:center;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;border:none;background:transparent;transition:all .2s;}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.tabp{display:none;}.tabp.on{display:block;}
+.box-r{background:#FFF5F5;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-y{background:#FFFBEB;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-g{background:#F0FFF4;border-radius:8px;padding:14px;margin-bottom:14px;}
+.box-t{font-weight:700;font-size:.88rem;}
+.box-s{font-size:.8rem;color:var(--bee-muted);margin-top:3px;}
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--bee-gray);font-size:.85rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+.trblock{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.trc{padding:18px;border-radius:10px;}
+.trc.bef{background:#FFF5F5;border:1px solid #FED7D7;}
+.trc.aft{background:#F0FFF4;border:1px solid #C6F6D5;}
+.trc h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.trc.bef h4{color:#C53030;}.trc.aft h4{color:#276749;}
+.trc ul{list-style:none;}
+.trc ul li{font-size:.82rem;padding:3px 0;display:flex;gap:6px;}
+.trc.bef ul li::before{content:'✗';color:#FC8181;}.trc.aft ul li::before{content:'✓';color:#48BB78;}
+.hitos{list-style:none;}
+.hito{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bee-gray);}
+.hito:last-child{border-bottom:none;}
+.hnum{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;}
+.htxt{font-size:.87rem;padding-top:5px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{background:var(--bee-gray);padding:5px 12px;border-radius:7px;font-size:.78rem;font-weight:500;}
+.scta{border-radius:14px;padding:22px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
+.scta p{color:rgba(255,255,255,.8);font-size:.82rem;margin-bottom:14px;}
+.scta-btn{display:block;background:#fff;padding:11px;border-radius:9px;font-weight:800;font-size:.9rem;}
+.scard{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:22px;margin-bottom:18px;}
+.scard h3{font-size:.95rem;font-weight:700;margin-bottom:14px;}
+.mentor{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bee-gray);}
+.mentor:last-child{border-bottom:none;}
+.mavatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;}
+.mname{font-size:.85rem;font-weight:600;}
+.mspec{font-size:.75rem;color:var(--bee-muted);}
+footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-top:50px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
+</style>
 </head>
 <body>
-
 <nav class="nav">
   <a href="index.html" class="nav-back">← Todas las rutas</a>
-  <span class="nav-logo">bee<span class="dot">·</span>mo</span>
-  <a href="https://beemo.tv/explora/inteligencia-artificial" class="nav-cta" target="_blank" rel="noopener">Explorar en Beemo →</a>
+  <img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;filter:brightness(0) invert(1);">
+  <a href="https://beemo.tv/explora/inteligencia-artificial" class="nav-cta" target="_blank">Explorar en Beemo →</a>
 </nav>
 
 <section class="hero-route" style="background:linear-gradient(135deg,#7C3AED 0%,#4C1D95 100%)">
@@ -61,36 +104,26 @@
   <div class="hero-badge">🤖 Inteligencia Artificial</div>
   <h1>IA Aplicada al Negocio</h1>
   <p>Domina las herramientas de IA más relevantes para automatizar procesos, crear contenido, generar anuncios y monetizar tu conocimiento.</p>
-  <div class="hero-stats">
-    <div class="hstat"><div class="hstat-n">32–50h</div><div class="hstat-l">Total estimado</div></div>
-    <div class="hstat"><div class="hstat-n">4 fases</div><div class="hstat-l">Progresivas</div></div>
-    <div class="hstat"><div class="hstat-n">1 cert.</div><div class="hstat-l">Certificado</div></div>
-    <div class="hstat"><div class="hstat-n">15+</div><div class="hstat-l">Programas</div></div>
-  </div>
+  <div class="hero-stats"><div class="hstat"><div class="hstat-n">32–50h</div><div class="hstat-l">Total estimado</div></div><div class="hstat"><div class="hstat-n">4 fases</div><div class="hstat-l">Progresivas</div></div><div class="hstat"><div class="hstat-n">1 cert.</div><div class="hstat-l">Certificado</div></div><div class="hstat"><div class="hstat-n">15+</div><div class="hstat-l">Programas</div></div></div>
 </section>
 
 <div class="wrap">
 <div class="cols">
-
-  <!-- ── COLUMNA PRINCIPAL ─────────────────────────── -->
-  <div>
-
-    <div class="card">
-      <h2>🗺️ Mapa de la Ruta</h2>
-
-      <!-- FASE 0 -->
-      <div class="phase">
-        <div class="phase-hd">
-          <div class="pnum" style="background:#6B7280">0</div>
-          <div><div class="ptitle">Introducción a la IA</div><div class="psub">Fundamentos · ~5–7h</div></div>
-        </div>
+<div>
+  <div class="card"><h2>🗺️ Mapa de la Ruta</h2>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#6B7280">0</div>
+        <div><div class="ptitle">Introducción a la IA</div><div class="psub">Fundamentos · ~5–7h</div></div>
+      </div>
+      
         <div class="prog">
           <div class="picon" style="background:#6B7280">0.1</div>
           <div class="pinfo">
             <div class="pname">Tus Primeros Pasos en Inteligencia Artificial <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Michel Edery · ⏱ ~2h · Bases de IA para emprendedores</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#6B7280">0.2</div>
@@ -98,7 +131,7 @@
             <div class="pname">De novato a experto en ChatGPT <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 María Robayo · ⏱ ~2h · ChatGPT desde cero hasta avanzado</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#6B7280">0.3</div>
@@ -106,39 +139,38 @@
             <div class="pname">ChatGPT para Emprendedores de Ecommerce <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Alexandra Pineda · ⏱ ~2h · Casos prácticos de negocio</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#7C3AED">1</div>
+        <div><div class="ptitle">IA para Productividad y Contenido</div><div class="psub">~8–12h</div></div>
       </div>
-
-      <!-- FASE 1 -->
-      <div class="phase">
-        <div class="phase-hd">
-          <div class="pnum" style="background:#7C3AED">1</div>
-          <div><div class="ptitle">IA para Productividad y Contenido</div><div class="psub">~8–12h</div></div>
-        </div>
+      
         <div class="prog">
           <div class="picon" style="background:#7C3AED">1.1</div>
           <div class="pinfo">
             <div class="pname">Buyer Persona y Ángulos de Venta con IA <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Martha Botero · ⏱ ~2h · Segmentación y mensajes de venta</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#7C3AED">1.2</div>
           <div class="pinfo">
-            <div class="pname">Crea imágenes sorprendentes con Leonardo AI <span class="ptag tc">Curso</span></div>
+            <div class="pname">Curso: Crea imágenes sorprendentes con Leonardo AI <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Alexandra Pineda · ⏱ ~2.5h · IA generativa de imágenes</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#7C3AED">1.3</div>
           <div class="pinfo">
-            <div class="pname">Crea un Influencer IA con HeyGen <span class="ptag tm">Masterclass</span></div>
+            <div class="pname">Masterclass: Crea un Influencer IA con HeyGen <span class="ptag tm">Masterclass</span></div>
             <div class="pmeta">👤 Viviana Rodríguez · ⏱ ~1.5h · Avatares y clones digitales</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#7C3AED">1.4</div>
@@ -146,7 +178,7 @@
             <div class="pname">VIBE Marketing: Anuncios con IA en Redes Sociales <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Juan Osorio · ⏱ ~2h · Creativos publicitarios con IA</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#7C3AED">1.5</div>
@@ -154,23 +186,22 @@
             <div class="pname">Marca personal con IA, monetización y posicionamiento <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Karen Carvajalino · ⏱ ~2h</div>
           </div>
-          <a href="https://beemo.tv/explora/marca-personal" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/marca-personal" class="plink" target="_blank">Ver →</a>
         </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#5B21B6">2</div>
+        <div><div class="ptitle">IA para Ventas y Automatización</div><div class="psub">~8–12h</div></div>
       </div>
-
-      <!-- FASE 2 -->
-      <div class="phase">
-        <div class="phase-hd">
-          <div class="pnum" style="background:#5B21B6">2</div>
-          <div><div class="ptitle">IA para Ventas y Automatización</div><div class="psub">~8–12h</div></div>
-        </div>
+      
         <div class="prog">
           <div class="picon" style="background:#5B21B6">2.1</div>
           <div class="pinfo">
-            <div class="pname">Cómo crear asistentes comerciales de IA <span class="ptag tm">Masterclass</span></div>
+            <div class="pname">Masterclass: Cómo crear asistentes comerciales de IA <span class="ptag tm">Masterclass</span></div>
             <div class="pmeta">👤 Michel Edery · ⏱ ~1.5h · Chatbots y asistentes de ventas</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#5B21B6">2.2</div>
@@ -178,15 +209,15 @@
             <div class="pname">WhatsApp con Inteligencia Artificial <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Camilo Vasco · ⏱ ~2h · Configuración, automatización y ventas</div>
           </div>
-          <a href="https://beemo.tv/explora/whatsapp" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/whatsapp" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#5B21B6">2.3</div>
           <div class="pinfo">
-            <div class="pname">Marketing conversacional y ventas por WhatsApp con IA <span class="ptag tc">Curso</span></div>
+            <div class="pname">Marketing conversacional, ventas por WhatsApp con IA <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Pedro Luis Fonseca · ⏱ ~2h · Embudos conversacionales</div>
           </div>
-          <a href="https://beemo.tv/explora/marketing-digital" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/marketing-digital" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#5B21B6">2.4</div>
@@ -194,23 +225,22 @@
             <div class="pname">Crea tu Ecommerce sin mucho personal usando IA <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Kevin López · ⏱ ~2h · Operaciones automatizadas</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#4C1D95">3</div>
+        <div><div class="ptitle">Monetización con IA</div><div class="psub">~10–15h</div></div>
       </div>
-
-      <!-- FASE 3 -->
-      <div class="phase">
-        <div class="phase-hd">
-          <div class="pnum" style="background:#4C1D95">3</div>
-          <div><div class="ptitle">Monetización con IA</div><div class="psub">~10–15h</div></div>
-        </div>
+      
         <div class="prog">
           <div class="picon" style="background:#4C1D95">3.1</div>
           <div class="pinfo">
             <div class="pname">Factura USD$1.000 en 7 días con Inteligencia Artificial <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Juan Fernando Madrid · ⏱ ~2h · Modelos de negocio con IA</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#4C1D95">3.2</div>
@@ -218,7 +248,7 @@
             <div class="pname">Crea y Vende tu Propio Curso Digital Paso a Paso <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Jean Lopez · ⏱ ~3h · Infoproductos con IA</div>
           </div>
-          <a href="https://beemo.tv/explora/infoproductos" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/infoproductos" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#4C1D95">3.3</div>
@@ -226,7 +256,7 @@
             <div class="pname">Tus Primeros Pasos para Vender tu Conocimiento <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Michel Edery · ⏱ ~2h · Plataformas y estrategia</div>
           </div>
-          <a href="https://beemo.tv/explora/full-commerce" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/full-commerce" class="plink" target="_blank">Ver →</a>
         </div>
         <div class="prog">
           <div class="picon" style="background:#4C1D95">3.4</div>
@@ -234,248 +264,94 @@
             <div class="pname">Sistema High Ticket (servicios de alto valor) <span class="ptag tc">Curso</span></div>
             <div class="pmeta">👤 Marcos Razzetti · ⏱ ~3h · Venta de servicios premium</div>
           </div>
-          <a href="https://beemo.tv/explora/ventas" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/ventas" class="plink" target="_blank">Ver →</a>
         </div>
+    </div>
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="pnum" style="background:#3B0764">4</div>
+        <div><div class="ptitle">Bootcamp en Vivo</div><div class="psub">Intensivo práctico</div></div>
       </div>
-
-      <!-- FASE 4 - BOOTCAMP -->
-      <div class="phase">
-        <div class="phase-hd">
-          <div class="pnum" style="background:#3B0764">4</div>
-          <div><div class="ptitle">Bootcamp en Vivo</div><div class="psub">Intensivo práctico</div></div>
-        </div>
+      
         <div class="prog">
           <div class="picon" style="background:#3B0764">4.1</div>
           <div class="pinfo">
             <div class="pname">Bootcamp: IA en Acción — Las Nuevas Ventas Digitales <span class="ptag tm">Bootcamp</span></div>
             <div class="pmeta">👤 Cristian González · 📅 22 junio · 7:00 PM · 24 cupos disponibles</div>
           </div>
-          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank" rel="noopener">Ver →</a>
+          <a href="https://beemo.tv/explora/inteligencia-artificial" class="plink" target="_blank">Ver →</a>
         </div>
+    </div></div>
+
+  <div class="card">
+    <h2>⚡ Planes de Intensidad</h2>
+    <div class="tabs">
+      <button class="tab on" onclick="showT(0,'ia')">🔥 Intensivo</button>
+      <button class="tab" onclick="showT(1,'ia')">⚡ Estándar</button>
+      <button class="tab" onclick="showT(2,'ia')">🌱 Flexible</button>
+    </div>
+    
+    <div class="tabp on" id="tabp-0-ia">
+      <div class="box-r">
+        <div class="box-t">🔥 Plan Intensivo — 15–20h/semana</div>
+        <div class="box-s">Tiempo estimado: 2–3 semanas</div>
       </div>
-    </div><!-- /card mapa -->
-
-    <!-- Planes de intensidad -->
-    <div class="card">
-      <h2>⚡ Planes de Intensidad</h2>
-      <div class="tabs">
-        <button class="tab on" onclick="showT(0,'ia')">🔥 Intensivo</button>
-        <button class="tab" onclick="showT(1,'ia')">⚡ Estándar</button>
-        <button class="tab" onclick="showT(2,'ia')">🌱 Flexible</button>
+      <ul class="mlist"><li><span>Sem 1</span><span class="mv">Fase 0: Fundamentos de IA (6–7h)</span></li><li><span>Sem 1–2</span><span class="mv">Fase 1: IA para Contenido (10–12h)</span></li><li><span>Sem 2</span><span class="mv">Fase 2: Automatización WhatsApp + Ecommerce (8h)</span></li><li><span>Sem 2–3</span><span class="mv">Fase 3: Monetización (10–15h)</span></li><li><span>Paralelo</span><span class="mv">Bootcamp en vivo (22 junio)</span></li></ul>
+      <div style="background:#FFF5F5;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Acción inmediata:</strong> Desde el día 1 aplica prompts en tu negocio actual.</div>
+    </div>
+    <div class="tabp " id="tabp-1-ia">
+      <div class="box-y">
+        <div class="box-t">⚡ Plan Estándar — 7–10h/semana</div>
+        <div class="box-s">Tiempo estimado: 5–6 semanas</div>
       </div>
-      <div class="tabp on" id="tabp-0-ia">
-        <div class="box-r"><div class="box-t">🔥 Plan Intensivo — 15–20h/semana</div><div class="box-s">Tiempo estimado: 2–3 semanas</div></div>
-        <ul class="mlist">
-          <li><span>Sem 1</span><span class="mv">Fase 0: Fundamentos de IA (6–7h)</span></li>
-          <li><span>Sem 1–2</span><span class="mv">Fase 1: IA para Contenido (10–12h)</span></li>
-          <li><span>Sem 2</span><span class="mv">Fase 2: Automatización WhatsApp + Ecommerce (8h)</span></li>
-          <li><span>Sem 2–3</span><span class="mv">Fase 3: Monetización (10–15h)</span></li>
-          <li><span>Paralelo</span><span class="mv">Bootcamp en vivo (22 junio)</span></li>
-        </ul>
-        <div style="background:#FFF5F5;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Acción inmediata:</strong> Desde el día 1 aplica prompts en tu negocio actual.</div>
+      <ul class="mlist"><li><span>Sem 1–2</span><span class="mv">Fase 0 + Fase 1 (Fundamentos + Contenido)</span></li><li><span>Sem 2–3</span><span class="mv">Fase 2: Automatización con IA</span></li><li><span>Sem 3–5</span><span class="mv">Fase 3: Monetización</span></li><li><span>Sem 5–6</span><span class="mv">Bootcamp + refinamiento de aplicaciones</span></li></ul>
+      
+    </div>
+    <div class="tabp " id="tabp-2-ia">
+      <div class="box-g">
+        <div class="box-t">🌱 Plan Flexible — 3–5h/semana</div>
+        <div class="box-s">Tiempo estimado: 10–12 semanas</div>
       </div>
-      <div class="tabp" id="tabp-1-ia">
-        <div class="box-y"><div class="box-t">⚡ Plan Estándar — 7–10h/semana</div><div class="box-s">Tiempo estimado: 5–6 semanas</div></div>
-        <ul class="mlist">
-          <li><span>Sem 1–2</span><span class="mv">Fase 0 + Fase 1 (Fundamentos + Contenido)</span></li>
-          <li><span>Sem 2–3</span><span class="mv">Fase 2: Automatización con IA</span></li>
-          <li><span>Sem 3–5</span><span class="mv">Fase 3: Monetización</span></li>
-          <li><span>Sem 5–6</span><span class="mv">Bootcamp + refinamiento de aplicaciones</span></li>
-        </ul>
-      </div>
-      <div class="tabp" id="tabp-2-ia">
-        <div class="box-g"><div class="box-t">🌱 Plan Flexible — 3–5h/semana</div><div class="box-s">Tiempo estimado: 10–12 semanas</div></div>
-        <ul class="mlist">
-          <li><span>Mes 1</span><span class="mv">Fase 0 + Fase 1</span></li>
-          <li><span>Mes 2</span><span class="mv">Fase 2: Automatización</span></li>
-          <li><span>Mes 3</span><span class="mv">Fase 3: Monetización + Bootcamp</span></li>
-        </ul>
-        <div style="background:#F0FFF4;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Prioriza:</strong> ChatGPT → Asistentes Comerciales → WhatsApp IA. Esos tres son el núcleo más rentable.</div>
-      </div>
-    </div><!-- /card planes -->
-
-    <!-- Modelo de transformación -->
-    <div class="card">
-      <h2>🔄 Modelo de Transformación</h2>
-      <div class="trblock">
-        <div class="trc bef"><h4>Al inicio</h4><ul>
-          <li>No usa IA en su negocio</li>
-          <li>Hace tareas manuales que IA podría automatizar</li>
-          <li>No sabe crear contenido con IA</li>
-          <li>No tiene asistentes de ventas automatizados</li>
-          <li>No ha monetizado el conocimiento de IA</li>
-          <li>Cree que la IA es complicada</li>
-        </ul></div>
-        <div class="trc aft"><h4>Al finalizar</h4><ul>
-          <li>Usa ChatGPT y herramientas de IA diariamente</li>
-          <li>Procesos automatizados con IA (respuestas, contenido, ads)</li>
-          <li>Crea imágenes, videos y avatares con IA</li>
-          <li>Asistente comercial de WhatsApp activo 24/7</li>
-          <li>Primer ingreso generado usando IA como herramienta</li>
-          <li>Capacidad de enseñar IA a otros</li>
-        </ul></div>
-      </div>
-      <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;">🎯 Resultados prácticos</h4>
-      <ul style="list-style:none;">
-        <li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Flujos de WhatsApp automatizados con IA atendiendo clientes</li>
-        <li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Creativos publicitarios generados con IA en minutos</li>
-        <li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Curso o infoproducto sobre IA creado y en venta</li>
-        <li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Avatar digital o influencer IA creado y activo</li>
-        <li style="padding:7px 0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Primer cliente pagando por servicios de automatización con IA</li>
-      </ul>
+      <ul class="mlist"><li><span>Mes 1</span><span class="mv">Fase 0 + Fase 1</span></li><li><span>Mes 2</span><span class="mv">Fase 2: Automatización</span></li><li><span>Mes 3</span><span class="mv">Fase 3: Monetización + Bootcamp</span></li></ul>
+      <div style="background:#F0FFF4;border-radius:8px;padding:10px;margin-top:10px;font-size:.82rem;"><strong>Prioriza:</strong> ChatGPT → Asistentes Comerciales → WhatsApp IA. Esos tres son el núcleo más rentable.</div>
     </div>
+  </div>
 
-    <!-- Hitos -->
-    <div class="card">
-      <h2>🏁 Hitos de Avance</h2>
-      <ul class="hitos">
-        <li class="hito"><div class="hnum" style="background:#7C3AED">1</div><div class="htxt">Domina ChatGPT con prompts avanzados para el negocio</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">2</div><div class="htxt">Primer creative publicitario generado 100% con IA</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">3</div><div class="htxt">Asistente comercial de WhatsApp configurado y activo</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">4</div><div class="htxt">Avatar o influencer IA creado con HeyGen</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">5</div><div class="htxt">Primera automatización de flujo de negocio funcionando</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">6</div><div class="htxt">Primer ingreso directo usando IA como herramienta</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">7</div><div class="htxt">Infoproducto o servicio de IA creado y ofrecido al mercado</div></li>
-        <li class="hito"><div class="hnum" style="background:#7C3AED">8</div><div class="htxt">Primer cliente de servicios de automatización conseguido</div></li>
-      </ul>
-    </div>
+  <div class="card"><h2>🔄 Modelo de Transformación</h2><div class="trblock">
+    <div class="trc bef"><h4>Al inicio</h4><ul><li>No usa IA en su negocio</li><li>Hace tareas manuales que IA podría automatizar</li><li>No sabe crear contenido con IA</li><li>No tiene asistentes de ventas automatizados</li><li>No ha monetizado el conocimiento de IA</li><li>Cree que la IA es complicada</li></ul></div>
+    <div class="trc aft"><h4>Al finalizar</h4><ul><li>Usa ChatGPT y herramientas de IA diariamente</li><li>Procesos automatizados con IA (respuestas, contenido, ads)</li><li>Crea imágenes, videos y avatares con IA</li><li>Asistente comercial de WhatsApp activo 24/7</li><li>Primer ingreso generado usando IA como herramienta</li><li>Capacidad de enseñar IA a otros</li></ul></div>
+  </div>
+  <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;">🎯 Resultados prácticos</h4>
+  <ul style="list-style:none;"><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Flujos de WhatsApp automatizados con IA atendiendo clientes</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Creativos publicitarios generados con IA en minutos</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Curso o infoproducto sobre IA creado y en venta</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Avatar digital o influencer IA creado y activo</li><li style="padding:7px 0;border-bottom:1px solid #E2E8F0;display:flex;gap:8px;font-size:.85rem;"><span style="color:#7C3AED">→</span>Primer cliente pagando por servicios de automatización con IA</li></ul></div>
+  <div class="card"><h2>🏁 Hitos de Avance</h2><ul class="hitos"><li class="hito"><div class="hnum" style="background:#7C3AED">1</div><div class="htxt">Domina ChatGPT con prompts avanzados para el negocio</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">2</div><div class="htxt">Primer creative publicitario generado 100% con IA</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">3</div><div class="htxt">Asistente comercial de WhatsApp configurado y activo</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">4</div><div class="htxt">Avatar o influencer IA creado con HeyGen</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">5</div><div class="htxt">Primera automatización de flujo de negocio funcionando</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">6</div><div class="htxt">Primer ingreso directo usando IA como herramienta</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">7</div><div class="htxt">Infoproducto o servicio de IA creado y ofrecido al mercado</div></li><li class="hito"><div class="hnum" style="background:#7C3AED">8</div><div class="htxt">Primer cliente de servicios de automatización conseguido</div></li></ul></div>
+  <div class="card"><h2>🛠️ Competencias Adquiridas</h2><div class="chips"><span class="chip">ChatGPT & Prompting</span><span class="chip">Leonardo AI</span><span class="chip">HeyGen (Avatares)</span><span class="chip">WhatsApp Automation</span><span class="chip">Asistentes Comerciales IA</span><span class="chip">VIBE Marketing</span><span class="chip">IA Generativa</span><span class="chip">Automatización de Flujos</span><span class="chip">Infoproductos</span><span class="chip">Monetización con IA</span><span class="chip">Buyer Persona con IA</span><span class="chip">Creativos Publicitarios IA</span></div></div>
+  <div class="card"><h2>📊 Sistema de Medición</h2>
+    <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;color:#7C3AED">Indicadores de Avance</h4>
+    <ul class="mlist"><li><span>Cursos de IA completados</span><span class="mv">X / 15</span></li><li><span>Horas de contenido consumido</span><span class="mv">X / 32–50h</span></li><li><span>Herramientas de IA dominadas</span><span class="mv">X / 8 herramientas</span></li><li><span>Hitos de aplicación alcanzados</span><span class="mv">X / 8</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#7C3AED">Indicadores de Aplicación</h4>
+    <ul class="mlist"><li><span>Prompts propios creados y usados</span><span class="mv">> 50 prompts</span></li><li><span>Flujos automatizados activos</span><span class="mv">> 2 flujos</span></li><li><span>Tiempo ahorrado con IA/semana</span><span class="mv">> 5 horas/semana</span></li><li><span>Ingresos generados con IA</span><span class="mv">Primer $500 USD</span></li><li><span>Clientes o contenidos usando IA</span><span class="mv">> 3 casos reales</span></li></ul>
+    <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#7C3AED">Evidencia de Dominio</h4>
+    <p style="font-size:.84rem;color:#718096;line-height:1.7">El estudiante domina la ruta cuando: usa IA diariamente en al menos 3 áreas del negocio, ha creado un flujo de automatización funcionando sin intervención manual, ha generado al menos $500 USD usando IA como herramienta, y puede explicar y enseñar el uso de al menos 3 herramientas de IA.</p></div>
+</div>
 
-    <!-- Competencias -->
-    <div class="card">
-      <h2>🛠️ Competencias Adquiridas</h2>
-      <div class="chips">
-        <span class="chip">ChatGPT & Prompting</span><span class="chip">Leonardo AI</span><span class="chip">HeyGen (Avatares)</span>
-        <span class="chip">WhatsApp Automation</span><span class="chip">Asistentes Comerciales IA</span><span class="chip">VIBE Marketing</span>
-        <span class="chip">IA Generativa</span><span class="chip">Automatización de Flujos</span><span class="chip">Infoproductos</span>
-        <span class="chip">Monetización con IA</span><span class="chip">Buyer Persona con IA</span><span class="chip">Creativos Publicitarios IA</span>
-      </div>
-    </div>
-
-    <!-- Métricas -->
-    <div class="card">
-      <h2>📊 Sistema de Medición</h2>
-      <h4 style="font-size:.85rem;font-weight:700;margin-bottom:10px;color:#7C3AED">Indicadores de Avance</h4>
-      <ul class="mlist">
-        <li><span>Cursos de IA completados</span><span class="mv">X / 15</span></li>
-        <li><span>Horas de contenido consumido</span><span class="mv">X / 32–50h</span></li>
-        <li><span>Herramientas de IA dominadas</span><span class="mv">X / 8 herramientas</span></li>
-        <li><span>Hitos de aplicación alcanzados</span><span class="mv">X / 8</span></li>
-      </ul>
-      <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#7C3AED">Indicadores de Aplicación</h4>
-      <ul class="mlist">
-        <li><span>Prompts propios creados y usados</span><span class="mv">&gt; 50 prompts</span></li>
-        <li><span>Flujos automatizados activos</span><span class="mv">&gt; 2 flujos</span></li>
-        <li><span>Tiempo ahorrado con IA/semana</span><span class="mv">&gt; 5 horas/semana</span></li>
-        <li><span>Ingresos generados con IA</span><span class="mv">Primer $500 USD</span></li>
-        <li><span>Clientes o contenidos usando IA</span><span class="mv">&gt; 3 casos reales</span></li>
-      </ul>
-      <h4 style="font-size:.85rem;font-weight:700;margin:14px 0 10px;color:#7C3AED">Evidencia de Dominio</h4>
-      <p style="font-size:.84rem;color:#718096;line-height:1.7">El estudiante domina la ruta cuando: usa IA diariamente en al menos 3 áreas del negocio, ha creado un flujo de automatización funcionando sin intervención manual, ha generado al menos $500 USD usando IA como herramienta, y puede explicar y enseñar el uso de al menos 3 herramientas de IA.</p>
-    </div>
-
-  </div><!-- /columna principal -->
-
-  <!-- ── SIDEBAR ─────────────────────────────────── -->
-  <div class="sticky-col">
-
-    <!-- CTA principal -->
-    <div class="scta" style="background:linear-gradient(135deg,#7C3AED 0%,#4C1D95 100%)">
-      <h3>¿Listo para empezar?</h3>
-      <p>Accede a todos los programas con tu suscripción Beemo</p>
-      <a href="https://beemo.tv/explora/inteligencia-artificial" class="scta-btn" style="color:#7C3AED" target="_blank" rel="noopener">Ir a Beemo →</a>
-    </div>
-
-    <!-- Botones de compartir -->
-    <div class="scard">
-      <h3>📲 Compartir esta ruta</h3>
-      <div class="share-bar">
-        <button class="share-btn share-wa" onclick="shareWA()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Compartir por WhatsApp
-        </button>
-        <button class="share-btn share-copy" onclick="copyLink()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          Copiar enlace
-        </button>
-        <button class="share-btn share-tw" onclick="shareTwitter()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          Compartir en X
-        </button>
-        <div class="copy-feedback" id="copyFeedback">✓ ¡Enlace copiado!</div>
-      </div>
-    </div>
-
-    <!-- Resumen -->
-    <div class="scard">
-      <h3>📋 Resumen</h3>
-      <ul class="mlist">
-        <li><span>Programas totales</span><span class="mv">15</span></li>
-        <li><span>Horas estimadas</span><span class="mv">32–50h</span></li>
-        <li><span>Certificado</span><span class="mv">1 digital</span></li>
-        <li><span>Nivel</span><span class="mv">Básico → Intermedio</span></li>
-        <li><span>Plan Intensivo</span><span class="mv">2–3 semanas</span></li>
-        <li><span>Plan Estándar</span><span class="mv">5–6 semanas</span></li>
-        <li><span>Plan Flexible</span><span class="mv">10–12 semanas</span></li>
-      </ul>
-    </div>
-
-    <!-- Mentores -->
-    <div class="scard">
-      <h3>👥 Mentores</h3>
-      <div class="mentor"><div class="mavatar" style="background:#7C3AED">ME</div><div><div class="mname">Michel Edery</div><div class="mspec">IA & Estrategia Digital</div></div></div>
-      <div class="mentor"><div class="mavatar" style="background:#7C3AED">VR</div><div><div class="mname">Viviana Rodríguez</div><div class="mspec">Influencer IA & Avatares Digitales</div></div></div>
-      <div class="mentor"><div class="mavatar" style="background:#7C3AED">CV</div><div><div class="mname">Camilo Vasco</div><div class="mspec">WhatsApp con IA</div></div></div>
-      <div class="mentor"><div class="mavatar" style="background:#7C3AED">CG</div><div><div class="mname">Cristian González</div><div class="mspec">IA en Acción & Ventas Digitales</div></div></div>
-    </div>
-
-    <!-- Rutas relacionadas -->
-    <div class="scard">
-      <h3>🔗 Otras rutas</h3>
-      <ul class="mlist">
-        <li><a href="ruta-amazon.html" style="color:#FF9900;font-weight:600">📦 Amazon FBA</a></li>
-        <li><a href="ruta-dropshipping.html" style="color:#1F58F3;font-weight:600">🏪 Dropshipping</a></li>
-        <li><a href="ruta-marketing.html" style="color:#E91E8C;font-weight:600">📣 Marketing Digital</a></li>
-        <li><a href="ruta-finanzas.html" style="color:#059669;font-weight:600">💰 Finanzas</a></li>
-      </ul>
-    </div>
-
-  </div><!-- /sidebar -->
+<div class="sticky-col">
+  <div class="scta" style="background:linear-gradient(135deg,#7C3AED 0%,#4C1D95 100%)">
+    <h3>¿Listo para empezar?</h3>
+    <p>Accede a todos los programas con tu suscripción Beemo</p>
+    <a href="https://beemo.tv/explora/inteligencia-artificial" class="scta-btn" style="color:#7C3AED" target="_blank">Ir a Beemo →</a>
+  </div>
+  <div class="scard"><h3>📋 Resumen</h3><ul class="mlist"><li><span>Programas totales</span><span class="mv">15</span></li><li><span>Horas estimadas</span><span class="mv">32–50h</span></li><li><span>Certificado</span><span class="mv">1 digital</span></li><li><span>Nivel</span><span class="mv">Básico → Intermedio</span></li><li><span>Plan Intensivo</span><span class="mv">2–3 semanas</span></li><li><span>Plan Estándar</span><span class="mv">5–6 semanas</span></li><li><span>Plan Flexible</span><span class="mv">10–12 semanas</span></li></ul></div>
+  <div class="scard"><h3>👥 Mentores</h3><div class="mentor"><div class="mavatar" style="background:#7C3AED">ME</div><div><div class="mname">Michel Edery</div><div class="mspec">IA & Estrategia Digital</div></div></div><div class="mentor"><div class="mavatar" style="background:#7C3AED">VR</div><div><div class="mname">Viviana Rodríguez</div><div class="mspec">Influencer IA & Avatares Digitales</div></div></div><div class="mentor"><div class="mavatar" style="background:#7C3AED">CV</div><div><div class="mname">Camilo Vasco</div><div class="mspec">WhatsApp con IA</div></div></div><div class="mentor"><div class="mavatar" style="background:#7C3AED">CG</div><div><div class="mname">Cristian González</div><div class="mspec">IA en Acción & Ventas Digitales</div></div></div></div>
+</div>
 </div>
 </div>
 
-<footer>
-  <p>© 2025 <a href="https://beemo.tv" target="_blank" rel="noopener">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p>
-</footer>
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
 
 <script>
-/* ── Tabs de intensidad ─── */
-function showT(idx, id) {
-  document.querySelectorAll('[id^="tabp-"][id$="-'+id+'"]').forEach((el, i) => el.classList.toggle('on', i === idx));
-  event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('on', i === idx));
-}
-
-/* ── Compartir ─── */
-const PAGE_URL   = window.location.href;
-const PAGE_TITLE = '🤖 Ruta IA Aplicada al Negocio — Beemo';
-
-function shareWA() {
-  const msg = encodeURIComponent(PAGE_TITLE + '\n' + PAGE_URL);
-  window.open('https://wa.me/?text=' + msg, '_blank');
-}
-
-function copyLink() {
-  navigator.clipboard.writeText(PAGE_URL).then(() => {
-    const fb = document.getElementById('copyFeedback');
-    fb.style.display = 'block';
-    setTimeout(() => { fb.style.display = 'none'; }, 2500);
-  });
-}
-
-function shareTwitter() {
-  const text = encodeURIComponent(PAGE_TITLE);
-  const url  = encodeURIComponent(PAGE_URL);
-  window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url, '_blank');
+function showT(idx,id){
+  document.querySelectorAll('[id^="tabp-"][id$="-'+id+'"]').forEach((el,i)=>{el.classList.toggle('on',i===idx)});
+  event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===idx));
 }
 </script>
-</body>
-</html>
+</body></html>
