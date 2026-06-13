@@ -376,11 +376,22 @@ function showT(idx,id){
 }
 
 function printPlan(idx){
-  document.body.classList.remove('print-plan-0','print-plan-1','print-plan-2');
-  document.body.classList.add('print-plan-'+idx);
+  // Ocultar directamente via style (gana sobre cualquier CSS)
+  [0,1,2].forEach(function(i){
+    document.querySelectorAll('[id^="tabp-'+i+'-"]').forEach(function(el){
+      el.style.display = (i===idx) ? '' : 'none';
+    });
+  });
   document.getElementById('planModal').style.display='none';
-  window.print();
-  setTimeout(function(){document.body.classList.remove('print-plan-0','print-plan-1','print-plan-2');},2000);
+  setTimeout(function(){
+    window.print();
+    // Restaurar todo después de que cierre el diálogo
+    setTimeout(function(){
+      document.querySelectorAll('[id^="tabp-0-"],[id^="tabp-1-"],[id^="tabp-2-"]').forEach(function(el){
+        el.style.display='';
+      });
+    },2000);
+  },150);
 }
 </script>
 <button class="print-btn" onclick="document.getElementById('planModal').style.display='flex'">
