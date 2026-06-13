@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Productos Select · Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-white:#FFFFFF;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+
+/* NAV */
+.nav{background:#0F0F1A;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.nav-brand img{height:28px;filter:brightness(0) invert(1);}
+.nav-brand span{color:#fff;font-size:1.15rem;font-weight:800;letter-spacing:-.3px;}
+.nav-back{color:rgba(255,255,255,.6);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0F0F1A 0%,#1A1A2E 60%,#2a2a00 100%);padding:52px 2rem 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,rgba(245,197,24,.1) 0%,transparent 60%);}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.4);color:#F5C518;padding:5px 16px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.5px;margin-bottom:16px;}
+.hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.1;}
+.hero h1 span{color:#F5C518;}
+.hero p{font-size:1rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 10px;}
+.hero-note{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:32px;}
+.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;background:rgba(255,255,255,.07);border-radius:12px;padding:18px 8px;max-width:500px;margin:0 auto;}
+.hstat{text-align:center;padding:4px 22px;border-right:1px solid rgba(255,255,255,.12);}
+.hstat:last-child{border-right:none;}
+.hstat-n{font-size:1.6rem;font-weight:900;color:#F5C518;}
+.hstat-l{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px;}
+
+/* DISCLAIMER */
+.disclaimer{max-width:1100px;margin:32px auto 0;padding:0 1.5rem;}
+.disc-box{background:#FFFBEB;border:1px solid #F6E05E;border-left:4px solid #F5C518;border-radius:10px;padding:14px 18px;display:flex;gap:10px;align-items:flex-start;}
+.disc-box svg{flex-shrink:0;margin-top:2px;color:#D97706;}
+.disc-box p{font-size:.85rem;color:#92400E;line-height:1.5;}
+.disc-box strong{color:#78350F;}
+
+/* SECTION */
+.sec{max-width:1100px;margin:0 auto;padding:40px 1.5rem 80px;}
+.sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--bee-border);}
+.sec-t{font-size:1.2rem;font-weight:800;}
+.sec-count{font-size:.82rem;color:var(--bee-muted);background:var(--bee-gray);padding:4px 12px;border-radius:20px;}
+
+/* PRODUCT CARDS */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:22px;}
+
+.pcard{background:#fff;border-radius:14px;border:1px solid var(--bee-border);overflow:hidden;transition:all .25s;display:flex;flex-direction:column;}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1);border-color:#F5C518;}
+
+/* Card header strip */
+.pcard-strip{height:5px;background:linear-gradient(90deg,#F5C518,#FFA500);}
+
+.pcard-body{padding:22px 24px 18px;flex:1;}
+
+/* Top row */
+.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;}
+.pcard-left{display:flex;flex-direction:column;gap:5px;}
+.select-tag{display:inline-flex;align-items:center;gap:5px;background:#FFFBEB;border:1px solid #F6E05E;color:#92400E;font-size:.68rem;font-weight:800;letter-spacing:1px;padding:2px 9px;border-radius:20px;width:fit-content;}
+.pcard-name{font-size:1.05rem;font-weight:800;color:var(--bee-dark);line-height:1.2;}
+.pcard-type{font-size:.75rem;color:var(--bee-muted);text-transform:uppercase;letter-spacing:.5px;}
+.pcard-price{text-align:right;flex-shrink:0;}
+.price-original{font-size:.78rem;color:#CBD5E0;text-decoration:line-through;}
+.price-current{font-size:1.5rem;font-weight:900;color:#D97706;}
+.price-currency{font-size:.75rem;color:var(--bee-muted);font-weight:400;}
+
+/* Meta row */
+.pcard-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
+.pmeta-item{display:flex;align-items:center;gap:5px;font-size:.77rem;color:var(--bee-muted);}
+
+/* Mentor */
+.pcard-mentor{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--bee-border);border-bottom:1px solid var(--bee-border);margin-bottom:14px;}
+.mentor-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#F5C518,#FFA500);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#1A1A2E;flex-shrink:0;}
+.mentor-name{font-size:.85rem;font-weight:600;color:var(--bee-text);}
+.mentor-bio{font-size:.74rem;color:var(--bee-muted);line-height:1.35;}
+
+/* Description */
+.pcard-desc{font-size:.85rem;color:#4A5568;line-height:1.6;margin-bottom:16px;}
+
+/* Skills */
+.skills-hd{font-size:.7rem;font-weight:700;color:var(--bee-muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
+.skills-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.skills-list li{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:#4A5568;line-height:1.4;}
+.skill-dot{width:6px;height:6px;border-radius:50%;background:#F5C518;flex-shrink:0;margin-top:6px;}
+
+/* Card footer */
+.pcard-foot{padding:14px 24px;background:#FAFAFA;border-top:1px solid var(--bee-border);display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.pcard-features{display:flex;gap:14px;flex-wrap:wrap;}
+.feat{display:flex;align-items:center;gap:5px;font-size:.74rem;color:var(--bee-muted);}
+.pcard-cta{background:var(--bee-dark);color:#fff;font-size:.82rem;font-weight:700;padding:9px 18px;border-radius:9px;white-space:nowrap;transition:all .2s;}
+.pcard-cta:hover{background:var(--bee-blue);}
+
+/* COMING SOON CARD */
+.pcard.soon{opacity:.5;pointer-events:none;}
+.soon-placeholder{height:100px;background:#F7F9FC;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.soon-label{font-size:.8rem;color:#CBD5E0;font-style:italic;}
+
+footer{background:#0F0F1A;padding:28px 2rem;text-align:center;margin-top:50px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:#F5C518;}
+
+@media(max-width:700px){.pgrid{grid-template-columns:1fr;}.pcard-top{flex-direction:column;gap:8px;}.pcard-price{text-align:left;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://beemo.tv/img/beemo.svg" alt="Beemo">
+    <span>beemo</span>
+  </a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">⭐ PRODUCTOS SELECT</div>
+  <h1>Programas de edición<br><span>exclusiva</span> Beemo</h1>
+  <p>Productos disponibles únicamente como compra independiente.</p>
+  <p class="hero-note">No están incluidos en planes ni suscripciones.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">7</div><div class="hstat-l">productos select</div></div>
+    <div class="hstat"><div class="hstat-n">5 días</div><div class="hstat-l">garantía devolución</div></div>
+    <div class="hstat"><div class="hstat-n">100%</div><div class="hstat-l">compra independiente</div></div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disc-box">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    <p><strong>Para asesores:</strong> estos productos se venden de forma independiente, fuera de la suscripción Beemo. Mencionarlos cuando el estudiante tiene un interés específico que va más allá del catálogo incluido en su plan.</p>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="sec">
+  <div class="sec-hd">
+    <div class="sec-t">Productos disponibles</div>
+    <div class="sec-count">7 productos</div>
+  </div>
+
+  <div class="pgrid">
+
+    <!-- ★ VIDEOTRADER -->
+    <div class="pcard">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Videotrader</div>
+            <div class="pcard-type">Curso · Inversiones · Bolsa NYSE</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-original">USD $1,000</div>
+            <div class="price-current">$397 <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="pcard-meta">
+          <span class="pmeta-item">⏱ 7 horas</span>
+          <span class="pmeta-item">🎓 Certificado digital</span>
+          <span class="pmeta-item">📱 Online a tu ritmo</span>
+        </div>
+        <div class="pcard-mentor">
+          <div class="mentor-av">JH</div>
+          <div>
+            <div class="mentor-name">Javier Hernández</div>
+            <div class="mentor-bio">MBA Thunderbird · Fundador de Invierta Para Ganar · Experto inversionista con más de 10 años</div>
+          </div>
+        </div>
+        <p class="pcard-desc">El entrenamiento básico para invertir en la bolsa de Nueva York usando el <strong>Factor X7</strong> — una metodología paso a paso para analizar el mercado, comprar tus primeras acciones y generar tus primeros $1,000 USD en bolsa. Sin experiencia previa.</p>
+        <div class="skills-hd">Qué va a lograr el estudiante</div>
+        <ul class="skills-list">
+          <li><span class="skill-dot"></span>Analizar el mercado profesionalmente con el Factor X7</li>
+          <li><span class="skill-dot"></span>Invertir en empresas como Tesla, Apple y Amazon con confianza</li>
+          <li><span class="skill-dot"></span>Proteger su patrimonio ganando en dólares</li>
+          <li><span class="skill-dot"></span>Diversificar ingresos más allá del ecommerce</li>
+          <li><span class="skill-dot"></span>Ejecutar su primera compra y alcanzar los primeros $1,000 USD en bolsa</li>
+        </ul>
+      </div>
+      <div class="pcard-foot">
+        <div class="pcard-features">
+          <span class="feat">📞 Llamada de orientación</span>
+          <span class="feat">📥 Recursos descargables</span>
+        </div>
+        <a class="pcard-cta" href="https://beemo.tv/programa/69c5547fa4d99048fa81240d/cohortes/69c556900b662f6438342d79" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+    <!-- ★ MONEY GAME -->
+    <div class="pcard">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Money Game</div>
+            <div class="pcard-type">Curso · Mentalidad Financiera</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-original">USD $294</div>
+            <div class="price-current">$147 <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="pcard-meta">
+          <span class="pmeta-item">⏱ 11 horas</span>
+          <span class="pmeta-item">🎓 Certificado digital</span>
+          <span class="pmeta-item">📱 Online a tu ritmo</span>
+        </div>
+        <div class="pcard-mentor">
+          <div class="mentor-av">PR</div>
+          <div>
+            <div class="mentor-name">Paul Raminfar</div>
+            <div class="mentor-bio">Entrenador de mentalidad · +9 años de experiencia · 5,000+ personas entrenadas</div>
+          </div>
+        </div>
+        <p class="pcard-desc">Reprogramación financiera en 4 módulos intensivos: mentalidad, reglas del dinero, estrategias prácticas y blueprint actualizado para 2026. No es teoría — es un sistema de transformación con aplicación directa.</p>
+        <div class="skills-hd">Qué va a lograr el estudiante</div>
+        <ul class="skills-list">
+          <li><span class="skill-dot"></span>Identificar y eliminar creencias limitantes sobre el dinero</li>
+          <li><span class="skill-dot"></span>Tomar decisiones financieras con lógica, no emoción</li>
+          <li><span class="skill-dot"></span>Aplicar estrategias para generar y multiplicar ingresos</li>
+          <li><span class="skill-dot"></span>Construir hábitos financieros que generan estabilidad y crecimiento</li>
+          <li><span class="skill-dot"></span>Diseñar su propio blueprint financiero hacia 2026</li>
+        </ul>
+      </div>
+      <div class="pcard-foot">
+        <div class="pcard-features">
+          <span class="feat">📞 Llamada de orientación</span>
+          <span class="feat">📥 Recursos descargables</span>
+        </div>
+        <a class="pcard-cta" href="https://beemo.tv/programa/69eaf86854b9b9a4bf4fe6c0/cohortes/69eb00f5fefccd154ebf1351" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+    <!-- ★ PLACEHOLDERS — pendientes de detalles -->
+    <div class="pcard soon">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Focus Training System</div>
+            <div class="pcard-type">Curso · Productividad</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-current">— <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="soon-placeholder"><span class="soon-label">Contenido en preparación</span></div>
+      </div>
+      <div class="pcard-foot">
+        <span></span>
+        <a class="pcard-cta" href="https://beemo.tv/programa/69eb679754b9b9a4bf4feaf9/cohortes/69eb68f212f9df625541f261" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+    <div class="pcard soon">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Impossible Thinking</div>
+            <div class="pcard-type">Curso · Mentalidad</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-current">— <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="soon-placeholder"><span class="soon-label">Contenido en preparación</span></div>
+      </div>
+      <div class="pcard-foot">
+        <span></span>
+        <a class="pcard-cta" href="https://beemo.tv/programa/69ebec5cbcc6177a8d567c3d/cohortes/69ebf633838833370fb43f54" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+    <div class="pcard soon">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Juguemos a Comer</div>
+            <div class="pcard-type">Curso · Nutrición infantil</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-current">— <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="soon-placeholder"><span class="soon-label">Contenido en preparación</span></div>
+      </div>
+      <div class="pcard-foot">
+        <span></span>
+        <a class="pcard-cta" href="https://beemo.tv/programa/69e10e152a45a502364e4e2e/cohortes/69e24e8b987cc0c4ecc96139" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+    <div class="pcard soon">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Academia Pastelera Insuperable</div>
+            <div class="pcard-type">Curso · Cocina · Pastelería</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-original">USD $350</div>
+            <div class="price-current">$175 <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="soon-placeholder"><span class="soon-label">Contenido en preparación</span></div>
+      </div>
+      <div class="pcard-foot">
+        <span></span>
+        <a class="pcard-cta" href="https://beemo.tv/programa/69fd400d6ddf324315c94097/cohortes/69fdf647d4e8bc3dbf2100ef" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+    <div class="pcard soon">
+      <div class="pcard-strip"></div>
+      <div class="pcard-body">
+        <div class="pcard-top">
+          <div class="pcard-left">
+            <div class="select-tag">⭐ SELECT</div>
+            <div class="pcard-name">Aprende de tus créditos y págalos en tiempo record</div>
+            <div class="pcard-type">Curso · Finanzas personales</div>
+          </div>
+          <div class="pcard-price">
+            <div class="price-current">— <span class="price-currency">USD</span></div>
+          </div>
+        </div>
+        <div class="soon-placeholder"><span class="soon-label">Contenido en preparación</span></div>
+      </div>
+      <div class="pcard-foot">
+        <span></span>
+        <a class="pcard-cta" href="https://beemo.tv/programa/6904e816a3f706683c3e363f/cohortes/6904ea63a2a5e3dd48fb945e" target="_blank">Ver en Beemo →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+</body>
+</html>
