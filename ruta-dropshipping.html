@@ -111,7 +111,8 @@ footer{display:none!important;}
 .wrap{padding:12px 0 0!important;}
 .hero-route{padding:20px 1.5rem!important;margin-bottom:4px;}
 .tabs{display:none!important;}
-.tabp{display:block!important;}
+.tabp{display:none!important;}
+.tabp.on{display:block!important;}
 .card{page-break-inside:auto!important;break-inside:auto!important;border:none!important;box-shadow:none!important;padding:6px 0!important;margin-bottom:6px!important;}
 .card h2{margin-bottom:10px!important;break-after:avoid;page-break-after:avoid;}
 .phase-hd{break-after:avoid;page-break-after:avoid;}
@@ -438,12 +439,31 @@ function showT(idx,id){
 }
 
 function printCurrentPlan(){
-  // Detectar qué tab está activo (clase "on")
   var idx = 0;
   [0,1,2].forEach(function(i){
     if(document.querySelector('[id^="tabp-'+i+'-"].on')) idx = i;
   });
   printPlan(idx);
+}
+function printPlan(idx){
+  var prevOn = -1;
+  [0,1,2].forEach(function(i){
+    var els = document.querySelectorAll('[id^="tabp-'+i+'-"]');
+    els.forEach(function(el){
+      if(el.classList.contains('on')) prevOn = i;
+      el.classList.toggle('on', i===idx);
+    });
+  });
+  setTimeout(function(){
+    window.print();
+    setTimeout(function(){
+      [0,1,2].forEach(function(i){
+        document.querySelectorAll('[id^="tabp-'+i+'-"]').forEach(function(el){
+          el.classList.toggle('on', i===(prevOn>=0?prevOn:idx));
+        });
+      });
+    },500);
+  },150);
 }
 function printPlan(idx){
   // Ocultar los otros planes directamente via style
