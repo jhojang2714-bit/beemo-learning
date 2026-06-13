@@ -122,16 +122,7 @@ footer{display:none!important;}
 .plink{display:inline-block!important;background:none!important;color:#1F58F3!important;font-size:.68rem!important;padding:0!important;border:none!important;font-weight:600!important;white-space:nowrap;}
 }
 
-.plan-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;}
-.plan-modal-box{background:#fff;border-radius:16px;padding:28px 24px;width:290px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);}
-.plan-modal-title{font-size:.95rem;font-weight:800;color:#1A1A2E;margin-bottom:18px;}
-.plan-opt{display:flex;flex-direction:column;align-items:flex-start;width:100%;padding:13px 16px;border-radius:10px;border:2px solid #E2E8F0;background:#F7F9FC;margin-bottom:8px;cursor:pointer;font-size:.88rem;font-weight:700;color:#1A1A2E;text-align:left;transition:all .2s;}
 .plan-opt span{font-size:.72rem;font-weight:400;color:#718096;margin-top:2px;}
-.p-int:hover{border-color:#FC8181;background:#FFF5F5;}
-.p-std:hover{border-color:#F6AD55;background:#FFFBEB;}
-.p-flex:hover{border-color:#68D391;background:#F0FFF4;}
-.plan-cancel{background:none;border:none;color:#718096;font-size:.82rem;cursor:pointer;margin-top:4px;padding:6px;}
-.plan-cancel:hover{color:#1A1A2E;}
 </style>
 </head>
 <body>
@@ -382,17 +373,24 @@ function showT(idx,id){
   event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===idx));
 }
 
+function printCurrentPlan(){
+  // Detectar qué tab está activo (clase "on")
+  var idx = 0;
+  [0,1,2].forEach(function(i){
+    if(document.querySelector('[id^="tabp-'+i+'-"].on')) idx = i;
+  });
+  printPlan(idx);
+}
 function printPlan(idx){
-  // Ocultar directamente via style (gana sobre cualquier CSS)
+  // Ocultar los otros planes directamente via style
   [0,1,2].forEach(function(i){
     document.querySelectorAll('[id^="tabp-'+i+'-"]').forEach(function(el){
       el.style.display = (i===idx) ? '' : 'none';
     });
   });
-  document.getElementById('planModal').style.display='none';
   setTimeout(function(){
     window.print();
-    // Restaurar todo después de que cierre el diálogo
+    // Restaurar después de cerrar el diálogo
     setTimeout(function(){
       document.querySelectorAll('[id^="tabp-0-"],[id^="tabp-1-"],[id^="tabp-2-"]').forEach(function(el){
         el.style.display='';
@@ -401,17 +399,8 @@ function printPlan(idx){
   },150);
 }
 </script>
-<button class="print-btn" onclick="document.getElementById('planModal').style.display='flex'">
+<button class="print-btn" onclick="printCurrentPlan()">
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
   Descargar PDF
 </button>
-<div class="plan-modal" id="planModal">
-  <div class="plan-modal-box">
-    <div class="plan-modal-title">¿Qué plan deseas imprimir?</div>
-    <button class="plan-opt p-int" onclick="printPlan(0)">🔥 Plan Intensivo<span>15–20h/semana</span></button>
-    <button class="plan-opt p-std" onclick="printPlan(1)">⚡ Plan Estándar<span>7–10h/semana</span></button>
-    <button class="plan-opt p-flex" onclick="printPlan(2)">🌱 Plan Flexible<span>3–5h/semana</span></button>
-    <button class="plan-cancel" onclick="document.getElementById('planModal').style.display='none'">Cancelar</button>
-  </div>
-</div>
 </body></html>
