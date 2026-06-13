@@ -95,28 +95,31 @@ footer a{color:var(--bee-yellow);}
 .print-btn:hover{background:#1F58F3;transform:translateY(-2px);}
 .print-header{display:none;}
 @media print{
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{margin:2cm 2.2cm;}
+body{padding:0;margin:0;}
 .print-btn{display:none!important;}
 .nav{display:none!important;}
 footer{display:none!important;}
 .sticky-col{display:none!important;}
 .scta{display:none!important;}
-.plink{display:none!important;}
-.print-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:2px solid #1A1A2E;margin-bottom:16px;}
+.print-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:2px solid #1A1A2E;margin-bottom:18px;}
 .print-logo{display:flex;align-items:center;gap:8px;}
 .print-logo span{font-size:1rem;font-weight:800;color:#1A1A2E;}
 .print-meta{text-align:right;font-size:.68rem;color:#718096;line-height:1.6;}
 .cols{grid-template-columns:1fr!important;}
-.wrap{padding:0!important;}
-.hero-route{padding:18px 1.5rem!important;}
-*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.wrap{padding:12px 0 0!important;}
+.hero-route{padding:20px 1.5rem!important;margin-bottom:4px;}
 .tabs{display:none!important;}
 .tabp{display:block!important;}
-.card{page-break-inside:auto!important;break-inside:auto!important;border:none!important;box-shadow:none!important;padding:8px 0!important;margin-bottom:4px!important;}
-.card h2{margin-bottom:12px!important;}
-.phase{break-inside:avoid;page-break-inside:avoid;}
-.prog{break-inside:avoid;page-break-inside:avoid;}
+.card{page-break-inside:auto!important;break-inside:auto!important;border:none!important;box-shadow:none!important;padding:6px 0!important;margin-bottom:6px!important;}
+.card h2{margin-bottom:10px!important;break-after:avoid;page-break-after:avoid;}
+.phase-hd{break-after:avoid;page-break-after:avoid;}
+.phase{break-inside:avoid;page-break-inside:avoid;margin-bottom:10px!important;}
+.prog{break-inside:avoid;page-break-inside:avoid;margin-bottom:5px!important;}
 .hito{break-inside:avoid;page-break-inside:avoid;}
-@page{margin:1.5cm 1.8cm;}
+.mlist li{break-inside:avoid;page-break-inside:avoid;}
+.plink{display:inline-block!important;background:none!important;color:#1F58F3!important;font-size:.68rem!important;padding:0!important;border:none!important;font-weight:600!important;white-space:nowrap;}
 }
 </style>
 </head>
