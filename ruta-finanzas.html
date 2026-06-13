@@ -90,9 +90,43 @@ footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-t
 footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
 footer a{color:var(--bee-yellow);}
 @media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.trblock{grid-template-columns:1fr;}.hero-stats{gap:16px;}}
+
+.print-btn{position:fixed;bottom:24px;right:24px;background:#1A1A2E;color:#fff;border:none;padding:13px 22px;border-radius:10px;font-weight:700;font-size:.88rem;cursor:pointer;z-index:200;box-shadow:0 6px 20px rgba(0,0,0,.35);display:flex;align-items:center;gap:8px;transition:all .2s;}
+.print-btn:hover{background:#1F58F3;transform:translateY(-2px);}
+.print-header{display:none;}
+@media print{
+.print-btn{display:none!important;}
+.nav{display:none!important;}
+footer{display:none!important;}
+.sticky-col{display:none!important;}
+.scta{display:none!important;}
+.print-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:2px solid #1A1A2E;margin-bottom:22px;}
+.print-logo{display:flex;align-items:center;gap:8px;}
+.print-logo span{font-size:1rem;font-weight:800;color:#1A1A2E;}
+.print-meta{text-align:right;font-size:.68rem;color:#718096;line-height:1.6;}
+.cols{grid-template-columns:1fr!important;}
+.wrap{padding:16px 0!important;}
+.hero-route{padding:22px 1rem!important;}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.tabs{display:none!important;}
+.tabp{display:block!important;}
+.card{page-break-inside:avoid;}
+.phase{page-break-inside:avoid;}
+@page{margin:1.5cm 1.8cm;}
+}
 </style>
 </head>
 <body>
+<div class="print-header">
+  <div class="print-logo">
+    <img src="https://beemo.tv/img/beemo.svg" alt="" style="height:20px;">
+    <span>beemo</span>
+  </div>
+  <div class="print-meta">
+    <div>Plan de Estudio Oficial · Beemo.tv</div>
+    <div>smartBeemo LLC · 2025</div>
+  </div>
+</div>
 <nav class="nav">
   <a href="index.html" class="nav-back">← Todas las rutas</a>
   <img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;filter:brightness(0) invert(1);">
@@ -323,4 +357,8 @@ function showT(idx,id){
   event.currentTarget.closest('.card').querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===idx));
 }
 </script>
+<button class="print-btn" onclick="window.print()">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  Descargar PDF
+</button>
 </body></html>
