@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ruta Express: Amazon KDP — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-border:#E2E8F0;--ac:#7C3AED;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+
+/* HERO */
+.hero-route{background:linear-gradient(135deg,#4C1D95 0%,#7C3AED 60%,#9F7AEA 100%);padding:52px 2rem 44px;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.7);margin-bottom:10px;}
+.hero-crumb a{color:rgba(255,255,255,.7);}
+.hero-crumb a:hover{color:#fff;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;padding:4px 14px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.5px;margin-bottom:12px;}
+.hero-route h1{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.15;}
+.hero-route p{font-size:.95rem;color:rgba(255,255,255,.88);max-width:560px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.7rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.5px;}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:44px 1.5rem 64px;}
+.cols{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+
+/* CARDS */
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:26px;margin-bottom:20px;}
+.card-title{font-size:1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* COURSE ITEMS */
+.course{background:#FAFAFA;border:1px solid var(--bee-border);border-radius:12px;padding:16px;margin-bottom:12px;transition:all .2s;}
+.course:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 14px rgba(0,0,0,.07);}
+.course-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.course-left{display:flex;align-items:flex-start;gap:12px;}
+.cnum{width:30px;height:30px;border-radius:8px;background:var(--ac);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;margin-top:2px;}
+.cname{font-size:.9rem;font-weight:700;color:var(--bee-text);line-height:1.3;}
+.ctag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:700;text-transform:uppercase;margin-top:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.clink{font-size:.78rem;font-weight:700;color:var(--bee-blue);padding:6px 12px;background:#EBF4FF;border-radius:7px;white-space:nowrap;flex-shrink:0;}
+.clink:hover{background:var(--bee-blue);color:#fff;}
+.course-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px;}
+.cmeta-item{font-size:.75rem;color:var(--bee-muted);display:flex;align-items:center;gap:4px;}
+
+/* INSTRUCTORS */
+.instructor{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--bee-gray);}
+.instructor:last-child{border-bottom:none;}
+.iavatar{width:36px;height:36px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.82rem;flex-shrink:0;}
+.iname{font-size:.85rem;font-weight:700;}
+.ispec{font-size:.73rem;color:var(--bee-muted);line-height:1.3;}
+
+/* PLAN TABS */
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:16px;}
+.tab{flex:1;padding:8px;text-align:center;border-radius:7px;cursor:pointer;font-size:.78rem;font-weight:600;border:none;background:transparent;transition:all .2s;color:var(--bee-muted);}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);color:var(--bee-text);}
+.tabp{display:none;}.tabp.on{display:block;}
+
+.plan-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bee-gray);font-size:.83rem;}
+.plan-row:last-child{border-bottom:none;}
+.plan-val{font-weight:700;color:var(--bee-text);}
+
+.box-g{background:#F0FFF4;border:1px solid #C6F6D5;border-radius:9px;padding:12px 14px;margin-bottom:10px;}
+.box-y{background:#FFFBEB;border:1px solid #FEFCBF;border-radius:9px;padding:12px 14px;margin-bottom:10px;}
+.box-t{font-weight:700;font-size:.85rem;margin-bottom:4px;}
+.box-s{font-size:.78rem;color:var(--bee-muted);}
+
+/* SUMMARY */
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bee-gray);font-size:.83rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+
+/* CTA */
+.scta{background:linear-gradient(135deg,#4C1D95,#7C3AED);border-radius:12px;padding:20px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:.95rem;font-weight:800;margin-bottom:5px;}
+.scta p{color:rgba(255,255,255,.85);font-size:.8rem;margin-bottom:12px;}
+.scta-btn{display:block;background:#fff;color:#4C1D95;padding:10px;border-radius:8px;font-weight:800;font-size:.88rem;}
+.scta-btn:hover{background:#F3F0FF;}
+
+/* COMPETENCIAS */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;}
+.chip{background:#F1F5F9;border:1px solid var(--bee-border);padding:5px 12px;border-radius:20px;font-size:.76rem;font-weight:600;color:var(--bee-text);}
+
+/* COURSE CONTENT */
+.course-desc{font-size:.78rem;color:var(--bee-muted);margin:8px 0 6px;line-height:1.5;}
+.course-qa{list-style:none;margin:6px 0 0;padding:0;}
+.course-qa li{font-size:.77rem;color:var(--bee-text);padding:3px 0 3px 18px;position:relative;line-height:1.4;}
+.course-qa li::before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:800;font-size:.72rem;top:4px;}
+
+/* PRINT */
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--bee-dark);color:#fff;border:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer;z-index:200;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;align-items:center;gap:7px;transition:all .2s;}
+.print-btn:hover{background:var(--bee-blue);transform:translateY(-2px);}
+.print-header{display:none;}
+
+@media print{
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{size:A4 portrait;margin:1.8cm 2cm;}
+body{padding:0;margin:0;}
+.print-btn{display:none!important;}
+.nav{display:none!important;}
+footer{display:none!important;}
+.sticky-col{display:none!important;}
+.hero-route{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.tabp{display:block!important;}
+.tabs{display:none!important;}
+.course{break-inside:avoid;}
+.print-header{display:block;text-align:center;padding:10px 0 6px;border-bottom:2px solid var(--ac);margin-bottom:14px;font-size:.75rem;color:var(--bee-muted);}
+}
+
+footer{background:var(--bee-darker);padding:24px 2rem;text-align:center;margin-top:20px;}
+footer p{color:rgba(255,255,255,.4);font-size:.8rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.hero-stats{gap:18px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="minirutas.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    Rutas Express
+  </a>
+  <img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;">
+  <a href="https://beemo.tv" class="nav-cta" target="_blank">Ir a Beemo →</a>
+</nav>
+
+<div class="hero-route">
+  <div class="print-header">Plan de Estudio Oficial · Beemo.tv · Ruta Express Amazon KDP</div>
+  <div class="hero-crumb"><a href="index.html">Inicio</a> › <a href="minirutas.html">Rutas Express</a> › Amazon KDP</div>
+  <div class="hero-badge">⚡ RUTA EXPRESS · AMAZON KDP</div>
+  <h1>Amazon KDP: Crea y Vende Libros</h1>
+  <p>Publica tus libros en Amazon y genera ingresos pasivos desde cualquier parte del mundo — sin inventario, sin imprentas, sin inversión inicial.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">18h</div><div class="hstat-l">Contenido total</div></div>
+    <div class="hstat"><div class="hstat-n">2</div><div class="hstat-l">Programas</div></div>
+    <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Instructores</div></div>
+    <div class="hstat"><div class="hstat-n">1</div><div class="hstat-l">Certificado</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cols">
+
+    <!-- COLUMNA PRINCIPAL -->
+    <div>
+
+      <div class="card">
+        <div class="card-title">📚 Programa de Estudio</div>
+
+        <!-- Curso 1 -->
+        <div class="course">
+          <div class="course-top">
+            <div class="course-left">
+              <div class="cnum">1</div>
+              <div>
+                <div class="cname">Masterclass: Tus primeros pasos en Amazon KDP</div>
+                <span class="ctag tm">Masterclass</span>
+              </div>
+            </div>
+            <a href="https://beemo.tv/programa/6855cccc4c5a4fb9a770e2dc/cohortes/6855cde3650f1d0b7438136d" class="clink" target="_blank">Ver →</a>
+          </div>
+          <div class="course-meta">
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              1 hora
+            </span>
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Michel Edery
+            </span>
+            <span class="cmeta-item">🟢 Básico</span>
+          </div>
+          <div class="course-desc">El punto de partida perfecto. Descubre cómo funciona Amazon KDP, qué tipos de libros puedes publicar y cómo empezar a generar ingresos pasivos desde cero, sin necesidad de inversión inicial.</div>
+          <ul class="course-qa">
+            <li>Entender qué es Amazon KDP y cómo funciona el modelo de negocio</li>
+            <li>Iniciar sin inversión, usando solo tu creatividad</li>
+            <li>Conocer los tipos de libros que puedes publicar (físicos, digitales, low content)</li>
+            <li>Aprovechar el alcance global de Amazon para vender en múltiples países</li>
+            <li>Generar ingresos pasivos con publicaciones digitales</li>
+            <li>Acceder a recursos, guías y bancos de imágenes gratuitos o de bajo costo</li>
+            <li>Aprender estrategias reales para obtener tus primeras ventas</li>
+          </ul>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="course">
+          <div class="course-top">
+            <div class="course-left">
+              <div class="cnum">2</div>
+              <div>
+                <div class="cname">Amazon KDP: Vende Libros en Amazon</div>
+                <span class="ctag td">Diplomado · 16 módulos</span>
+              </div>
+            </div>
+            <a href="https://beemo.tv/programa/67254732a96cffae42c191c1/curso/67254503a96cffae42c191b8/cohortes/67254d27a96cffae42c191c2" class="clink" target="_blank">Ver →</a>
+          </div>
+          <div class="course-meta">
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              17 horas
+            </span>
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Natalia Escobar · Jhon Escobar
+            </span>
+            <span class="cmeta-item">🟢 Básico</span>
+            <span class="cmeta-item">🏆 Certificado</span>
+          </div>
+          <div class="course-desc">El programa más completo de Amazon KDP en español. En 16 módulos y 17 horas aprenderás a publicar libros físicos, ebooks y libros de bajo contenido, dominar el posicionamiento con palabras clave y lanzar campañas de publicidad KDP para maximizar tus ventas.</div>
+          <ul class="course-qa">
+            <li>Abrir y configurar tu cuenta en Amazon Seller Central paso a paso</li>
+            <li>Publicar libros en todos sus formatos: físico, ebook y bajo contenido</li>
+            <li>Descubrir nichos con alta demanda y baja competencia</li>
+            <li>Dominar las palabras clave para posicionar tus libros en el buscador de Amazon</li>
+            <li>Dar formato profesional a tus libros y subirlos correctamente a KDP</li>
+            <li>Lanzar y optimizar campañas de publicidad para llegar a más compradores</li>
+            <li>Entender el sistema de regalías y gestionar tus pagos e informes en KDP</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COMPETENCIAS -->
+      <div class="card">
+        <div class="card-title">🛠️ Competencias Adquiridas</div>
+        <div class="chips">
+          <span class="chip">Amazon KDP</span>
+          <span class="chip">Publicación de Libros</span>
+          <span class="chip">Ebooks</span>
+          <span class="chip">Libros Físicos</span>
+          <span class="chip">Low Content Books</span>
+          <span class="chip">Investigación de Nichos</span>
+          <span class="chip">Keywords KDP</span>
+          <span class="chip">Posicionamiento en Amazon</span>
+          <span class="chip">KDP Advertising</span>
+          <span class="chip">Regalías</span>
+          <span class="chip">Ingresos Pasivos</span>
+          <span class="chip">Amazon Seller Central</span>
+        </div>
+      </div>
+
+      <!-- INSTRUCTORES -->
+      <div class="card">
+        <div class="card-title">👥 Instructores de esta Ruta Express</div>
+        <div class="instructor">
+          <div class="iavatar">ME</div>
+          <div><div class="iname">Michel Edery</div><div class="ispec">CEO y Co-fundador de smartBeemo · +20 años en marketing digital</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">NE</div>
+          <div><div class="iname">Natalia Escobar</div><div class="ispec">Experta en Amazon KDP · Creadora del canal "Natalia en Amazon"</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">JE</div>
+          <div><div class="iname">Jhon Escobar</div><div class="ispec">Especialista en Posicionamiento de Productos en Amazon</div></div>
+        </div>
+      </div>
+
+    </div><!-- /col-main -->
+
+    <!-- COLUMNA LATERAL -->
+    <div class="sticky-col">
+
+      <div class="scta">
+        <h3>¿Listo para empezar?</h3>
+        <p>Accede a todos los programas con tu suscripción Beemo</p>
+        <a href="https://beemo.tv/explora/amazon/venta-de-libros" class="scta-btn" target="_blank">Ir a Beemo →</a>
+      </div>
+
+      <!-- RESUMEN -->
+      <div class="card">
+        <div class="card-title">📋 Resumen</div>
+        <ul class="mlist">
+          <li><span>Programas</span><span class="mv">2</span></li>
+          <li><span>Horas estimadas</span><span class="mv">18h</span></li>
+          <li><span>Certificados</span><span class="mv">1 digital</span></li>
+          <li><span>Nivel</span><span class="mv">Básico</span></li>
+          <li><span>Modo Turbo</span><span class="mv">2–3 semanas</span></li>
+          <li><span>Modo Progreso</span><span class="mv">4–5 semanas</span></li>
+        </ul>
+      </div>
+
+      <!-- PLAN DE ESTUDIO -->
+      <div class="card">
+        <div class="card-title">⚡ Plan de Intensidad</div>
+        <div class="tabs">
+          <button class="tab on" onclick="showT(0,'plan')">🔥 Modo Turbo</button>
+          <button class="tab" onclick="showT(1,'plan')">🌱 Modo Progreso</button>
+        </div>
+
+        <div class="tabp on" id="tabp-0-plan">
+          <div class="box-g">
+            <div class="box-t">🔥 Plan Modo Turbo — 8h/semana</div>
+            <div class="box-s">Completa la ruta en 2–3 semanas</div>
+          </div>
+          <div class="plan-row"><span>Semana 1</span><span class="plan-val">Masterclass + Módulos 1–8 Diplomado</span></div>
+          <div class="plan-row"><span>Semana 2</span><span class="plan-val">Módulos 9–16 Diplomado</span></div>
+          <div class="plan-row"><span>Semana 3</span><span class="plan-val">Primer libro publicado + Publicidad KDP</span></div>
+        </div>
+
+        <div class="tabp" id="tabp-1-plan">
+          <div class="box-y">
+            <div class="box-t">🌱 Plan Modo Progreso — 4h/semana</div>
+            <div class="box-s">Completa la ruta en 4–5 semanas</div>
+          </div>
+          <div class="plan-row"><span>Sem 1</span><span class="plan-val">Masterclass + Módulos 1–4 Diplomado</span></div>
+          <div class="plan-row"><span>Sem 2</span><span class="plan-val">Módulos 5–9 Diplomado</span></div>
+          <div class="plan-row"><span>Sem 3</span><span class="plan-val">Módulos 10–13 Diplomado</span></div>
+          <div class="plan-row"><span>Sem 4–5</span><span class="plan-val">Módulos 14–16 + Publicidad KDP</span></div>
+        </div>
+      </div>
+
+      <!-- VER RUTA COMPLETA -->
+      <div class="card" style="text-align:center;">
+        <div class="card-title" style="justify-content:center;">¿Quieres más profundidad?</div>
+        <p style="font-size:.82rem;color:var(--bee-muted);margin-bottom:14px;">La ruta completa de Amazon incluye Marca Privada, PPC, Brand Registry, importaciones y más.</p>
+        <a href="ruta-amazon.html" style="display:block;background:var(--ac);color:#fff;padding:10px;border-radius:9px;font-weight:700;font-size:.85rem;">Ver Ruta Amazon Completa →</a>
+      </div>
+
+    </div><!-- /sticky-col -->
+  </div><!-- /cols -->
+</div><!-- /wrap -->
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+<button class="print-btn" onclick="window.print()">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  Descargar PDF
+</button>
+
+<script>
+function showT(idx, id) {
+  var card = event.currentTarget.closest('.card');
+  card.querySelectorAll('.tab').forEach(function(t, i) { t.classList.toggle('on', i === idx); });
+  card.querySelectorAll('.tabp').forEach(function(p, i) { p.classList.toggle('on', i === idx); });
+}
+</script>
+</body>
+</html>
