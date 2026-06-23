@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mini-Ruta: IA para WhatsApp y Ventas — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-border:#E2E8F0;--ac:#7C3AED;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+.hero-route{background:linear-gradient(135deg,#4C1D95 0%,#7C3AED 55%,#A78BFA 100%);padding:52px 2rem 44px;text-align:center;position:relative;}
+.hero-crumb{font-size:.78rem;color:rgba(255,255,255,.7);margin-bottom:10px;}
+.hero-crumb a{color:rgba(255,255,255,.7);}
+.hero-crumb a:hover{color:#fff;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;padding:4px 14px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.5px;margin-bottom:12px;}
+.hero-route h1{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.15;}
+.hero-route p{font-size:.95rem;color:rgba(255,255,255,.88);max-width:560px;margin:0 auto 28px;}
+.hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-size:1.5rem;font-weight:900;color:#fff;}
+.hstat-l{font-size:.7rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.5px;}
+.wrap{max-width:1100px;margin:0 auto;padding:44px 1.5rem 64px;}
+.cols{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;}
+.sticky-col{position:sticky;top:80px;}
+.card{background:#fff;border-radius:14px;border:1px solid var(--bee-border);padding:26px;margin-bottom:20px;}
+.card-title{font-size:1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.course{background:#FAFAFA;border:1px solid var(--bee-border);border-radius:12px;padding:16px;margin-bottom:12px;transition:all .2s;}
+.course:hover{background:#fff;border-color:#CBD5E0;box-shadow:0 4px 14px rgba(0,0,0,.07);}
+.course-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.course-left{display:flex;align-items:flex-start;gap:12px;}
+.cnum{width:30px;height:30px;border-radius:8px;background:var(--ac);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff;flex-shrink:0;margin-top:2px;}
+.cname{font-size:.9rem;font-weight:700;color:var(--bee-text);line-height:1.3;}
+.ctag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:700;text-transform:uppercase;margin-top:4px;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.clink{font-size:.78rem;font-weight:700;color:var(--bee-blue);padding:6px 12px;background:#EBF4FF;border-radius:7px;white-space:nowrap;flex-shrink:0;}
+.clink:hover{background:var(--bee-blue);color:#fff;}
+.course-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px;}
+.cmeta-item{font-size:.75rem;color:var(--bee-muted);display:flex;align-items:center;gap:4px;}
+.instructor{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--bee-gray);}
+.instructor:last-child{border-bottom:none;}
+.iavatar{width:36px;height:36px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.82rem;flex-shrink:0;}
+.iname{font-size:.85rem;font-weight:700;}
+.ispec{font-size:.73rem;color:var(--bee-muted);line-height:1.3;}
+.tabs{display:flex;gap:3px;background:#F1F5F9;border-radius:10px;padding:3px;margin-bottom:16px;}
+.tab{flex:1;padding:8px;text-align:center;border-radius:7px;cursor:pointer;font-size:.78rem;font-weight:600;border:none;background:transparent;transition:all .2s;color:var(--bee-muted);}
+.tab.on{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);color:var(--bee-text);}
+.tabp{display:none;}.tabp.on{display:block;}
+.plan-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bee-gray);font-size:.83rem;}
+.plan-row:last-child{border-bottom:none;}
+.plan-val{font-weight:700;color:var(--bee-text);}
+.box-g{background:#F0FFF4;border:1px solid #C6F6D5;border-radius:9px;padding:12px 14px;margin-bottom:10px;}
+.box-y{background:#FFFBEB;border:1px solid #FEFCBF;border-radius:9px;padding:12px 14px;margin-bottom:10px;}
+.box-t{font-weight:700;font-size:.85rem;margin-bottom:4px;}
+.box-s{font-size:.78rem;color:var(--bee-muted);}
+.hitos{list-style:none;}
+.hito{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--bee-gray);}
+.hito:last-child{border-bottom:none;}
+.hnum{width:26px;height:26px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.72rem;color:#fff;flex-shrink:0;}
+.htxt{font-size:.83rem;padding-top:3px;color:var(--bee-text);}
+.mlist{list-style:none;}
+.mlist li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bee-gray);font-size:.83rem;}
+.mlist li:last-child{border-bottom:none;}
+.mv{font-weight:700;}
+.scta{background:linear-gradient(135deg,#4C1D95,#7C3AED);border-radius:12px;padding:20px;text-align:center;margin-bottom:18px;}
+.scta h3{color:#fff;font-size:.95rem;font-weight:800;margin-bottom:5px;}
+.scta p{color:rgba(255,255,255,.85);font-size:.8rem;margin-bottom:12px;}
+.scta-btn{display:block;background:#fff;color:#4C1D95;padding:10px;border-radius:8px;font-weight:800;font-size:.88rem;}
+.scta-btn:hover{background:#F5F3FF;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--bee-dark);color:#fff;border:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer;z-index:200;box-shadow:0 6px 20px rgba(0,0,0,.3);display:flex;align-items:center;gap:7px;transition:all .2s;}
+.print-btn:hover{background:var(--bee-blue);transform:translateY(-2px);}
+.print-header{display:none;}
+@media print{
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{size:A4 portrait;margin:1.8cm 2cm;}
+body{padding:0;margin:0;}
+.print-btn{display:none!important;}
+.nav{display:none!important;}
+footer{display:none!important;}
+.sticky-col{display:none!important;}
+.hero-route{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+.tabp{display:block!important;}
+.tabs{display:none!important;}
+.course{break-inside:avoid;}
+.print-header{display:block;text-align:center;padding:10px 0 6px;border-bottom:2px solid var(--ac);margin-bottom:14px;font-size:.75rem;color:var(--bee-muted);}
+}
+
+.course-desc{font-size:.78rem;color:var(--bee-muted);margin:8px 0 6px;line-height:1.5;}
+.course-qa{list-style:none;margin:6px 0 0;padding:0;}
+.course-qa li{font-size:.77rem;color:var(--bee-text);padding:3px 0 3px 18px;position:relative;line-height:1.4;}
+.course-qa li::before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:800;font-size:.72rem;top:4px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;}
+.chip{background:#F1F5F9;border:1px solid var(--bee-border);padding:5px 12px;border-radius:20px;font-size:.76rem;font-weight:600;color:var(--bee-text);}
+footer{background:var(--bee-darker);padding:24px 2rem;text-align:center;margin-top:20px;}
+footer p{color:rgba(255,255,255,.4);font-size:.8rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:768px){.cols{grid-template-columns:1fr;}.sticky-col{position:static;}.hero-stats{gap:18px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="minirutas.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    Mini-Rutas
+  </a>
+  <img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;">
+  <a href="https://beemo.tv" class="nav-cta" target="_blank">Ir a Beemo →</a>
+</nav>
+
+<div class="hero-route">
+  <div class="print-header">Plan de Estudio Oficial · Beemo.tv · Mini-Ruta IA para WhatsApp y Ventas</div>
+  <div class="hero-crumb"><a href="index.html">Inicio</a> › <a href="minirutas.html">Mini-Rutas</a> › IA para WhatsApp</div>
+  <div class="hero-badge">⚡ MINI-RUTA · INTELIGENCIA ARTIFICIAL</div>
+  <h1>IA para WhatsApp y Ventas</h1>
+  <p>Automatiza tu proceso de ventas por WhatsApp con IA. Convierte más conversaciones en clientes, sin esfuerzo manual.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">~11h</div><div class="hstat-l">Contenido total</div></div>
+    <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Programas</div></div>
+    <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Instructores</div></div>
+    <div class="hstat"><div class="hstat-n">🔥 Alta</div><div class="hstat-l">Demanda</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cols">
+
+    <!-- COLUMNA PRINCIPAL -->
+    <div>
+
+      <div class="card">
+        <div class="card-title">📚 Programa de Estudio</div>
+
+        <!-- Curso 1 -->
+        <div class="course">
+          <div class="course-top">
+            <div class="course-left">
+              <div class="cnum">1</div>
+              <div>
+                <div class="cname">Buyer Persona y Ángulos de Venta con IA</div>
+                <span class="ctag tc">Curso</span>
+              </div>
+            </div>
+            <a href="https://beemo.tv/programa/680aa25df2fc7f085bc191e5/cohortes/680aaa5cf2fc7f085bc191e6" class="clink" target="_blank">Ver →</a>
+          </div>
+          <div class="course-meta">
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              3 horas
+            </span>
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Martha Botero
+            </span>
+            <span class="cmeta-item">🟢 Básico</span>
+          </div>
+          <div class="course-desc">Define tu cliente ideal y crea mensajes que convierten. Usa inteligencia artificial para investigar mercados, construir buyer personas precisos y diseñar ángulos de venta únicos.</div>
+          <ul class="course-qa">
+            <li>Investigar mercados y audiencias con herramientas de IA</li>
+            <li>Construir buyer personas detallados que guíen tu estrategia</li>
+            <li>Identificar ángulos de venta únicos y diferenciadores</li>
+            <li>Crear mensajes de marketing alineados con tu cliente ideal</li>
+            <li>Diseñar propuestas de valor que conecten emocionalmente</li>
+          </ul>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="course">
+          <div class="course-top">
+            <div class="course-left">
+              <div class="cnum">2</div>
+              <div>
+                <div class="cname">WhatsApp con Inteligencia Artificial (SellerChat)</div>
+                <span class="ctag tc">Curso</span>
+              </div>
+            </div>
+            <a href="https://beemo.tv/programa/6854865a738330de1903dfe2/cohortes/68549170b70bd6d800197d76" class="clink" target="_blank">Ver →</a>
+          </div>
+          <div class="course-meta">
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              3 horas
+            </span>
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Camilo Vasco · Sergio Arias · Eliecer Montenegro · Andrés Gutiérrez
+            </span>
+            <span class="cmeta-item">🟢 Básico</span>
+          </div>
+          <div class="course-desc">Convierte WhatsApp en tu canal de ventas automatizado con SellerChat. Conecta tu número a la API, crea bots inteligentes y hace remarketing automatizado a tus contactos.</div>
+          <ul class="course-qa">
+            <li>Conectar WhatsApp Business a la API de SellerChat</li>
+            <li>Crear y entrenar bots de ventas personalizados con IA</li>
+            <li>Implementar flujos de remarketing automatizados</li>
+            <li>Gestionar plantillas, etiquetas y segmentación de contactos</li>
+            <li>Medir resultados y escalar tu canal de WhatsApp</li>
+          </ul>
+        </div>
+
+        <!-- Curso 3 -->
+        <div class="course">
+          <div class="course-top">
+            <div class="course-left">
+              <div class="cnum">3</div>
+              <div>
+                <div class="cname">Marketing Conversacional: Ventas por WhatsApp con IA</div>
+                <span class="ctag tc">Curso</span>
+              </div>
+            </div>
+            <a href="https://beemo.tv/programa/690520eed20bd57447112173/cohortes/690524a420b602510a38b1eb" class="clink" target="_blank">Ver →</a>
+          </div>
+          <div class="course-meta">
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              5 horas
+            </span>
+            <span class="cmeta-item">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Pedro Fonseca
+            </span>
+            <span class="cmeta-item">🟢 Básico</span>
+          </div>
+          <div class="course-desc">Convierte WhatsApp en tu canal de ventas automatizado. Aprende a conectar tu número a la API de SellerChat, crear bots inteligentes y hacer remarketing a tus contactos.</div>
+          <ul class="course-qa">
+            <li>Conectar WhatsApp Business a la API de SellerChat</li>
+            <li>Crear y entrenar bots de ventas personalizados</li>
+            <li>Implementar flujos de remarketing automatizados</li>
+            <li>Gestionar plantillas, etiquetas y segmentación de contactos</li>
+            <li>Medir resultados y optimizar tu canal de WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- COMPETENCIAS -->
+      <div class="card">
+        <div class="card-title">🛠️ Competencias Adquiridas</div>
+        <div class="chips">
+          <span class="chip">Buyer Personas con IA</span><span class="chip">Investigación de Mercado</span><span class="chip">WhatsApp Business API</span><span class="chip">Chatbots de Ventas</span><span class="chip">SellerChat</span><span class="chip">Automatización de Mensajes</span><span class="chip">Remarketing por Chat</span><span class="chip">Marketing Conversacional</span><span class="chip">Pancake / Botcake</span><span class="chip">Segmentación de Contactos</span><span class="chip">Ángulos de Venta</span><span class="chip">Funnels de WhatsApp</span>
+        </div>
+      </div>
+
+            <!-- INSTRUCTORES -->
+      <div class="card">
+        <div class="card-title">👥 Instructores de esta Mini-Ruta</div>
+        <div class="instructor">
+          <div class="iavatar">MB</div>
+          <div><div class="iname">Martha Botero</div><div class="ispec">Experta en buyer persona y estrategia de ventas con IA</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">CV</div>
+          <div><div class="iname">Camilo Vasco</div><div class="ispec">Especialista en SellerChat y automatización de WhatsApp con IA</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">SA</div>
+          <div><div class="iname">Sergio Arias</div><div class="ispec">Automatización de atención al cliente con IA</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">EM</div>
+          <div><div class="iname">Eliecer Montenegro</div><div class="ispec">Marketing digital y ventas conversacionales</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">AG</div>
+          <div><div class="iname">Andrés Gutiérrez</div><div class="ispec">Implementación de IA en procesos comerciales</div></div>
+        </div>
+        <div class="instructor">
+          <div class="iavatar">PF</div>
+          <div><div class="iname">Pedro Fonseca</div><div class="ispec">Marketing conversacional y embudos de venta por WhatsApp</div></div>
+        </div>
+      </div>
+
+    </div><!-- /main col -->
+
+    <!-- COLUMNA LATERAL -->
+    <div class="sticky-col">
+
+      <div class="scta">
+        <h3>¿Listo para vender con IA?</h3>
+        <p>Accede a los cursos de esta mini-ruta en Beemo.tv</p>
+        <a href="https://beemo.tv/explora/inteligencia-artificial" class="scta-btn" target="_blank">Empezar en Beemo →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Resumen</div>
+        <ul class="mlist">
+          <li><span>Duración total</span><span class="mv">~11 horas</span></li>
+          <li><span>Programas</span><span class="mv">3</span></li>
+          <li><span>Instructores</span><span class="mv">6</span></li>
+          <li><span>Nivel</span><span class="mv">Principiante</span></li>
+          <li><span>Herramientas</span><span class="mv">SellerChat · IA</span></li>
+          <li><span>Enfoque</span><span class="mv">WhatsApp · Ventas</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📅 Plan de Estudio</div>
+        <div class="tabs">
+          <button class="tab on" onclick="switchTab(0,this)">⚡ Acelerado</button>
+          <button class="tab" onclick="switchTab(1,this)">📘 Estándar</button>
+        </div>
+        <div class="tabp on" id="plan-0">
+          <div class="box-g">
+            <div class="box-t">Ritmo acelerado</div>
+            <div class="box-s">4 horas por semana · Completás en ~3 semanas</div>
+          </div>
+          <div class="plan-row"><span>Semana 1</span><span class="plan-val">Buyer Persona con IA</span></div>
+          <div class="plan-row"><span>Semana 2</span><span class="plan-val">WhatsApp + SellerChat</span></div>
+          <div class="plan-row"><span>Semana 3</span><span class="plan-val">Marketing conversacional</span></div>
+        </div>
+        <div class="tabp" id="plan-1">
+          <div class="box-y">
+            <div class="box-t">Ritmo estándar</div>
+            <div class="box-s">2 horas por semana · Completás en ~5–6 semanas</div>
+          </div>
+          <div class="plan-row"><span>Semanas 1–2</span><span class="plan-val">Buyer Persona con IA</span></div>
+          <div class="plan-row"><span>Semanas 3–4</span><span class="plan-val">WhatsApp + SellerChat</span></div>
+          <div class="plan-row"><span>Semanas 5–6</span><span class="plan-val">Marketing conversacional</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="text-align:center;">
+        <div style="font-size:.82rem;color:var(--bee-muted);margin-bottom:10px;">¿Quieres el camino completo de IA?</div>
+        <a href="ruta-ia.html" style="display:block;background:#F7F9FC;border:1px solid var(--bee-border);border-radius:9px;padding:10px;font-weight:700;font-size:.85rem;color:var(--bee-dark);">Ver Ruta IA Completa →</a>
+      </div>
+
+    </div><!-- /sidebar -->
+
+  </div><!-- /cols -->
+</div><!-- /wrap -->
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+<button class="print-btn" onclick="window.print()">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  Descargar PDF
+</button>
+
+<script>
+function switchTab(idx, btn) {
+  document.querySelectorAll('.tab').forEach(function(t,i){ t.classList.toggle('on', i===idx); });
+  document.querySelectorAll('.tabp').forEach(function(p,i){ p.classList.toggle('on', i===idx); });
+}
+</script>
+</body>
+</html>
