@@ -146,6 +146,13 @@ footer a{color:var(--bee-yellow);}
 .rsk{background:#F5F5F5;padding:4px 10px;border-radius:6px;font-size:.73rem;font-weight:500;}
 .rbtn{display:block;text-align:center;background:#1A1A2E;color:#fff;padding:11px;border-radius:9px;font-weight:700;font-size:.87rem;}
 .rcard:hover .rbtn{background:#1F58F3;}
+.rcard-h{display:flex;background:#fff;border-radius:14px;border:1px solid #E2E8F0;overflow:hidden;transition:all .3s;text-decoration:none;}
+.rcard-h:hover{box-shadow:0 18px 36px rgba(0,0,0,.11);border-color:transparent;transform:translateY(-3px);}
+.rcard-h .rch{width:280px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;}
+.rcard-h .rcb{flex:1;padding:22px 28px;display:flex;flex-direction:column;justify-content:space-between;}
+.rcard-h .rbtn{display:inline-block;padding:9px 20px;width:auto;align-self:flex-end;}
+.sec-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bee-muted);margin-bottom:14px;display:flex;align-items:center;gap:7px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bee-border);}
 
 .int-sec{background:#0F0F1A;padding:56px 1.5rem;}
 .int-inner{max-width:1000px;margin:0 auto;}
@@ -225,9 +232,29 @@ footer a{color:var(--bee-yellow);}
   </div>
 </div>
 
-<section class="sec">
-  <h2 class="sec-t">Todas las Rutas</h2>
-  <p class="sec-s">Elige la ruta que se alinea con tu objetivo</p>
+<!-- ── SECCIÓN 1: RUTAS EXPRESS ────────────────────────────────── -->
+<section class="sec" style="padding-bottom:32px;">
+  <div class="sec-label">⚡ Rutas Express — habilidades específicas, resultados rápidos</div>
+  <a href="minirutas.html" class="rcard-h">
+    <div class="rch" style="background:linear-gradient(135deg,#312E81,#1E1B4B);border-right:3px solid #F5C518;">
+      <span class="rico">⚡</span>
+      <span class="rtag" style="background:rgba(245,197,24,.2);color:#F5C518;border:1px solid rgba(245,197,24,.4);">Enfocado</span>
+      <div class="rtit">Rutas Express</div>
+      <div class="rsub">Aprende exactamente lo que necesitas, sin relleno</div>
+    </div>
+    <div class="rcb">
+      <div>
+        <div class="rmeta" style="margin-bottom:12px;"><span class="rmi">⚡ 6 Rutas Express</span><span class="rmi">📦 Amazon · 🤖 IA</span><span class="rmi">🎯 Objetivo específico</span><span class="rmi">⏱ 2–6 semanas</span></div>
+        <div class="rskills"><span class="rsk">Amazon MP</span><span class="rsk">Arbitraje</span><span class="rsk">Wholesale</span><span class="rsk">IA WhatsApp</span><span class="rsk">IA Marketing</span><span class="rsk">IA Ecommerce</span></div>
+      </div>
+      <span class="rbtn" style="background:#312E81;">Ver Rutas Express →</span>
+    </div>
+  </a>
+</section>
+
+<!-- ── SECCIÓN 2: RUTAS ───────────────────────────────────────── -->
+<section class="sec" style="padding-top:16px;padding-bottom:32px;">
+  <div class="sec-label">🗺 Rutas — programas completos de formación</div>
   <div class="rgrid">
     <a href="ruta-amazon.html" class="rcard">
       <div class="rch" style="background:linear-gradient(135deg,#FF9900,#C86B00)">
@@ -325,31 +352,27 @@ footer a{color:var(--bee-yellow);}
         <span class="rbtn">Ver ruta completa →</span>
       </div>
     </a>
-    <a href="minirutas.html" class="rcard">
-      <div class="rch" style="background:linear-gradient(135deg,#312E81,#1E1B4B);border-bottom:3px solid #F5C518;">
-        <span class="rico">⚡</span><span class="rtag" style="background:rgba(245,197,24,.2);color:#F5C518;border:1px solid rgba(245,197,24,.4);">Enfocado</span>
-        <div class="rtit">Rutas Express</div>
-        <div class="rsub">Aprende exactamente lo que necesitas, sin relleno</div>
-      </div>
-      <div class="rcb">
-        <div class="rmeta"><span class="rmi">⚡ 6 Rutas Express</span><span class="rmi">📦 Amazon · 🤖 IA</span><span class="rmi">🎯 Objetivo específico</span></div>
-        <div class="rskills"><span class="rsk">Arbitraje</span><span class="rsk">Wholesale</span><span class="rsk">IA WhatsApp</span><span class="rsk">IA Marketing</span><span class="rsk">IA Ecommerce</span></div>
-        <span class="rbtn" style="background:#312E81;">Ver Rutas Express →</span>
-      </div>
-    </a>
-    <a href="productos-select.html" class="rcard">
-      <div class="rch" style="background:linear-gradient(135deg,#1A1A2E,#2D2D50);border-bottom:3px solid #F5C518;">
-        <span class="rico">⭐</span><span class="rtag" style="background:rgba(245,197,24,.2);color:#F5C518;border:1px solid rgba(245,197,24,.4);">Exclusivo</span>
-        <div class="rtit">Productos Select</div>
-        <div class="rsub">Programas exclusivos de compra independiente</div>
-      </div>
-      <div class="rcb">
-        <div class="rmeta"><span class="rmi">⭐ 7 productos</span><span class="rmi">💳 Compra independiente</span><span class="rmi">🛡 Garantía 5 días</span></div>
-        <div class="rskills"><span class="rsk">Inversiones</span><span class="rsk">Mentalidad</span><span class="rsk">Finanzas</span><span class="rsk">Cocina</span><span class="rsk">Nutrición</span></div>
-        <span class="rbtn" style="background:#F5C518;color:#1A1A2E;">Ver productos Select →</span>
-      </div>
-    </a>
   </div>
+</section>
+
+<!-- ── SECCIÓN 3: PRODUCTOS SELECT ───────────────────────────── -->
+<section class="sec" style="padding-top:16px;">
+  <div class="sec-label">⭐ Productos Select — programas exclusivos de compra independiente</div>
+  <a href="productos-select.html" class="rcard-h">
+    <div class="rch" style="background:linear-gradient(135deg,#1A1A2E,#2D2D50);border-right:3px solid #F5C518;">
+      <span class="rico">⭐</span>
+      <span class="rtag" style="background:rgba(245,197,24,.2);color:#F5C518;border:1px solid rgba(245,197,24,.4);">Exclusivo</span>
+      <div class="rtit">Productos Select</div>
+      <div class="rsub">Programas de alto impacto, compra independiente</div>
+    </div>
+    <div class="rcb">
+      <div>
+        <div class="rmeta" style="margin-bottom:12px;"><span class="rmi">⭐ 7 productos</span><span class="rmi">💳 Compra independiente</span><span class="rmi">🛡 Garantía 5 días</span></div>
+        <div class="rskills"><span class="rsk">Inversiones</span><span class="rsk">Mentalidad</span><span class="rsk">Finanzas</span><span class="rsk">Cocina</span><span class="rsk">Nutrición</span></div>
+      </div>
+      <span class="rbtn" style="background:#F5C518;color:#1A1A2E;">Ver productos Select →</span>
+    </div>
+  </a>
 </section>
 
 <section class="int-sec">
@@ -357,9 +380,9 @@ footer a{color:var(--bee-yellow);}
     <h2 class="int-t">Tres velocidades de aprendizaje</h2>
     <p class="int-s">Cada ruta disponible en 3 intensidades según tu disponibilidad</p>
     <div class="int-grid">
-      <div class="icard"><span class="ibadge bi">🔥 Intensiva</span><h3>Plan Intensivo</h3><p>Para estudiantes comprometidos que quieren resultados en el menor tiempo posible.</p><div class="ihours">15–20<span> h/semana</span></div><ul class="ilist"><li>Consumo agresivo de contenido</li><li>Aplicación práctica desde semana 1</li><li>Máxima velocidad de aprendizaje</li><li>Todos los certificados en tiempo récord</li></ul></div>
-      <div class="icard"><span class="ibadge bs">⚡ Estándar</span><h3>Plan Estándar</h3><p>Balance perfecto entre aprendizaje y aplicación para personas con vida ocupada.</p><div class="ihours">7–10<span> h/semana</span></div><ul class="ilist"><li>Avance sostenible semana a semana</li><li>Balance entre teoría y práctica</li><li>Tiempo para implementar entre módulos</li><li>Ideal para trabajo o familia</li></ul></div>
-      <div class="icard"><span class="ibadge bf">🌱 Flexible</span><h3>Plan Flexible</h3><p>Diseñado para personas con poco tiempo que priorizan el contenido de mayor impacto.</p><div class="ihours">3–5<span> h/semana</span></div><ul class="ilist"><li>Solo el contenido esencial primero</li><li>Progreso gradual y constante</li><li>Prioriza lo que genera resultados</li><li>Sin presión, a tu ritmo</li></ul></div>
+      <div class="icard"><span class="ibadge bi">🔥 Turbo</span><h3>Modo Turbo</h3><p>Para estudiantes comprometidos que quieren resultados en el menor tiempo posible.</p><div class="ihours">15–20<span> h/semana</span></div><ul class="ilist"><li>Consumo agresivo de contenido</li><li>Aplicación práctica desde semana 1</li><li>Máxima velocidad de aprendizaje</li><li>Todos los certificados en tiempo récord</li></ul></div>
+      <div class="icard"><span class="ibadge bs">⚡ Progreso</span><h3>Modo Progreso</h3><p>Balance perfecto entre aprendizaje y aplicación para personas con vida ocupada.</p><div class="ihours">7–10<span> h/semana</span></div><ul class="ilist"><li>Avance sostenible semana a semana</li><li>Balance entre teoría y práctica</li><li>Tiempo para implementar entre módulos</li><li>Ideal para trabajo o familia</li></ul></div>
+      <div class="icard"><span class="ibadge bf">🌱 Flexible</span><h3>Modo Flexible</h3><p>Diseñado para personas con poco tiempo que priorizan el contenido de mayor impacto.</p><div class="ihours">3–5<span> h/semana</span></div><ul class="ilist"><li>Solo el contenido esencial primero</li><li>Progreso gradual y constante</li><li>Prioriza lo que genera resultados</li><li>Sin presión, a tu ritmo</li></ul></div>
     </div>
   </div>
 </section>
@@ -369,7 +392,7 @@ footer a{color:var(--bee-yellow);}
 <script>
 const A={};let step=1;
 const routes={amazon:{n:'Amazon FBA & Marca Privada',f:'ruta-amazon.html',c:'#FF9900',e:'📦',h:{intensiva:'7–8 sem',estandar:'14–16 sem',flexible:'25–30 sem'}},drop:{n:'Dropshipping & Full Commerce',f:'ruta-dropshipping.html',c:'#1F58F3',e:'🏪',h:{intensiva:'5–6 sem',estandar:'10–12 sem',flexible:'18–22 sem'}},mkt:{n:'Marketing Digital & Agencia',f:'ruta-marketing.html',c:'#E91E8C',e:'📣',h:{intensiva:'4–5 sem',estandar:'7–9 sem',flexible:'14–18 sem'}},ia:{n:'IA Aplicada al Negocio',f:'ruta-ia.html',c:'#7C3AED',e:'🤖',h:{intensiva:'2–3 sem',estandar:'5–6 sem',flexible:'10–12 sem'}},fin:{n:'Finanzas e Independencia Económica',f:'ruta-finanzas.html',c:'#059669',e:'💰',h:{intensiva:'2–3 sem',estandar:'4–5 sem',flexible:'8–10 sem'}}};
-const il={intensiva:'🔥 Plan Intensivo',estandar:'⚡ Plan Estándar',flexible:'🌱 Plan Flexible'};
+const il={intensiva:'🔥 Modo Turbo',estandar:'⚡ Modo Progreso',flexible:'🌱 Modo Flexible'};
 const ll={cero:'Comenzarás desde los fundamentos.',algo:'Reforzarás bases e irás directo a la práctica.',activo:'Nos enfocamos en optimización y escalamiento.'};
 function sel(s,v,el){A['s'+s]=v;el.closest('.qoptions').querySelectorAll('.qopt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');document.getElementById('d'+s).classList.add('done');const nb=document.getElementById('qNext');nb.style.display='inline-block';if(s===3){nb.textContent='Ver mi ruta →';nb.style.background='#F5C518';nb.style.color='#0F0F1A';}}
 function next(){if(!A['s'+step])return;document.getElementById('s'+step).classList.remove('on');step++;if(step<=3){document.getElementById('s'+step).classList.add('on');document.getElementById('qNext').style.display='none';if(step<3){document.getElementById('qNext').textContent='Siguiente →';document.getElementById('qNext').style.background='';document.getElementById('qNext').style.color='';}}else{document.getElementById('sR').classList.add('on');showRes();document.getElementById('qNext').style.display='none';}}
