@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mini-Rutas — Beemo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bee-yellow:#F5C518;--bee-dark:#1A1A2E;--bee-darker:#0F0F1A;--bee-blue:#1F58F3;--bee-gray:#F5F5F5;--bee-text:#1A202C;--bee-muted:#718096;--bee-border:#E2E8F0;}
+body{font-family:'Inter',sans-serif;background:#F7F9FC;color:var(--bee-text);line-height:1.6;}
+a{text-decoration:none;}
+.nav{background:var(--bee-darker);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-back{color:rgba(255,255,255,.7);font-size:.88rem;display:flex;align-items:center;gap:6px;}
+.nav-back:hover{color:#fff;}
+.nav-cta{background:var(--bee-yellow);color:var(--bee-darker);padding:8px 18px;border-radius:8px;font-weight:700;font-size:.85rem;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--bee-darker) 0%,#1a1a3e 100%);padding:52px 2rem 44px;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--bee-yellow);padding:5px 16px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.5px;margin-bottom:16px;}
+.hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.15;}
+.hero p{font-size:.97rem;color:rgba(255,255,255,.7);max-width:560px;margin:0 auto;}
+
+/* FILTROS */
+.filters{max-width:1100px;margin:0 auto;padding:32px 1.5rem 0;}
+.filter-label{font-size:.75rem;font-weight:700;color:var(--bee-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;}
+.fbtn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--bee-border);background:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .18s;color:var(--bee-text);}
+.fbtn:hover{border-color:#CBD5E0;}
+.fbtn.on{color:#fff;border-color:transparent;}
+
+/* GRID */
+.wrap{max-width:1100px;margin:0 auto;padding:24px 1.5rem 64px;}
+.section-title{font-size:1rem;font-weight:800;color:var(--bee-text);margin:32px 0 16px;display:flex;align-items:center;gap:8px;}
+.section-title span{font-size:.78rem;font-weight:500;color:var(--bee-muted);margin-left:4px;}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;}
+
+/* MINI-RUTA CARD */
+.mcard{background:#fff;border-radius:16px;border:1px solid var(--bee-border);overflow:hidden;transition:all .2s;display:flex;flex-direction:column;}
+.mcard:hover{box-shadow:0 12px 32px rgba(0,0,0,.09);border-color:transparent;transform:translateY(-3px);}
+.mcard-head{padding:22px 22px 16px;border-bottom:1px solid var(--bee-border);}
+.mcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.mcard-icon{font-size:1.6rem;}
+.mtag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 10px;border-radius:50px;}
+.mcard-title{font-size:1rem;font-weight:800;color:var(--bee-text);margin-bottom:4px;}
+.mcard-desc{font-size:.82rem;color:var(--bee-muted);line-height:1.5;}
+.mcard-meta{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.mmi{font-size:.75rem;color:var(--bee-muted);display:flex;align-items:center;gap:4px;}
+
+/* CURSOS */
+.mcard-body{padding:16px 22px;flex:1;}
+.course-list{list-style:none;}
+.course-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #F7F9FC;}
+.course-item:last-child{border-bottom:none;}
+.course-left{display:flex;align-items:center;gap:9px;}
+.cnum{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;color:#fff;flex-shrink:0;}
+.cname{font-size:.82rem;font-weight:600;color:var(--bee-text);}
+.ctag{font-size:.65rem;font-weight:600;padding:1px 6px;border-radius:4px;margin-left:4px;text-transform:uppercase;}
+.tc{background:#EBF4FF;color:#2B6CB0;}.td{background:#FFF5EB;color:#C05621;}.te{background:#FAF5FF;color:#6B46C1;}.tm{background:#F0FFF4;color:#276749;}
+.clink{font-size:.73rem;font-weight:700;color:var(--bee-blue);padding:3px 9px;background:#EBF4FF;border-radius:5px;white-space:nowrap;flex-shrink:0;}
+.clink:hover{background:var(--bee-blue);color:#fff;}
+
+/* FOOTER CARD */
+.mcard-foot{padding:14px 22px;border-top:1px solid var(--bee-border);display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.start-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-weight:700;font-size:.82rem;color:#fff;transition:all .2s;}
+.start-btn:hover{opacity:.88;transform:translateY(-1px);}
+.difficulty{font-size:.75rem;color:var(--bee-muted);}
+
+footer{background:var(--bee-darker);padding:28px 2rem;text-align:center;margin-top:20px;}
+footer p{color:rgba(255,255,255,.4);font-size:.82rem;}
+footer a{color:var(--bee-yellow);}
+@media(max-width:700px){.mgrid{grid-template-columns:1fr;}.mcard-foot{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al inicio
+  </a>
+  <img src="https://beemo.tv/img/beemo.svg" alt="Beemo" style="height:30px;display:block;">
+  <a href="https://beemo.tv" class="nav-cta" target="_blank">Ir a Beemo →</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">⚡ RUTAS ENFOCADAS</div>
+  <h1>Mini-Rutas de Aprendizaje</h1>
+  <p>¿Ya sabes lo que quieres aprender? Estas rutas van directo al grano — sin relleno, solo lo esencial para tu objetivo específico.</p>
+</div>
+
+<div class="filters">
+  <div class="filter-label">Filtrar por vertical</div>
+  <div class="filter-row">
+    <button class="fbtn on" style="background:#1A1A2E;border-color:#1A1A2E;" onclick="filter('all',this)">Todas</button>
+    <button class="fbtn" onclick="filter('amazon',this)">📦 Amazon</button>
+    <button class="fbtn" onclick="filter('ia',this)">🤖 Inteligencia Artificial</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ============ AMAZON ============ -->
+  <div class="section-title" data-cat="amazon">📦 Amazon <span>3 mini-rutas disponibles</span></div>
+  <div class="mgrid" id="grid-amazon">
+
+    <!-- MARCA PRIVADA -->
+    <div class="mcard" data-cat="amazon">
+      <div class="mcard-head">
+        <div class="mcard-top">
+          <span class="mcard-icon">🏷️</span>
+          <span class="mtag" style="background:#FFF3E0;color:#E65100;">Amazon</span>
+        </div>
+        <div class="mcard-title">Marca Privada en Amazon</div>
+        <div class="mcard-desc">Lanza tu propia marca en Amazon USA desde cero. El camino más completo para construir un negocio sólido y escalable.</div>
+        <div class="mcard-meta">
+          <span class="mmi">⏱ ~70h</span>
+          <span class="mmi">📘 5 cursos</span>
+          <span class="mmi">🏆 Certificado</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <ul class="course-list">
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#FF9900;">1</div>
+              <span class="cname">Masterclass: Tus primeros pasos en Amazon Marca Privada <span class="ctag tm">Masterclass</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6855937255a2f0016f6e70a0/cohortes/685594aa4c5a4fb9a770e2c7" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#FF9900;">2</div>
+              <span class="cname">Ecommerce en Amazon Marca Privada USA <span class="ctag td">Diplomado</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b16784d9b3689c78a83fe3/curso/65b164b08736e8b834b229bd/cohortes/65b16a790c6d18ea7101a596" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#FF9900;">3</div>
+              <span class="cname">Manejo de herramientas para Amazon (Helium 10) <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b2299e/cohortes/65b140070c6d18ea7101a58a" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#FF9900;">4</div>
+              <span class="cname">Amazon Brand Registry <span class="ctag te">Especialización</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/674fc53bf7474deb30c191c1/curso/674fbb85f7474deb30c191b7/cohortes/674fc96df7474deb30c191c2" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#FF9900;">5</div>
+              <span class="cname">Amazon PPC: Estrategias de pauta avanzadas <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b229a3/cohortes/65b140070c6d18ea7101a58f" class="clink" target="_blank">Ver →</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mcard-foot">
+        <a href="miniruta-amazon-mp.html" class="start-btn" style="background:#FF9900;">Ver plan de estudio →</a>
+        <span class="difficulty">🟡 Intermedio</span>
+      </div>
+    </div>
+
+    <!-- ARBITRAJE -->
+    <div class="mcard" data-cat="amazon">
+      <div class="mcard-head">
+        <div class="mcard-top">
+          <span class="mcard-icon">🔍</span>
+          <span class="mtag" style="background:#FFF3E0;color:#E65100;">Amazon</span>
+        </div>
+        <div class="mcard-title">Amazon Arbitraje</div>
+        <div class="mcard-desc">Encuentra productos con oportunidad, compra bajo y vende alto en Amazon. Modelo rápido para generar ingresos desde el inicio.</div>
+        <div class="mcard-meta">
+          <span class="mmi">⏱ ~18h</span>
+          <span class="mmi">📘 4 cursos</span>
+          <span class="mmi">🟢 Inicio rápido</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <ul class="course-list">
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#C86B00;">1</div>
+              <span class="cname">Masterclass: Tus primeros pasos en Amazon Marca Privada <span class="ctag tm">Masterclass</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6855937255a2f0016f6e70a0/cohortes/685594aa4c5a4fb9a770e2c7" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#C86B00;">2</div>
+              <span class="cname">Manejo de herramientas para Amazon (Helium 10) <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b2299e/cohortes/65b140070c6d18ea7101a58a" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#C86B00;">3</div>
+              <span class="cname">Encuentra productos con Joan Sucías <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b2299f/cohortes/65b140070c6d18ea7101a58b" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#C86B00;">4</div>
+              <span class="cname">Amazon PPC: Estrategias de pauta avanzadas <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b229a3/cohortes/65b140070c6d18ea7101a58f" class="clink" target="_blank">Ver →</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mcard-foot">
+        <a href="miniruta-amazon-arbitraje.html" class="start-btn" style="background:#C86B00;">Ver plan de estudio →</a>
+        <span class="difficulty">🟢 Principiante</span>
+      </div>
+    </div>
+
+    <!-- WHOLESALE -->
+    <div class="mcard" data-cat="amazon">
+      <div class="mcard-head">
+        <div class="mcard-top">
+          <span class="mcard-icon">🏭</span>
+          <span class="mtag" style="background:#FFF3E0;color:#E65100;">Amazon</span>
+        </div>
+        <div class="mcard-title">Amazon Wholesale</div>
+        <div class="mcard-desc">Compra productos al por mayor directamente de marcas o distribuidores y véndelos en Amazon. Escalable y con menos riesgo de marca.</div>
+        <div class="mcard-meta">
+          <span class="mmi">⏱ ~22h</span>
+          <span class="mmi">📘 5 cursos</span>
+          <span class="mmi">📦 Con inventario</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <ul class="course-list">
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7B3F00;">1</div>
+              <span class="cname">Masterclass: Tus primeros pasos en Amazon Marca Privada <span class="ctag tm">Masterclass</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6855937255a2f0016f6e70a0/cohortes/685594aa4c5a4fb9a770e2c7" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7B3F00;">2</div>
+              <span class="cname">Importaciones desde China para Ecommerce <span class="ctag te">Especialización</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b229a1/cohortes/65b140070c6d18ea7101a58d" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7B3F00;">3</div>
+              <span class="cname">Amazon Brand Registry <span class="ctag te">Especialización</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/674fc53bf7474deb30c191c1/curso/674fbb85f7474deb30c191b7/cohortes/674fc96df7474deb30c191c2" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7B3F00;">4</div>
+              <span class="cname">Manejo de herramientas para Amazon (Helium 10) <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/65b136838736e8b834b2299e/cohortes/65b140070c6d18ea7101a58a" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7B3F00;">5</div>
+              <span class="cname">KPIs para ecommerce: Del marketing a la rentabilidad <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/667c5495840110193ff3a75e/cohortes/667c5561840110193ff3a75f" class="clink" target="_blank">Ver →</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mcard-foot">
+        <a href="miniruta-amazon-wholesale.html" class="start-btn" style="background:#7B3F00;">Ver plan de estudio →</a>
+        <span class="difficulty">🟡 Intermedio</span>
+      </div>
+    </div>
+
+  </div><!-- /grid-amazon -->
+
+  <!-- ============ INTELIGENCIA ARTIFICIAL ============ -->
+  <div class="section-title" data-cat="ia">🤖 Inteligencia Artificial <span>3 mini-rutas disponibles</span></div>
+  <div class="mgrid" id="grid-ia">
+
+    <!-- IA PARA WHATSAPP -->
+    <div class="mcard" data-cat="ia">
+      <div class="mcard-head">
+        <div class="mcard-top">
+          <span class="mcard-icon">💬</span>
+          <span class="mtag" style="background:#EDE9FE;color:#5B21B6;">IA</span>
+        </div>
+        <div class="mcard-title">IA para WhatsApp y Ventas</div>
+        <div class="mcard-desc">Automatiza tu proceso de ventas por WhatsApp usando Inteligencia Artificial. Convierte más chats en clientes sin esfuerzo manual.</div>
+        <div class="mcard-meta">
+          <span class="mmi">⏱ ~10h</span>
+          <span class="mmi">📘 3 cursos</span>
+          <span class="mmi">🔥 Alta demanda</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <ul class="course-list">
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7C3AED;">1</div>
+              <span class="cname">Buyer Persona y Ángulos de Venta con IA <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/680aa25df2fc7f085bc191e5/cohortes/680aaa5cf2fc7f085bc191e6" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7C3AED;">2</div>
+              <span class="cname">WhatsApp con Inteligencia Artificial <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6854865a738330de1903dfe2/cohortes/68549170b70bd6d800197d76" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#7C3AED;">3</div>
+              <span class="cname">Marketing conversacional, ventas por WhatsApp con IA <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/690520eed20bd57447112173/cohortes/690524a420b602510a38b1eb" class="clink" target="_blank">Ver →</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mcard-foot">
+        <a href="miniruta-ia-whatsapp.html" class="start-btn" style="background:#7C3AED;">Ver plan de estudio →</a>
+        <span class="difficulty">🟢 Principiante</span>
+      </div>
+    </div>
+
+    <!-- IA PARA MARKETING -->
+    <div class="mcard" data-cat="ia">
+      <div class="mcard-head">
+        <div class="mcard-top">
+          <span class="mcard-icon">📣</span>
+          <span class="mtag" style="background:#EDE9FE;color:#5B21B6;">IA</span>
+        </div>
+        <div class="mcard-title">IA para Marketing y Contenido</div>
+        <div class="mcard-desc">Crea anuncios, contenido viral e influencers digitales usando IA. Multiplica tu producción de contenido sin aumentar el equipo.</div>
+        <div class="mcard-meta">
+          <span class="mmi">⏱ ~12h</span>
+          <span class="mmi">📘 4 cursos</span>
+          <span class="mmi">🎨 Creativo</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <ul class="course-list">
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#5B21B6;">1</div>
+              <span class="cname">VIBE Marketing: Anuncios con IA en Redes Sociales <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/695c249216308341628b7425/cohortes/695c261e16308341628b744c" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#5B21B6;">2</div>
+              <span class="cname">Masterclass: Crea un Influencer IA con HeyGen <span class="ctag tm">Masterclass</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/698b4514f3e20220889362cd/cohortes/698b4e58b504a707aaa6dc5f" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#5B21B6;">3</div>
+              <span class="cname">Crea imágenes sorprendentes con Leonardo AI <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6850445ea48a6e6d378595b5/cohortes/685046482c56477fe5690fcf" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#5B21B6;">4</div>
+              <span class="cname">Marca personal con IA, monetización y posicionamiento <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6a05b59a2af02c6da7e485e5/cohortes/6a05b83fb39fd64553e62cf8" class="clink" target="_blank">Ver →</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mcard-foot">
+        <a href="miniruta-ia-marketing.html" class="start-btn" style="background:#5B21B6;">Ver plan de estudio →</a>
+        <span class="difficulty">🟢 Principiante</span>
+      </div>
+    </div>
+
+    <!-- IA PARA ECOMMERCE -->
+    <div class="mcard" data-cat="ia">
+      <div class="mcard-head">
+        <div class="mcard-top">
+          <span class="mcard-icon">🛍️</span>
+          <span class="mtag" style="background:#EDE9FE;color:#5B21B6;">IA</span>
+        </div>
+        <div class="mcard-title">IA para Ecommerce</div>
+        <div class="mcard-desc">Usa la IA para optimizar cada etapa de tu tienda: desde entender a tu cliente hasta automatizar operaciones y crear contenido de producto.</div>
+        <div class="mcard-meta">
+          <span class="mmi">⏱ ~11h</span>
+          <span class="mmi">📘 4 cursos</span>
+          <span class="mmi">⚡ Muy práctico</span>
+        </div>
+      </div>
+      <div class="mcard-body">
+        <ul class="course-list">
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#4C1D95;">1</div>
+              <span class="cname">Buyer Persona y Ángulos de Venta con IA <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/680aa25df2fc7f085bc191e5/cohortes/680aaa5cf2fc7f085bc191e6" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#4C1D95;">2</div>
+              <span class="cname">ChatGPT para Emprendedores de Ecommerce <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/680822c8f2fc7f085bc191b7/cohortes/68082c0bf2fc7f085bc191b8" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#4C1D95;">3</div>
+              <span class="cname">Crea tu Ecommerce sin mucho personal usando IA <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/687aa04a886f2a9e7f6bfb5e/cohortes/687aa1292069cf7b6391237d" class="clink" target="_blank">Ver →</a>
+          </li>
+          <li class="course-item">
+            <div class="course-left">
+              <div class="cnum" style="background:#4C1D95;">4</div>
+              <span class="cname">Crea imágenes sorprendentes con Leonardo AI <span class="ctag tc">Curso</span></span>
+            </div>
+            <a href="https://beemo.tv/programa/6850445ea48a6e6d378595b5/cohortes/685046482c56477fe5690fcf" class="clink" target="_blank">Ver →</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mcard-foot">
+        <a href="miniruta-ia-ecommerce.html" class="start-btn" style="background:#4C1D95;">Ver plan de estudio →</a>
+        <span class="difficulty">🟢 Principiante</span>
+      </div>
+    </div>
+
+  </div><!-- /grid-ia -->
+
+</div><!-- /wrap -->
+
+<footer><p>© 2025 <a href="https://beemo.tv" target="_blank">Beemo.tv</a> — smartBeemo, LLC. Todos los derechos reservados.</p></footer>
+
+<script>
+function filter(cat, btn) {
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.classList.remove('on');
+    b.style.background='';
+    b.style.borderColor='';
+    b.style.color='';
+  });
+  btn.classList.add('on');
+  btn.style.background='#1A1A2E';
+  btn.style.borderColor='#1A1A2E';
+  btn.style.color='#fff';
+
+  document.querySelectorAll('.mcard').forEach(function(c){
+    if(cat === 'all' || c.dataset.cat === cat){
+      c.style.display='flex';
+    } else {
+      c.style.display='none';
+    }
+  });
+  document.querySelectorAll('.section-title').forEach(function(s){
+    if(cat === 'all' || s.dataset.cat === cat){
+      s.style.display='';
+    } else {
+      s.style.display='none';
+    }
+  });
+  document.querySelectorAll('.mgrid').forEach(function(g){
+    var visible = Array.from(g.querySelectorAll('.mcard')).some(function(c){ return c.style.display !== 'none'; });
+    g.style.display = visible ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
